@@ -1,26 +1,26 @@
-import { CourseService } from './course.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CourseComponent } from './course/course.component';
-import { BlocksComponent } from './blocks/blocks.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StartComponent } from './start/start.component';
+import { EventsComponent } from './events/events.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseComponent,
-    BlocksComponent
+    StartComponent,
+    EventsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
-  providers: [
-    CourseService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
