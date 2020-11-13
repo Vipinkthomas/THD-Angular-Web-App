@@ -1,0 +1,8 @@
+stages:
+    - build
+    - test
+    - deploy
+build_1:
+    stage:build
+    script:
+    - echo Completed
