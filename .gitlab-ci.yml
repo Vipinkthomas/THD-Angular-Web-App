@@ -1,8 +1,10 @@
-stages:
-    - build
-    - test
-    - deploy
-build_1:
-    stage:build
-    script:
-    - echo Completed
+demo_test:
+    stages:
+        - build
+        - test
+        - deploy
+    image: alpine
+    build_1:
+        stage: build
+        script:
+        - echo Completed
