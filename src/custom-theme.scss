@@ -98,23 +98,23 @@ $thd-palette-accent:(
         A700 : #ffffff,
     ));
 
-$mit-ws-primary: mat-palette($thd-palette-primary);
-$mit-ws-accent: mat-palette($thd-palette-accent, A200, A100, A400);
+$thd-ws-primary: mat-palette($thd-palette-primary);
+$thd-ws-accent: mat-palette($thd-palette-accent, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$mit-ws-warn: mat-palette($mat-red);
+$thd-ws-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$mit-ws-theme: mat-light-theme((
+$thd-ws-theme: mat-light-theme((
   color: (
-    primary: $mit-ws-primary,
-    accent: $mit-ws-accent,
-    warn: $mit-ws-warn,
+    primary: $thd-ws-primary,
+    accent: $thd-ws-accent,
+    warn: $thd-ws-warn,
   )
 ));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($mit-ws-theme);
+@include angular-material-theme($thd-ws-theme);
