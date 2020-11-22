@@ -1,0 +1,13 @@
+{
+    "languageView": "Sprache",
+    "currentLanguage": "Deutsch",
+    "cStartText": "Willkommen!",
+    "cRooms": "Räume",
+    "cRoomsText": "Räume funktionieren",
+    "cNavigation": "Navigation",
+    "cNavigationText": "Navigation funktioniert",
+    "cInternational": "International",
+    "cInternationalText": "International funktioniert",
+    "cLogin": "Login",
+    "cLoginText": "Login funktioniert"
+}

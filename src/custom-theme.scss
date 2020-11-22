@@ -1,0 +1,120 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+
+// Adjust Typography
+//@import
+// url("https://fonts.googleapis.com/css2?family=Saira+Sans:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Saira");
+
+// Define a custom typography config that overrides the font-family as well as the
+// `headlines` and `body-1` levels.
+$custom-typography: mat-typography-config(
+  $font-family: 'Saira',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+// Override typography CSS classes (e.g., mat-h1, mat-display-1, mat-typography, etc.).
+@include mat-base-typography($custom-typography);
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($custom-typography);
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($custom-typography);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$thd-palette-primary: (
+    50 : #e4e8ee,
+    100 : #bac6d5,
+    200 : #8da1b9,
+    300 : #5f7b9d,
+    400 : #3c5e88,
+    500 : #1a4273,
+    600 : #173c6b,
+    700 : #133360,
+    800 : #0f2b56,
+    900 : #081d43,
+    A100 : #7aa2ff,
+    A200 : #477fff,
+    A400 : #145cff,
+    A700 : #004cf9,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$thd-palette-accent:(
+    50 : #e0f3fc,
+    100 : #b3e2f7,
+    200 : #80cff1,
+    300 : #4dbceb,
+    400 : #26ade7,
+    500 : #009fe3,
+    600 : #0097e0,
+    700 : #008ddc,
+    800 : #0083d8,
+    900 : #0072d0,
+    A100 : #f8fcff,
+    A200 : #c5e2ff,
+    A400 : #92c8ff,
+    A700 : #79bbff,
+
+
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    ));
+
+$mit-ws-primary: mat-palette($thd-palette-primary);
+$mit-ws-accent: mat-palette($thd-palette-accent, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$mit-ws-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$mit-ws-theme: mat-light-theme((
+  color: (
+    primary: $mit-ws-primary,
+    accent: $mit-ws-accent,
+    warn: $mit-ws-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($mit-ws-theme);

@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/custom-theme.scss"
             ],
             "scripts": []
           },
@@ -43,7 +43,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
