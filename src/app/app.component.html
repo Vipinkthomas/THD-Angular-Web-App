@@ -1,31 +1,35 @@
-<div class = "mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class = "mdl-layout__header">
-     <div class = "mdl-layout__header-row">
-        <!-- Title -->
-        <span class = "mdl-layout-title"><a class="navbar-brand" href="#">
-          <img src="..\assets\THD-Logo.png"  class="img-brand" alt="Responsive image">
 
-</a></span>
-        <!-- Add spacer, to align navigation to the right -->
-        <div class = "mdl-layout-spacer"></div>
-        <!-- Navigation -->
-     </div>
-  </header>
-  
-  <div class = "mdl-layout__drawer">
-     <span class = "mdl-layout-title">THD</span>
-     <nav class = "mdl-navigation">
-        <a class = "mdl-navigation__link" href = "">Home</a>
-        <a class = "mdl-navigation__link" href = "">Navigation</a>
-        <a class = "mdl-navigation__link" href = "">Thabella</a>    
-        <a class = "mdl-navigation__link" href = "">International Office</a>   
-        <a class = "mdl-navigation__link" href = "">Events and News</a> 
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span><a href=""><img src="/assets/THD-Logo.png" height="50"></a></span>
+      <span class="spacer"></span>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="false" fxShow.lt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div fxShow="true" fxHide.lt-sm>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a href="#" mat-button routerLink="/navigation">{{'cNavigation'|translate}}</a>
+        <a href="#" mat-button routerLink="/rooms">{{'cRooms'|translate}}</a>
+        <a href="#" mat-button routerLink="/international">{{'cInternational'|translate}}</a>
+        <a href="#" mat-button routerLink="/login">{{'cLogin'|translate}}</a>
+        
+      </div><span class="spacer"></span>
+      <app-select-language></app-select-language>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav fullscreen>
+      <mat-nav-list>
+        <a (click)="sidenav.toggle()" href="" mat-list-item> <mat-icon>close</mat-icon></a>
+        <a href="#" mat-list-item routerLink="/navigation">{{'cNavigation'|translate}}</a>
+        <a href="#" mat-list-item routerLink="/rooms">{{'cRooms'|translate}}</a>
+        <a href="#" mat-list-item routerLink="/international">{{'cInternational'|translate}}</a>
+        <a href="#" mat-list-item routerLink="/login">{{'cLogin'|translate}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sn-content"><router-outlet></router-outlet></mat-sidenav-content>
+  </mat-sidenav-container>
 
-     </nav>
-  </div>
-
-  <main class = "mdl-layout__content">
-     <div class = "page-content">Hello World!</div>
-  </main>
-</div>
