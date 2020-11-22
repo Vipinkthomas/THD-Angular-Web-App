@@ -1,3 +1,8 @@
+/**
+ * Material Module: contains all the avaialable material elements
+ * 
+*/
+
 import { NgModule } from '@angular/core';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
