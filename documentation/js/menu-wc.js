@@ -34,6 +34,26 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-paper"></span>README
                             </a>
                         </li>
+                        <li class="link">
+                            <a href="changelog.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CHANGELOG
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="contributing.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>CONTRIBUTING
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="license.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>LICENSE
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="todo.html"  data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>TODO
+                            </a>
+                        </li>
                                 <li class="link">
                                     <a href="dependencies.html" data-type="chapter-link">
                                         <span class="icon ion-ios-list"></span>Dependencies
@@ -55,13 +75,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-8bae5147c581ed679b3f923af4bcbcbc"' : 'data-target="#xs-components-links-module-AppModule-8bae5147c581ed679b3f923af4bcbcbc"' }>
+                                            'data-target="#components-links-module-AppModule-3bbe6782628e974090944d674d33f839"' : 'data-target="#xs-components-links-module-AppModule-3bbe6782628e974090944d674d33f839"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-8bae5147c581ed679b3f923af4bcbcbc"' :
-                                            'id="xs-components-links-module-AppModule-8bae5147c581ed679b3f923af4bcbcbc"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-3bbe6782628e974090944d674d33f839"' :
+                                            'id="xs-components-links-module-AppModule-3bbe6782628e974090944d674d33f839"' }>
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -92,6 +112,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             </li>
                                         </ul>
                                     </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/AppRoutingModule.html" data-type="entity-link">AppRoutingModule</a>
                             </li>
                             <li class="link">
                                 <a href="modules/I18nModule.html" data-type="entity-link">I18nModule</a>
@@ -143,6 +166,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
+                        <li class="chapter">
+                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
+                        </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>
