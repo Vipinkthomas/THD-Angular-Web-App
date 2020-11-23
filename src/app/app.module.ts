@@ -1,8 +1,3 @@
-
-/**
- * Main THD Module
- * 
-*/
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -20,6 +15,12 @@ import { I18nModule } from './i18n/i18n.module';
 import { SelectLanguageComponent } from './select-language/select-language.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AdminComponent } from './admin/admin.component';
+
+/**
+ Main THD Module 
+*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { AppRoutingModule } from './app-routing.module';
     RoomsComponent,
     InternationalComponent,
     LoginComponent,
-    SelectLanguageComponent
+    SelectLanguageComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,22 @@
-<p>{{'cLoginText'|translate}}</p>
+<div>
+    <h2>{{'cLoginText'|translate}}</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+        <input type="email" placeholder="E-Mail" formControlName="email">
+      </p>
+      <div *ngIf="isSubmitted && formControls.email.errors">
+      <div *ngIf="formControls.email.errors.required">E-Mail is required</div>
+      </div>
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password">
+      </p> 
+      <div *ngIf="isSubmitted && formControls.password.errors">
+      <div *ngIf="formControls.password.errors.required">Password is required</div>
+      </div>
+      <p>
+        <button mat-button type="submit" color="warn">LOGIN</button>
+        <!-- <input type="submit" value="Log in">-->
+      </p>
+    </form>
+  </div>
+  
