@@ -9,5 +9,7 @@
     "cInternational": "International",
     "cInternationalText": "International works",
     "cLogin": "Login",
-    "cLoginText": "Login works"
+    "cLoginText": "Login works",
+    "cEventsText": "Events works",
+    "cNewsText": "News Works"
 }

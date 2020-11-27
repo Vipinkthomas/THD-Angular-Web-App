@@ -64,6 +64,13 @@
     <code>src/app/app.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Root Component</p>
+
+    </p>
 
 
 
@@ -90,7 +97,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./app.component.css</code></td>
+                <td class="col-md-9"><code>./app.component.scss</code></td>
             </tr>
 
 
@@ -175,11 +182,35 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/app.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
 
 
+                    <tr>
+                        <td class="col-md-4">
+                          <div class="io-description">
+                                  <b>Parameters :</b>
+                                  <table class="params">
+                                      <thead>
+                                          <tr>
+                                                <td>Name</td>
+                                                    <td>Description</td>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                                <tr>
+                                                        <td>title</td>
+                                                        <td>
+                                                                <code><p>of the app</p>
+</code>
+                                                        </td>
+                                                </tr>
+                                      </tbody>
+                                  </table>
+                          </div>
+                        </td>
+                    </tr>
             </tbody>
         </table>
 </section>
@@ -190,74 +221,43 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
 
+/**
+ * Root Component
+ */
+
+
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  styleUrls: [&#x27;./app.component.scss&#x27;]
 })
 export class AppComponent {
+  /**
+   * @param {string} title of the app
+   */
   title &#x3D; &#x27;THD&#x27;;
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
-  &lt;mat-toolbar-row class&#x3D;&quot;mat-tool-logo&quot;&gt;
-    &lt;span&gt;&lt;a href&#x3D;&quot;&quot;&gt;&lt;img src&#x3D;&quot;/assets/THD-Logo.png&quot; height&#x3D;&quot;50&quot;&gt;&lt;/a&gt;&lt;/span&gt;
-    &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
-  &lt;/mat-toolbar-row&gt;
-  &lt;mat-toolbar-row&gt;
-    &lt;button mat-icon-button (click)&#x3D;&quot;sidenav.toggle()&quot; fxShow&#x3D;&quot;false&quot; fxShow.lt-sm&gt;
-      &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
-    &lt;/button&gt;
-    &lt;div fxShow&#x3D;&quot;true&quot; fxHide.lt-sm&gt;
-      &lt;!-- The following menu items will be hidden on both SM and XS screen sizes --&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-button routerLink&#x3D;&quot;/navigation&quot;&gt;{{&#x27;cNavigation&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-button routerLink&#x3D;&quot;/rooms&quot;&gt;{{&#x27;cRooms&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-button routerLink&#x3D;&quot;/international&quot;&gt;{{&#x27;cInternational&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-button routerLink&#x3D;&quot;/login&quot;&gt;{{&#x27;cLogin&#x27;|translate}}&lt;/a&gt;
-      
-    &lt;/div&gt;&lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
-    &lt;app-select-language&gt;&lt;/app-select-language&gt;
-  &lt;/mat-toolbar-row&gt;
-&lt;/mat-toolbar&gt;
-
-&lt;mat-sidenav-container fxFlexFill&gt;
-  &lt;mat-sidenav #sidenav fullscreen &gt;
-    &lt;mat-nav-list&gt;
-      &lt;a (click)&#x3D;&quot;sidenav.toggle()&quot; href&#x3D;&quot;&quot; mat-list-item&gt; &lt;mat-icon&gt;close&lt;/mat-icon&gt;&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-list-item routerLink&#x3D;&quot;/navigation&quot;&gt;{{&#x27;cNavigation&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-list-item routerLink&#x3D;&quot;/rooms&quot;&gt;{{&#x27;cRooms&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-list-item routerLink&#x3D;&quot;/international&quot;&gt;{{&#x27;cInternational&#x27;|translate}}&lt;/a&gt;
-      &lt;a href&#x3D;&quot;#&quot; mat-list-item routerLink&#x3D;&quot;/login&quot;&gt;{{&#x27;cLogin&#x27;|translate}}&lt;/a&gt;
-    &lt;/mat-nav-list&gt;
-  &lt;/mat-sidenav&gt;
-  &lt;mat-sidenav-content class&#x3D;&quot;sn-content&quot;&gt;&lt;router-outlet&gt;&lt;/router-outlet&gt;&lt;/mat-sidenav-content&gt;
-&lt;/mat-sidenav-container&gt;</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&#x27;toolbar-header&#x27; &gt;
+  &lt;app-select-language&gt;&lt;/app-select-language&gt;
+&lt;/div&gt;
+&lt;app-navbar&gt;&lt;/app-navbar&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
-                    <code>./app.component.css</code>
+                    <code>./app.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.main {
-    margin: 10px;
-}
-
-.flexSpaceBetween {
-  justify-content: space-around;
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-.sn-content {
-  height: 100vh;
-}
-.mat-tool-logo{
-  margin: 5px;
+                <pre class="line-numbers"><code class="language-scss">
+.toolbar-header{
+  display:flex; 
+  justify-content:flex-end; 
+  width:100%; 
+  padding:0;
 }</code></pre>
     </div>
 
@@ -286,8 +286,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">  <mat-toolbar-row class="mat-tool-logo">    <span><a href=""><img src="/assets/THD-Logo.png" height="50"></a></span>    <span class="spacer"></span>  </mat-toolbar-row>  <mat-toolbar-row>    <button mat-icon-button (click)="sidenav.toggle()" fxShow="false" fxShow.lt-sm>      <mat-icon>menu</mat-icon>    </button>    <div fxShow="true" fxHide.lt-sm>      <!-- The following menu items will be hidden on both SM and XS screen sizes -->      <a href="#" mat-button routerLink="/navigation">{{\'cNavigation\'|translate}}</a>      <a href="#" mat-button routerLink="/rooms">{{\'cRooms\'|translate}}</a>      <a href="#" mat-button routerLink="/international">{{\'cInternational\'|translate}}</a>      <a href="#" mat-button routerLink="/login">{{\'cLogin\'|translate}}</a>          </div><span class="spacer"></span>    <app-select-language></app-select-language>  </mat-toolbar-row></mat-toolbar><mat-sidenav-container fxFlexFill>  <mat-sidenav #sidenav fullscreen >    <mat-nav-list>      <a (click)="sidenav.toggle()" href="" mat-list-item> <mat-icon>close</mat-icon></a>      <a href="#" mat-list-item routerLink="/navigation">{{\'cNavigation\'|translate}}</a>      <a href="#" mat-list-item routerLink="/rooms">{{\'cRooms\'|translate}}</a>      <a href="#" mat-list-item routerLink="/international">{{\'cInternational\'|translate}}</a>      <a href="#" mat-list-item routerLink="/login">{{\'cLogin\'|translate}}</a>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content class="sn-content"><router-outlet></router-outlet></mat-sidenav-content></mat-sidenav-container></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><div class=\'toolbar-header\' >  <app-select-language></app-select-language></div><app-navbar></app-navbar></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
