@@ -169,48 +169,27 @@ interface Languages {
 @Component({
   selector: &#x27;app-select-language&#x27;,
   templateUrl: &#x27;./select-language.component.html&#x27;,
-  styleUrls: [&#x27;./select-language.component.css&#x27;]
+  styleUrls: [&#x27;./select-language.component.scss&#x27;]
 })
 
 
 export class SelectLanguageComponent implements OnInit {
-
-  ngOnInit() {
-    console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
-    switch (this.translate.currentLang) {
-      case &#x27;de&#x27;:
-        this.langView &#x3D; &quot;Sprache&quot;;
-        this.currLangViewValue &#x3D; &#x27;DE&#x27;;
-        break;
-
-      default:
-        this.langView &#x3D; &quot;Language&quot;;
-        this.currLangViewValue &#x3D; &#x27;EN&#x27;;
-        break;
-    }
-    console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.currLangViewValue);
-  }
-
-  constructor(public translate: TranslateService) { }
-
+  
   languages: Languages[] &#x3D; [
     { value: &#x27;en&#x27;, viewValue: &#x27;EN&#x27; },
     { value: &#x27;de&#x27;, viewValue: &#x27;DE&#x27; }
   ]
 
+  ngOnInit() {
+    console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
+   
+  }
 
-
-  langView &#x3D; &#x27;Language&#x27;; // default language is English
-  currLangViewValue &#x3D; &#x27;EN&#x27;;
-
+  constructor(public translate: TranslateService) { }
 
   changeLanguage(l: string): void {
     this.translate.use(l);
     console.log(&quot;changeLanguage: &quot; + l);
-    switch (l) {
-      case &#x27;de&#x27;: this.langView &#x3D; &#x27;Sprache&#x27;; break;
-      default: this.langView &#x3D; &#x27;Language&#x27;
-    }
   }
 }
 </code></pre>

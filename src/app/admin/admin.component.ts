@@ -1,37 +1,25 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AdminComponent } from './admin.component';
-
-import { RouterTestingModule } from '@angular/router/testing';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtService } from '../jwt.service';
 
-describe('AdminComponent', () => {
-  let component: AdminComponent;
-  let fixture: ComponentFixture<AdminComponent>;
+@Component({
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
+})
+export class AdminComponent implements OnInit {
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [AdminComponent],
-      imports: [RouterTestingModule],
-      providers: [JwtService]
-    })
-      .compileComponents();
-  }));
+  constructor(private jwtService: JwtService, private router: Router) { }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AdminComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  ngOnInit(): void {
+    this.userName = localStorage.getItem('access_token').split(";")[0];
+  }
 
-  it('should set an Item', () => {
-    localStorage.setItem('access_token', 'u;p'); // u;p
+  userName = "";
 
-    expect(localStorage.getItem('access_token')).toBeDefined(); // u;p .toBe('u;p')
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  logout() {
+    this.jwtService.logout();
+    this.router.navigateByUrl('/login');
+  }
+}
 
