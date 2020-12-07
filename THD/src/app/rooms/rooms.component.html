@@ -1,2 +1,39 @@
-<p>{{'cRoomsText'|translate}}</p>
+<p>{{'cRoomsText'|translate}} id {{roomId}}, "{{roomDescription}}"</p>
+<mat-form-field appearance="fill">
+  <mat-label>{{'cRoomSelect'|translate}}</mat-label>
+<mat-select #roomSelect (selectionChange)="changeRoom($event.value)">
+    <mat-option *ngFor="let room of rooms3" [value]="room.id">
+      {{room.description}}
+    </mat-option>
+</mat-select>
+</mat-form-field>
+
+<table id="roomstable1" mat-table [dataSource]="events" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> EventId </th>
+    <td mat-cell *matCellDef="let event"> {{event.eventId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="organizer">
+    <th mat-header-cell *matHeaderCellDef> Organizer </th>
+    <td mat-cell *matCellDef="let event"> {{event.organiser}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="participants">
+    <th mat-header-cell *matHeaderCellDef> Participants </th>
+    <td mat-cell *matCellDef="let event"> {{event.participants}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 

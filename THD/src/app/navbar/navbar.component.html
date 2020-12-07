@@ -1,10 +1,6 @@
-<div class="flex">
-<div class='toolbar-header' >
-  <app-select-language></app-select-language>
-</div>
 <mat-toolbar class="main-toolbar" color="primary">
   <mat-toolbar-row class="mat-tool-logo">
-    <span><a href=""><img src="/assets/THD-Logo.png"></a></span>
+    <span ><a href=""><img src="/assets/THD-Logo.png"></a></span>
     <span class="spacer"></span>
     <button mat-icon-button (click)="sidenav.toggle()" fxShow="false" fxShow.lt-md>
       <mat-icon>menu</mat-icon>
@@ -12,28 +8,29 @@
 
     <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"
       routerLink="{{item.link}}" >
-        <mat-icon class="mr">{{item.icon}}</mat-icon>
+      <mat-icon class="mr">{{item.icon}}</mat-icon>
       {{ item.label | translate}}
-      </button>
- <span class="spacer"></span>
+    </button>
+    <span class="spacer"></span>
   </mat-toolbar-row>
 </mat-toolbar>
-  
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav fullscreen class="app-sidenav mat-elevation-z10"
-      mode= 'over'>
-      <mat-nav-list>
-        <mat-list-item *ngFor="let item of menuItems">
-          <div fxShow="false" fxShow.lt-md  routerLink="{{item.link}}">
-            <button mat-button (click)="sidenav.toggle()">
-                <mat-icon class="mr">{{item.icon}}</mat-icon>
-                {{item.label | translate}}
-            </button>
-            <mat-divider></mat-divider>
+
+<mat-sidenav-container >
+  <mat-sidenav #sidenav fullscreen class="app-sidenav mat-elevation-z10"
+      mode="over" class="main-sidenav">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menuItems">
+        <div fxShow="false" fxShow.lt-md  routerLink="{{item.link}}">
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>{{item.icon}}</mat-icon>
+              {{item.label | translate}}
+          </button>
+          <mat-divider></mat-divider>
         </div>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content ><div class="main-content"><router-outlet></router-outlet></div></mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content ><div class="main-content"><router-outlet></router-outlet></div></mat-sidenav-content>
+</mat-sidenav-container>
+
+

@@ -1,15 +1,17 @@
 {
-    "languageView": "Language",
-    "currentLanguage": "English",
-    "cStartText": "Welcome!",
-    "cRooms": "Rooms",
+    "cRoom": "Room",
     "cRoomsText": "Rooms works",
-    "cNavigation": "Navigation",
+    "Navigation": "Navigation",
     "cNavigationText": "Navigation works",
-    "cInternational": "International",
+    "International": "International",
     "cInternationalText": "International works",
-    "cLogin": "Login",
+    "Login": "Login",
     "cLoginText": "Login works",
     "cEventsText": "Events works",
-    "cNewsText": "News Works"
+    "cNewsText": "News Works",
+    "Home": "Home",
+    "News": "News",
+    "Events": "Events",
+    "Navigate": "Navigate",
+    "Register": "Register"
 }

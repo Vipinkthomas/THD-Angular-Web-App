@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { NewsComponent } from './news/news.component';
 import { EventsComponent } from './events/events.component';
 import { RoomsComponent } from './rooms/rooms.component';
@@ -15,6 +16,7 @@ const routes:Routes=[
   { path: 'navigation', component: NavigationComponent },
   { path: 'rooms', component: RoomsComponent },
   { path: 'international', component: InternationalComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [JwtGuard] },
   { path: 'event', component: EventsComponent },

@@ -33,15 +33,20 @@ export class NavbarComponent implements OnInit {
       link: '/navigation'
     },
     {
-      label: 'Register',
+      label: 'Room',
       icon: 'login',
-      link: '/'
+      link: '/rooms'
+    },
+    {
+      label: 'Register',
+      icon: 'person_add',
+      link: '/register'
     },
     {
       label: 'Login',
-      icon: 'perm_identity',
-      link: 'login'
-    },
+      icon: 'login',
+      link: '/login'
+    }
   ];
 
   constructor() { }

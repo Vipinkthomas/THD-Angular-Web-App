@@ -1,15 +1,16 @@
 {
-    "languageView": "Sprache",
-    "currentLanguage": "Deutsch",
-    "cStartText": "Willkommen!",
-    "cRooms": "Räume",
-    "cRoomsText": "Räume funktionieren",
-    "cNavigation": "Navigation",
+    "Room": "Räum",
+    "Navigation": "Navigation",
     "cNavigationText": "Navigation funktioniert",
     "cInternational": "International",
     "cInternationalText": "International funktioniert",
     "cLogin": "Login",
     "cLoginText": "Login funktioniert",
     "cEventsText": "Ereignisse funktioniert",
-    "cNewsText": "Nachrichten funktioniert"
+    "cNewsText": "Nachrichten funktioniert",
+    "Home": "Start",
+    "News": "Nachrichten",
+    "Events": "Veranstaltungen",
+    "Register": "Registrieren",
+    "Login": "Einloggen"
 }

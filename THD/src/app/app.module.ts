@@ -23,6 +23,7 @@ import { SelectLanguageComponent } from './select-language/select-language.compo
 import { AppRoutingModule } from './app-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 
 /**
@@ -41,7 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminComponent,
     NavbarComponent,
     EventsComponent,
-    NewsComponent
+    NewsComponent,
+    RegisterComponent
   ],
 
   imports: [
