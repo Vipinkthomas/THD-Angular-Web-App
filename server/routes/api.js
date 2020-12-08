@@ -67,7 +67,7 @@ router.post('/login',(req,res)=>{
 
             }
             else{
-                res.status(200).send('Login Successful'+user);
+                res.status(200).send(user);
             }
         }
 

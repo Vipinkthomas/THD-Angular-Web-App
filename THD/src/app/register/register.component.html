@@ -10,13 +10,13 @@
           <tr>
             <td>
               <mat-form-field>
-              <input matInput tpye="email" placeholder="Username" formControlName="username" required>
+              <input [(ngModel)]="registeredUser.email" matInput name="email" tpye="email" placeholder="Username" formControlName="username" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
           <td>  <mat-form-field>
-            <input matInput type="password" placeholder="Password" formControlName="password">
+            <input [(ngModel)]="registeredUser.password" matInput name="password" type="password" placeholder="Password" formControlName="password">
             <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
             <mat-error *ngIf="password.hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
           </mat-form-field></td>
@@ -34,7 +34,7 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button mat-raised-button (click)="register()" color="primary">Register</button>
+      <button *ngIf="!password.hasError('required') && !password.hasError('minlength') && !username.hasError('required')" mat-raised-button (click)="register()" color="primary">Register</button>
     </mat-card-actions>
   
   </mat-card>

@@ -1,6 +1,6 @@
 .main-toolbar{
     padding: 20px;
-   // min-height: 100px !important; 
+    //min-height: 100px !important; 
     height: 100px !important;
     z-index: 500;
     position: sticky;    
@@ -20,12 +20,12 @@ mat-toolbar{
 }
 
   .main-content{
-    //padding-top: 100px;
+    padding-top: 20px;
     padding-bottom: 10px;
     background-color: #ffffff;
     min-height:100vh;
+    display: flex;
+    justify-content: center;
 }
 
-.main-sidenav{
-    z-index:1000;
-}
+
