@@ -1,3 +1,5 @@
+import { User } from './../user';
+import { AuthService } from './../auth.service';
 import { FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,9 +13,15 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router,private formBuilder: FormBuilder) { }
+  constructor(private router: Router,private formBuilder: FormBuilder,private _auth:AuthService) { }
   minPw = 8;
   registerForm: FormGroup;
+
+  registeredUser={
+    email: '',
+    password:''
+  };
+  
 
   ngOnInit() {
 
@@ -47,15 +55,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register() : void {
-
-    if(this.registerForm.get('username').value == 'admin' && this.registerForm.get('password').value == 'admin1234'){
-      console.log("registered")
-      //this.router.navigate(["user"]);
+    //console.log(this.registerForm.value)
+    if(!this.registerForm.hasError('passwordMismatch')){
+      this._auth.register(this.registeredUser)
+      .subscribe(
+        res=>{
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          this.router.navigate(['/event'])
+        },
+        err=>console.log(err))
     }
-    else {
-      alert("Invalid credentials");
-    }
-
   }
 }
 

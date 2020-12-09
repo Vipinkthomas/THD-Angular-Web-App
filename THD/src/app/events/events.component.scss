@@ -1,0 +1,17 @@
+@import '../../custom-theme.scss';
+
+//background: map-get($thd-palette-accent, 500);
+
+.example-card {
+    //max-width: 400px;
+    margin-top: 10px;
+    padding: 20px;
+    //background: map-get($thd-palette-primary,{{card.color}});
+}
+  
+.example-header-image {
+   // background: map-get($thd-palette-accent, 500);
+   // background-size:cover;
+    width:300px;
+    height:300px;
+}
