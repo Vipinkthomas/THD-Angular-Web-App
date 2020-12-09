@@ -1,8 +1,9 @@
-const express= require('express');
+const express= require('express')
 const User= require('../models/user')
 const Event= require('../models/event')
 const News= require('../models/news')
-const mongoose= require('mongoose');
+const mongoose= require('mongoose')
+const jwt=require('jsonwebtoken')
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 
@@ -21,6 +22,27 @@ mongoose.connect(db,err=>{
     }
 });
 
+function verifyToken(req,res,next){
+
+    if(!req.headers.authorization){
+        return res.status(401).send('Unauthorized request')
+    }
+    
+    let token=req.headers.authorization.split(' ')[1]
+    if(token=='null'){
+        return res.status(401).send('Unauthorized request')
+    }
+    let payload=jwt.verify(token,'secretKey')
+    if(!payload){
+        return res.status(401).send('Unauthorized request')
+    }
+    req.userId=payload.subject
+    next()
+
+
+
+}
+
 router.get('/',(req,res)=>{
     res.send('From API router');
 });
@@ -37,7 +59,9 @@ router.post('/register',(req,res)=>{
             console.log(error);
         }
         else{
-            res.status(200).send(registeredUser)
+            let payload={subject:registeredUser._id}
+            let token=jwt.sign(payload,'secretKey')
+            res.status(200).send({token})
         }
 
     });
@@ -67,7 +91,9 @@ router.post('/login',(req,res)=>{
 
             }
             else{
-                res.status(200).send(user);
+                let payload={ subject: user._id}
+                let token=jwt.sign(payload,'secretKey')
+                res.status(200).send({token});
             }
         }
 
@@ -100,7 +126,7 @@ router.post('/addevents',(req,res)=>{
  * View Event
  */
 
-router.post('/events',(req,res)=>{
+router.post('/events',verifyToken,(req,res)=>{
     let eventData=req.body;
     
     Event.find({access:eventData.access},(error,event)=>{

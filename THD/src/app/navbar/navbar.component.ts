@@ -1,3 +1,4 @@
+import { AuthService } from './../auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../menuitems';
 /**
@@ -36,20 +37,10 @@ export class NavbarComponent implements OnInit {
       label: 'Room',
       icon: 'login',
       link: '/rooms'
-    },
-    {
-      label: 'Register',
-      icon: 'person_add',
-      link: '/register'
-    },
-    {
-      label: 'Login',
-      icon: 'login',
-      link: '/login'
     }
   ];
 
-  constructor() { }
+  constructor(public _authService:AuthService) { }
 
   ngOnInit(): void {
     

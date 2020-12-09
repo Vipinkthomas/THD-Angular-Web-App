@@ -11,6 +11,25 @@
       <mat-icon class="mr">{{item.icon}}</mat-icon>
       {{ item.label | translate}}
     </button>
+
+    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
+      routerLink='/register' >
+      <mat-icon class="mr">person_add</mat-icon>
+      {{ 'Register' | translate}}
+    </button>
+
+    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
+      routerLink='/login' >
+      <mat-icon class="mr">login</mat-icon>
+      {{ 'Login' | translate}}
+    </button>
+
+    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
+     (click)="_authService.logoutUser()" >
+      <mat-icon class="mr">mood_bad</mat-icon>
+      {{ 'Logout' | translate}}
+    </button>
+
     <span class="spacer"></span>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -24,6 +43,33 @@
           <button mat-button (click)="sidenav.toggle()">
             <mat-icon>{{item.icon}}</mat-icon>
               {{item.label | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list-item>
+      <mat-list-item *ngIf="!_authService.loggedIn()">
+        <div fxShow="false" fxShow.lt-md  routerLink='/register'>
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>person_add</mat-icon>
+              {{'Register' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list-item>
+      <mat-list-item *ngIf="!_authService.loggedIn()">
+        <div fxShow="false" fxShow.lt-md  routerLink='/login'>
+          <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>login</mat-icon>
+              {{'Login' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+      </mat-list-item>
+      <mat-list-item *ngIf="_authService.loggedIn()">
+        <div fxShow="false" fxShow.lt-md>
+          <button mat-button (click)="sidenav.toggle() && _authService.logoutUser()">
+            <mat-icon>mood_bad</mat-icon>
+              {{'Logout' | translate}}
           </button>
           <mat-divider></mat-divider>
         </div>

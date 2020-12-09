@@ -1,5 +1,5 @@
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -29,6 +29,8 @@ import { RegisterComponent } from './register/register.component';
 
 import { AuthService } from './auth.service';
 import { EventService } from './event.service';
+import { AuthGuard } from './auth.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 /**
  Main THD Module 
@@ -61,7 +63,13 @@ import { EventService } from './event.service';
     FormsModule,
     HttpClientModule
     ],
-  providers: [AuthService,EventService],
+  providers: [AuthService,EventService,AuthGuard,
+  { 
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokenInterceptorService,
+    multi:true
+
+  }],
   bootstrap: [AppComponent]
 
 })

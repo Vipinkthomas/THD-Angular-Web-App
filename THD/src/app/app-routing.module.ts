@@ -10,6 +10,7 @@ import { InternationalComponent } from './international/international.component'
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { JwtGuard } from './jwt.guard';
+import { AuthGuard } from './auth.guard';
 
 const routes:Routes=[
   { path: '', component: StartComponent },
@@ -19,7 +20,7 @@ const routes:Routes=[
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [JwtGuard] },
-  { path: 'event', component: EventsComponent },
+  { path: 'event', component: EventsComponent, canActivate: [AuthGuard] },
   { path: 'news', component: NewsComponent}
 
 ]

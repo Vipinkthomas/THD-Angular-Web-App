@@ -58,7 +58,13 @@ export class RegisterComponent implements OnInit {
     //console.log(this.registerForm.value)
     if(!this.registerForm.hasError('passwordMismatch')){
       this._auth.register(this.registeredUser)
-      .subscribe(res=>console.log(res),err=>console.log(err))
+      .subscribe(
+        res=>{
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          this.router.navigate(['/event'])
+        },
+        err=>console.log(err))
     }
   }
 }

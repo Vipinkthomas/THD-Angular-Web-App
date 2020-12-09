@@ -41,7 +41,13 @@ export class LoginComponent implements OnInit {
   login() : void {
     console.log(this.loggedUser)
       this._auth.login(this.loggedUser)
-      .subscribe(res=>console.log(res),err=>console.log(err))
+      .subscribe(
+        res=>{
+          console.log(res)
+          localStorage.setItem('token',res.token)
+          this.router.navigate(['/event'])
+        },
+        err=>console.log(err))
     }
 }
 
