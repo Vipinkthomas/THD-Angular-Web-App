@@ -15,27 +15,22 @@ export class NavbarComponent implements OnInit {
     
     {
       label: 'Home',
-      icon: 'home',
       link: '/'
     },
     {
       label: 'News',
-      icon: 'info',
       link: '/news'
     },
     {
       label: 'Events',
-      icon: 'event_note',
       link: '/event'
     },
     {
       label: 'Navigate',
-      icon: 'directions_walk',
       link: '/navigation'
     },
     {
       label: 'Room',
-      icon: 'login',
       link: '/rooms'
     }
   ];

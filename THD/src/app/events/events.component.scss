@@ -15,3 +15,15 @@
     width:300px;
     height:300px;
 }
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .example-card1 {
+    max-height: 500px;
+  //  z-index: 300;
+    margin-top:20px; 
+    min-width: 400px;
+    max-width: 500px;
+    margin-left: 30%;
+  } 
