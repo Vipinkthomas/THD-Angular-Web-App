@@ -19,8 +19,8 @@
    
     <mat-toolbar color="ffffff">
       <mat-toolbar-row>
-    <button mat-icon-button color="primary">
-      {{'create'|translate}}
+    <button mat-icon-button color="primary" (onclick)=>
+      'create'
     </button>
         </mat-toolbar-row>
         </mat-toolbar>
@@ -29,7 +29,7 @@
   <mat-card class="example-card1">
     
     <mat-card-header>
-      <mat-card-title><h2>{{'Create Event'|translate}}</h2></mat-card-title>
+      <mat-card-title><h2>'Create Event'</h2></mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
@@ -38,21 +38,21 @@
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="CreateEvent.eventName" matInput tpye="text" placeholder="Eventname" formControlName="eventname" required>
+              <input [(ngModel)]="CreateEvent.event_name" matInput tpye="text" placeholder="Eventname" formControlName="eventname" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="CreateEvent.eventDesc" matInput tpye="textbox" placeholder="Eventdesc" formControlName="eventdesc" required>
+              <input [(ngModel)]="CreateEvent.event_desc" matInput tpye="textbox" placeholder="Eventdesc" formControlName="eventdesc" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="CreateEvent.eventDate" matInput tpye="date" placeholder="Eventdate" formControlName="eventdate" required>
+              <input [(ngModel)]="CreateEvent.event_date" matInput tpye="date" placeholder="Eventdate" formControlName="eventdate" required>
               </mat-form-field>
             </td>
           </tr>
@@ -67,11 +67,14 @@
   </mat-card>
 </div>
 
+
+
+
 <div class="update-event" fxShow="false">
   <mat-card class="example-card1">
     
     <mat-card-header>
-      <mat-card-title><h2>{{'Update Event'|translate}}</h2></mat-card-title>
+      <mat-card-title><h2>'Update Event'</h2></mat-card-title>
     </mat-card-header>
     
     <mat-card-content>

@@ -17,14 +17,13 @@ export class EventsComponent implements OnInit {
   updateEventForm: FormGroup;
   deleteEventForm: FormGroup;
   events=[]
-  constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder) { }
   CreateEvent={
-    eventName: '',
-    eventDesc:'',
-    eventDate:'',
-    access:'public',
-    imageURL:'image',
-    iconName:'icon'
+    "event_name": "",
+    "event_desc": "",
+    "event_date": "",
+    "access": "public",
+    "imageURL": "image",
+    "iconName": "icon"
 
   };
   UpdateEvent={
@@ -42,6 +41,8 @@ export class EventsComponent implements OnInit {
     eventDate:''
 
   };
+  constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder) { }
+  
   ngOnInit(): void {
     this.createEventForm = this.formBuilder.group({
       eventname: ['', Validators.required],
@@ -74,8 +75,21 @@ export class EventsComponent implements OnInit {
   }
 
   createEvent(){
-    console.log('running'+this.createEventForm.get('eventname')+this.createEventForm.get('eventdesc')+this.createEventForm.get('eventdate'))
+
+    // console.log('running'+this.createEventForm.controls['eventname'].value+this.createEventForm.controls['eventdesc'].value+this.createEventForm.controls['eventdate'].value)
     this.isCreateButton=true
+    this._eventService.createEvents(this.CreateEvent)
+    .subscribe(res=>this.events=res,
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
+
   }
   updateEvent(){
     console.log('running'+this.createEventForm.get('eventname')+this.createEventForm.get('eventdesc')+this.createEventForm.get('eventdate'))
