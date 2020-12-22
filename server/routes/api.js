@@ -1,9 +1,11 @@
 const express= require('express')
+const bcrypt = require('bcrypt')
 const User= require('../models/user')
 const Event= require('../models/event')
 const News= require('../models/news')
 const mongoose= require('mongoose')
 const jwt=require('jsonwebtoken')
+
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 
@@ -53,18 +55,32 @@ router.get('/',(req,res)=>{
 
 router.post('/register',(req,res)=>{
     let userData= req.body;
-    let user=new User(userData);
-    user.save((error,registeredUser)=>{
+    User.findOne({email:userData.email},(error,user)=>{
+
         if (error){
-            console.log(error);
+            console.log(error)
         }
         else{
-            let payload={subject:registeredUser._id}
-            let token=jwt.sign(payload,'secretKey')
-            res.status(200).send({token})
+            if(!user){
+                userData.password=bcrypt.hashSync(userData.password,10)
+                let user=new User(userData);
+                user.save((error,registeredUser)=>{
+                if (error){
+                    console.log(error);
+                }
+                else{
+                let payload={subject:registeredUser._id}
+                let token=jwt.sign(payload,'secretKey')
+                res.status(200).send({token})
+                }
+                });
+            } 
+            else{
+                console.log('email is present')
+            }
         }
-
     });
+    
 
 });
 
@@ -84,16 +100,17 @@ router.post('/login',(req,res)=>{
             if(!user){
                 res.status(401).send('Invalid Email');
             } 
-            else
-            if (user.password!==userData.password)
-            {
-                res.status(401).send('Invalid Password');
-
-            }
-            else{
+            
+            else if(bcrypt.compareSync(userData.password,user.password))
+                {
                 let payload={ subject: user._id}
                 let token=jwt.sign(payload,'secretKey')
                 res.status(200).send({token});
+            }
+            else
+            {
+                res.status(401).send('Invalid Password');
+
             }
         }
 

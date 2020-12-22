@@ -5,6 +5,7 @@ import { HttpService } from '../http.service';
 import { MenuItem } from '../menuitems';
 import { Room } from '../room';
 
+
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
@@ -52,7 +53,6 @@ export class RoomsComponent implements OnInit {
     // this.now = new Date().toString().split(' ')[4];
     this.now = urlDateTime.substring(0, 10) + " " + urlDateTime.substring(11, 16);
     //console.log(this.rooms3.find(room => room.id == rid));
-
     this.roomId = selectedRoom.id;
     this.roomDescription = selectedRoom.description;
     //this.roomDescription = this.rooms3[this.roomId];

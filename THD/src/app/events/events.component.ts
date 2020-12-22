@@ -73,8 +73,9 @@ export class EventsComponent implements OnInit {
       })
   }
 
-    (){
+  createEvent(){
     console.log('running'+this.createEventForm.get('eventname')+this.createEventForm.get('eventdesc')+this.createEventForm.get('eventdate'))
+    this.isCreateButton=true
   }
   updateEvent(){
     console.log('running'+this.createEventForm.get('eventname')+this.createEventForm.get('eventdesc')+this.createEventForm.get('eventdate'))
