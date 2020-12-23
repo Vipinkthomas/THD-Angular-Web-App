@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const User= require('../models/user')
 const Event= require('../models/event')
 const News= require('../models/news')
+const Navigation= require('../models/navigation')
 const mongoose= require('mongoose')
 const jwt=require('jsonwebtoken')
 
@@ -147,12 +148,12 @@ router.post('/updateevents',(req,res)=>{
     let eventData= req.body.UpdateEvent;
     let event=new Event(eventData);
     let id=req.body._id;
-    Event.updateOne({"_id":id},{$set:event},(error,addedEvent)=>{
+    Event.updateOne({"_id":id},{$set:event},(error,updatedEvent)=>{
         if (error){
             console.log(error);
         }
         else{
-            res.status(200).send(addedEvent)
+            res.status(200).send(updatedEvent)
         }
 
     });
@@ -165,12 +166,12 @@ router.post('/updateevents',(req,res)=>{
 
 router.post('/deleteevents',(req,res)=>{
     let id= req.body
-    Event.deleteOne(id,(error,addedEvent)=>{
+    Event.deleteOne(id,(error,deletedEvent)=>{
         if (error){
             console.log(error);
         }
         else{
-            res.status(200).send(addedEvent)
+            res.status(200).send(deletedEvent)
         }
 
     });
@@ -208,10 +209,10 @@ router.post('/events',verifyToken,(req,res)=>{
  * Add News
  */
 
-router.post('/addNews',(req,res)=>{
+router.post('/addnews',(req,res)=>{
     let newsData= req.body;
     let news=new News(newsData);
-    News.save((error,addedNews)=>{
+    news.save((error,addedNews)=>{
         if (error){
             console.log(error);
         }
@@ -248,6 +249,71 @@ router.post('/news',(req,res)=>{
     });
 
 
+});
+
+
+/**
+ * Update News
+ */
+
+router.post('/updatenews',(req,res)=>{
+    let newsData= req.body.UpdateNews;
+    let news=new News(newsData);
+    let id=req.body._id;
+    News.updateOne({"_id":id},{$set:news},(error,updatedNews)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(updatedNews)
+        }
+
+    });
+
+});
+
+/**
+ * Delete News
+ */
+
+router.post('/deletenews',(req,res)=>{
+    let id= req.body
+    News.deleteOne(id,(error,deletedNews)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(deletedNews)
+        }
+
+    });
+
+});
+
+
+
+/**
+ * Navigation
+ */
+
+router.post('/navigation',(req,res)=>{
+    
+    Navigation.find({},(error,navigation)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!navigation){
+                res.status(401).send('No Data');
+            } 
+            else{
+                res.status(200).send(navigation);
+            }
+        }
+
+
+    })
 });
 
 

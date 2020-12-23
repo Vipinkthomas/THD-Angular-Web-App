@@ -4,7 +4,6 @@ const router =express.Router();
 let urlDateTime = new Date().toISOString();
 now = urlDateTime.substring(0, 10) + " " + urlDateTime.substring(11, 16);
 let roomId=1;
-console.log(now)
 const myUrl=`https://thabella.th-deg.de/thabella/opn/period/findByRoom/${roomId}/${now}`;
 let body= "";
 router.get('/',(req,res)=>{
@@ -25,7 +24,6 @@ https.get(myUrl,(res) => {
     res.on("end", () => {
         try {
             let json = JSON.parse(body);
-            console.log(body);
         } catch (error) {
             console.error(error.message);
         };
