@@ -12,24 +12,24 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button >Update</button>
-        <button mat-button>Delete</button>
+        <button mat-button (click)="isUpdate(event._id)">Update</button>
+        <button mat-button (click)="deleteEvent(event._id)">Delete</button>
       </mat-card-actions>
     </mat-card></div>
    
     <mat-toolbar color="ffffff">
       <mat-toolbar-row>
-    <button mat-icon-button color="primary" (onclick)=>
-      'create'
+    <button mat-button color="primary" (click)="isCreate()">
+      Create
     </button>
         </mat-toolbar-row>
         </mat-toolbar>
       
-<div class="create-event" fxShow="isCreateButton">
+<div class="create-event" *ngIf="isCreateButton">
   <mat-card class="example-card1">
     
     <mat-card-header>
-      <mat-card-title><h2>'Create Event'</h2></mat-card-title>
+      <mat-card-title><h2>Create Event</h2></mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
@@ -70,11 +70,11 @@
 
 
 
-<div class="update-event" fxShow="false">
+<div class="update-event" *ngIf="isUpdateButton">
   <mat-card class="example-card1">
     
     <mat-card-header>
-      <mat-card-title><h2>'Update Event'</h2></mat-card-title>
+      <mat-card-title><h2>Update Event</h2></mat-card-title>
     </mat-card-header>
     
     <mat-card-content>
@@ -83,21 +83,21 @@
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="UpdateEvent.eventName" matInput tpye="text" placeholder="Eventname" formControlName="eventname" required>
+              <input [(ngModel)]="UpdateFullEvent.UpdateEvent.event_name" matInput tpye="text" placeholder="Eventname" formControlName="eventname" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="UpdateEvent.eventDesc" matInput tpye="textbox" placeholder="Eventdesc" formControlName="eventdesc" required>
+              <input [(ngModel)]="UpdateFullEvent.UpdateEvent.event_desc" matInput tpye="textbox" placeholder="Eventdesc" formControlName="eventdesc" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="UpdateEvent.eventDate" matInput tpye="date" placeholder="Eventdate" formControlName="eventdate" required>
+              <input [(ngModel)]="UpdateFullEvent.UpdateEvent.event_date" matInput tpye="date" placeholder="Eventdate" formControlName="eventdate" required>
               </mat-form-field>
             </td>
           </tr>

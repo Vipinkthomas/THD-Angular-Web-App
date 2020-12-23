@@ -26,20 +26,22 @@ export class EventsComponent implements OnInit {
     "iconName": "icon"
 
   };
-  UpdateEvent={
-    eventName: '',
-    eventDesc:'',
-    eventDate:'',
-    access:'public',
-    imageURL:'image',
-    iconName:'icon'
+  UpdateFullEvent={
+    "_id":"",
+  "UpdateEvent": {
+    "_id":"",
+    "event_name": "",
+    "event_desc": "",
+    "event_date": "",
+    "access": "public",
+    "imageURL": "image",
+    "iconName": "icon"
 
-  };
+  }
+};
 
   DeleteEvent={
-    eventName: '',
-    eventDate:''
-
+    "_id":""
   };
   constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder) { }
   
@@ -77,7 +79,6 @@ export class EventsComponent implements OnInit {
   createEvent(){
 
     // console.log('running'+this.createEventForm.controls['eventname'].value+this.createEventForm.controls['eventdesc'].value+this.createEventForm.controls['eventdate'].value)
-    this.isCreateButton=true
     this._eventService.createEvents(this.CreateEvent)
     .subscribe(res=>this.events=res,
       err=>{
@@ -92,10 +93,55 @@ export class EventsComponent implements OnInit {
 
   }
   updateEvent(){
-    console.log('running'+this.createEventForm.get('eventname')+this.createEventForm.get('eventdesc')+this.createEventForm.get('eventdate'))
+    this._eventService.updateEvents(this.UpdateFullEvent)
+    .subscribe(res=>this.events=res,
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
   }
-  deleteEvent(){
-    console.log('running'+this.deleteEventForm.get('eventname')+this.deleteEventForm.get('eventdate'))
+  deleteEvent(data: any){
+    this.DeleteEvent._id=data;
+    this._eventService.deleteEvents(this.DeleteEvent)
+    .subscribe(res=>this.events=res,
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
   }
+
+  isCreate(){
+    if(this.isCreateButton){
+      this.isCreateButton=false;
+    } 
+    else{
+      this.isCreateButton=true;
+      this.isUpdateButton=false;
+    }
+  }
+
+  isUpdate(data: any){
+    if(this.isUpdateButton){
+      this.isUpdateButton=false;
+    } 
+    else{
+      this.isUpdateButton=true;
+      this.isCreateButton=false;
+    }
+    this.UpdateFullEvent._id=data;
+    this.UpdateFullEvent.UpdateEvent._id=data;
+    console.log(this.UpdateFullEvent._id);
+  }
+
 
 }

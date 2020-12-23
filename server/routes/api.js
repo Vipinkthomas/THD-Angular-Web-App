@@ -140,6 +140,44 @@ router.post('/addevents',(req,res)=>{
 });
 
 /**
+ * Update Events
+ */
+
+router.post('/updateevents',(req,res)=>{
+    let eventData= req.body.UpdateEvent;
+    let event=new Event(eventData);
+    let id=req.body._id;
+    Event.updateOne({"_id":id},{$set:event},(error,addedEvent)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(addedEvent)
+        }
+
+    });
+
+});
+
+/**
+ * Delete Events
+ */
+
+router.post('/deleteevents',(req,res)=>{
+    let id= req.body
+    Event.deleteOne(id,(error,addedEvent)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(addedEvent)
+        }
+
+    });
+
+});
+
+/**
  * View Event
  */
 
@@ -173,7 +211,7 @@ router.post('/events',verifyToken,(req,res)=>{
 router.post('/addNews',(req,res)=>{
     let newsData= req.body;
     let news=new News(newsData);
-    news.save((error,addedNews)=>{
+    News.save((error,addedNews)=>{
         if (error){
             console.log(error);
         }
