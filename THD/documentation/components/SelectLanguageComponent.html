@@ -446,23 +446,20 @@ export class SelectLanguageComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">
-&lt;button mat-button color&#x3D;&quot;primary&quot; #langSelect *ngFor&#x3D;&quot;let lang of languages&quot; (click)&#x3D;&quot;changeLanguage(lang.value)&quot; &gt;
-    {{lang.viewValue}}
-&lt;/button&gt;
-
-&lt;!--
-&lt;a class&#x3D;&quot;link&quot; color&#x3D;&quot;primary&quot; #langSelect *ngFor&#x3D;&quot;let lang of languages&quot; (click)&#x3D;&quot;changeLanguage(lang.value)&quot; &gt;
+        <pre class="line-numbers"><code class="language-html">&lt;a class&#x3D;&quot;link&quot; mat-button color&#x3D;&quot;ffffff&quot; #langSelect *ngFor&#x3D;&quot;let lang of languages&quot; (click)&#x3D;&quot;changeLanguage(lang.value)&quot; &gt;
     {{lang.viewValue}}
 &lt;/a&gt;
---&gt;</code></pre>
+
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
                     <code>./select-language.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">a {
+  margin-top: 10px;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -490,8 +487,8 @@ export class SelectLanguageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><button mat-button color="primary" #langSelect *ngFor="let lang of languages" (click)="changeLanguage(lang.value)" >    {{lang.viewValue}}</button><!--<a class="link" color="primary" #langSelect *ngFor="let lang of languages" (click)="changeLanguage(lang.value)" >    {{lang.viewValue}}</a>--></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><a class="link" mat-button color="ffffff" #langSelect *ngFor="let lang of languages" (click)="changeLanguage(lang.value)" >    {{lang.viewValue}}</a></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SelectLanguageComponent'};
 </script>

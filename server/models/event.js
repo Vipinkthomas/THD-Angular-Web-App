@@ -6,8 +6,8 @@ const eventSchema=new EventSchema({
     event_desc:String,
     event_date: String,
     access: String,
-    imageURL: String,
-    iconName: String
+	imageURL: String,
+	iconName: String
 });
 
 module.exports=mongoose.model('event',eventSchema,'event');

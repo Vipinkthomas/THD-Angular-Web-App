@@ -121,6 +121,41 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#displayedColumns">displayedColumns</a>
+                            </li>
+                            <li>
+                                <a href="#events">events</a>
+                            </li>
+                            <li>
+                                <a href="#now">now</a>
+                            </li>
+                            <li>
+                                <a href="#roomDescription">roomDescription</a>
+                            </li>
+                            <li>
+                                <a href="#roomId">roomId</a>
+                            </li>
+                            <li>
+                                <a href="#rooms">rooms</a>
+                            </li>
+                            <li>
+                                <a href="#rooms3">rooms3</a>
+                            </li>
+                            <li>
+                                <a href="#selectedRoom">selectedRoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -130,6 +165,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#changeRoom">changeRoom</a>
+                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -151,15 +189,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(httpService: <a href="../injectables/HttpService.html">HttpService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/rooms/rooms.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/rooms/rooms.component.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>httpService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/HttpService.html" target="_self" >HttpService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -173,6 +241,76 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeRoom"></a>
+                    <span class="name">
+                        <b>
+                            changeRoom
+                        </b>
+                        <a href="#changeRoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeRoom(rid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/rooms/rooms.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rid</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -195,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/rooms/rooms.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/rooms/rooms.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -213,12 +351,440 @@
         </tbody>
     </table>
 </section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="displayedColumns"></a>
+                        <span class="name">
+                            <b>
+                            displayedColumns</b>
+                            <a href="#displayedColumns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[&#x27;id&#x27;, &#x27;description&#x27;, &#x27;organizer&#x27;, &#x27;participants&#x27;]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/rooms/rooms.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="events"></a>
+                        <span class="name">
+                            <b>
+                            events</b>
+                            <a href="#events"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Event.html" target="_self" >Event[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/rooms/rooms.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="now"></a>
+                        <span class="name">
+                            <b>
+                            now</b>
+                            <a href="#now"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/rooms/rooms.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roomDescription"></a>
+                        <span class="name">
+                            <b>
+                            roomDescription</b>
+                            <a href="#roomDescription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/rooms/rooms.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="roomId"></a>
+                        <span class="name">
+                            <b>
+                            roomId</b>
+                            <a href="#roomId"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>null</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/rooms/rooms.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rooms"></a>
+                        <span class="name">
+                            <b>
+                            rooms</b>
+                            <a href="#rooms"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x60;
+1;A008
+2;A009 - Besprechungsraum (Buchung ü. Dekanat)
+3;A012
+4;A110
+5;A111
+6;A114
+7;A115
+8;A210
+9;A213
+10;A214
+11;A215 - Besprechungsraum
+12;B004 (S)
+16;C001
+17;C101
+18;C102
+19;C103
+20;C104
+21;C106
+22;C109 (Labor)
+23;C201
+24;C211 - EDV
+25;C212 - EDV
+26;C213 - EDV
+27;C214 - EDV
+28;C215 - Besprechungsraum
+29;C232
+31;D021 (S)
+32;D110 - EDV (S)
+33;D111 - EDV
+34;D113 (K)
+35;D114 (S)
+36;D115 (K)
+37;D116 (S)
+39;D120 (K)
+41;D223
+42;D224 - EDV
+43;D225
+44;E001 (K)
+45;E006 (K)
+46;E101 (K)
+47;E102
+48;E103 (S)
+49;E104 (S)
+50;E201 (K)
+51;E203
+53;E212 - EDV (K)
+54;E214 - EDV (S)
+55;Cafeteria
+56;Mensa
+57;Galerie
+65;HS 2 (S)
+77;Schwimmbad Elypso
+78;DEGG&#x27;s (S)
+79;Turnhalle Schulzentrum
+81;K210 - EDV
+82;I001
+83;I002
+84;I009
+85;I006 (K)
+86;I005
+87;I008
+88;K106/107 - EDV (S)
+90;I105 (K)
+91;I104
+92;I107 (S)
+93;I106 (K)
+94;I108 (S)
+95;I101 (S)
+96;D119 - Sprachenzentrum
+99;Eingangsbereich Geb. A
+100;Eingangsbereich Geb. B
+101;Eingangsbereich Geb. C
+102;Eingangsbereich Geb. D
+103;Eingangsbereich Geb. E
+104;Eingangsbereich Geb. F
+105;Eingangsbereich Geb. G
+106;Multimediaraum
+107;BMW (TC-Freyung)
+111;TÜV
+112;Holzdeck
+113;Freifläche
+114;Foyer
+115;106 Besprechung
+119;Glashaus (Buchung über Frau Netzer)
+121;K209 - Netzwerktechniklabor
+122;Hörsaal Sparkasse
+123;Hörsaal Zollner
+124;Hörsaal Rädlinger
+125;Hörsaal Ensinger
+126;Foyer
+127;Besprechungsraum TC Cham
+128;Labor 6
+129;002 Besprechung Foyer
+131;sem(1)
+132;sem(2)
+133;sem(3)
+134;sem(4)
+135;D212 - Physiklabor
+136;iMiev (TC-Freyung)
+137;D011 - Wasserbaulabor
+138;K105 - Besprechungsraum (ü. Dekanat AI)
+139;B004 - Foyer
+142;VW Bus T5 (DEG - Buchung über die Information)
+143;Raum der Stille
+144;J212 - 3D Studio
+145;J002 - Besprechungsraum
+146;J008 - EDV
+147;J007 - Fernsehstudio (Buchung über O. Bauer)
+148;J009
+149;J001
+150;J101
+151;J102 - EDV
+152;J103 (buchbar in Absprache mit Prof. Garmann)
+153;J211
+154;J210
+155;J217
+156;L108 - EDV
+168;D109
+171;C006 (Labor)
+178;C108 (Labor)
+210;Turnhalle Comenius Untere
+211;EC 1.04 - 1.06
+212;EC 1.07 - 1.10 (S)
+213;EC 1.11 - 1.12
+214;EC 1.13 - 1.14 (S)
+215;EC 1.15 - 1.16
+216;EC 1.17 - 1.20 (S)
+217;EC 2.10 (Besprechungsraum 1)
+218;Nissan Leaf (EC Rottal-Inn)
+226;E105
+227;E109
+237;EC 0.13 - 0.16 (S)
+240;E213
+680;E110
+681;L106 (S) (buchbar über NuW)
+684;L103 (Labor)
+687;L105 (Labor)
+688;Glühweinhütte (Buchung über die Information)
+689;Seminarraum 1
+690;Seminarraum 2
+691;LA 27-0.03
+693;LA 27-2.05 (K)
+694;LA 27-2.06 (Bewegungsraum)
+697;LA 27-2.13 (EDV)
+698;LA 27-2.02 (Buchung über Dekanat AGW)
+699;LA 27-2.09 (S)
+700;E108
+703;H003 Senatssaal (Buchung über Frau Netzer)
+704;H U101 EDV
+709;DEGG&#x27;s Labor
+710;Turnhalle Comenius dreifach
+712;C011 (Getriebelabor)
+713;EC 2.11 (Besprechungsraum 2)
+714;Kulturraum (Buchung über Frau Seitzl)
+715;Eingangsbereich Geb. H
+716;Eingangsbereich Geb. I
+717;Eingangsbereich Geb. J
+718;Eingangsbereich Geb. K
+719;Eingangsbereich Geb. L
+720;C007 (Labor)
+722;J004 - Schnittraum
+723;2.45 Besprechungsraum 
+724;EC.B 0.01
+725;EC.B 0.07 (S)
+726;EC.B 0.10 (S)
+727;EC.B 0.13 (Chemielabor)
+728;EC.B 1.01 (EDV)
+729;EC.B 1.06 (S)
+730;EC.B 1.07 (Tourismus-/e-Health-Labor)
+731;EC.B 1.09 (EcoLab)
+732;EC.B 1.12 (E-Technik-Labor)
+734;Stadthalle Pfarrkirchen
+735;Extern
+736;Fitnessstudio Tycoon
+738;Turnhalle Förderschule
+739;Stadion
+740;E107
+741;Teams AI
+742;Stadthalle 1
+743;Stadthalle 2
+744;L001
+745;E008 (Labor)
+746;E102a (Labor)
+747;Asklepiosklinik
+748;Schwimmbad Osterhofen
+749;Turnhalle Gym Metten
+750;Schwimmbad Hengersberg
+751;LA 27-0.01&#x60;.split(&quot;\n&quot;)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/rooms/rooms.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rooms3"></a>
+                        <span class="name">
+                            <b>
+                            rooms3</b>
+                            <a href="#rooms3"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Room.html" target="_self" >Room[]</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/rooms/rooms.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectedRoom"></a>
+                        <span class="name">
+                            <b>
+                            selectedRoom</b>
+                            <a href="#selectedRoom"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../interfaces/Room.html" target="_self" >Room</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/rooms/rooms.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+// import { DataSource } from &quot;@angular/cdk/collections&quot;;
+import { HttpService } from &#x27;../http.service&#x27;;
+import { MenuItem } from &#x27;../menuitems&#x27;;
+import { Room } from &#x27;../room&#x27;;
 
 @Component({
   selector: &#x27;app-rooms&#x27;,
@@ -227,17 +793,303 @@
 })
 export class RoomsComponent implements OnInit {
 
-  constructor() { }
+  events: Event[]; // empty list of events that will be filled with AJAX call
+  roomId &#x3D; null;
+  roomDescription &#x3D; &quot;&quot;;
+  now: string;
+  displayedColumns: string[] &#x3D; [&#x27;id&#x27;, &#x27;description&#x27;, &#x27;organizer&#x27;, &#x27;participants&#x27;];
+  rooms3: Room[];
+  selectedRoom: Room;
 
-  ngOnInit(): void {
+  constructor(private httpService: HttpService,) {
+    let rooms2 &#x3D; this.rooms; // array defined below
+    this.rooms3 &#x3D; [];
+    rooms2.forEach(lineString &#x3D;&gt; {
+      let lineA &#x3D; lineString.split(&quot;;&quot;);
+      let id &#x3D; lineA[0];
+      let desc &#x3D; lineA[1];
+      // lineString looks like &#x27;1;C009&#x27;
+      this.rooms3.push({ id: id, description: desc });
+
+    });
+    console.log(this.rooms3);
+
   }
 
+  ngOnInit(): void {
+    this.roomId &#x3D; &quot;&quot;;
+  };
+
+  changeRoom(rid: string) {
+
+    //console.log(&quot;changeRoom: &quot; + rid);
+    let selectedRoom &#x3D; this.rooms3.find(room &#x3D;&gt; room.id &#x3D;&#x3D; rid);
+
+    // new Date().toISOString()
+    // 2020-11-25T14:34:22.374Z
+    // let urlDateArray &#x3D; new Date().toISOString().substring(0,9);
+    let urlDateTime &#x3D; new Date().toISOString();
+    // Wed Nov 25 2020 15:24:26 GMT+0100 (Mitteleuropäische Normalzeit)
+    // this.now &#x3D; new Date().toString().split(&#x27; &#x27;)[4];
+    this.now &#x3D; urlDateTime.substring(0, 10) + &quot; &quot; + urlDateTime.substring(11, 16);
+    //console.log(this.rooms3.find(room &#x3D;&gt; room.id &#x3D;&#x3D; rid));
+
+    this.roomId &#x3D; selectedRoom.id;
+    this.roomDescription &#x3D; selectedRoom.description;
+    //this.roomDescription &#x3D; this.rooms3[this.roomId];
+    let myUrl &#x3D; &#x60;https://thabella.th-deg.de/thabella/opn/period/findByRoom/${this.roomId}/${this.now}&#x60;;
+
+    this.httpService.sendGetRequest(myUrl).subscribe(
+      (responseBody) &#x3D;&gt; {
+    
+        if(responseBody[0]){
+        this.events &#x3D; []; // Init events
+        this.events.push(responseBody[0]); // set Events as array
+        console.log(responseBody);
+        //console.log(typeof responseBody);
+        }
+        else{
+          this.events &#x3D; []
+          console.log(&#x27;no items&#x27;)
+        }
+      });
+  }
+
+
+  rooms &#x3D; &#x60;
+1;A008
+2;A009 - Besprechungsraum (Buchung ü. Dekanat)
+3;A012
+4;A110
+5;A111
+6;A114
+7;A115
+8;A210
+9;A213
+10;A214
+11;A215 - Besprechungsraum
+12;B004 (S)
+16;C001
+17;C101
+18;C102
+19;C103
+20;C104
+21;C106
+22;C109 (Labor)
+23;C201
+24;C211 - EDV
+25;C212 - EDV
+26;C213 - EDV
+27;C214 - EDV
+28;C215 - Besprechungsraum
+29;C232
+31;D021 (S)
+32;D110 - EDV (S)
+33;D111 - EDV
+34;D113 (K)
+35;D114 (S)
+36;D115 (K)
+37;D116 (S)
+39;D120 (K)
+41;D223
+42;D224 - EDV
+43;D225
+44;E001 (K)
+45;E006 (K)
+46;E101 (K)
+47;E102
+48;E103 (S)
+49;E104 (S)
+50;E201 (K)
+51;E203
+53;E212 - EDV (K)
+54;E214 - EDV (S)
+55;Cafeteria
+56;Mensa
+57;Galerie
+65;HS 2 (S)
+77;Schwimmbad Elypso
+78;DEGG&#x27;s (S)
+79;Turnhalle Schulzentrum
+81;K210 - EDV
+82;I001
+83;I002
+84;I009
+85;I006 (K)
+86;I005
+87;I008
+88;K106/107 - EDV (S)
+90;I105 (K)
+91;I104
+92;I107 (S)
+93;I106 (K)
+94;I108 (S)
+95;I101 (S)
+96;D119 - Sprachenzentrum
+99;Eingangsbereich Geb. A
+100;Eingangsbereich Geb. B
+101;Eingangsbereich Geb. C
+102;Eingangsbereich Geb. D
+103;Eingangsbereich Geb. E
+104;Eingangsbereich Geb. F
+105;Eingangsbereich Geb. G
+106;Multimediaraum
+107;BMW (TC-Freyung)
+111;TÜV
+112;Holzdeck
+113;Freifläche
+114;Foyer
+115;106 Besprechung
+119;Glashaus (Buchung über Frau Netzer)
+121;K209 - Netzwerktechniklabor
+122;Hörsaal Sparkasse
+123;Hörsaal Zollner
+124;Hörsaal Rädlinger
+125;Hörsaal Ensinger
+126;Foyer
+127;Besprechungsraum TC Cham
+128;Labor 6
+129;002 Besprechung Foyer
+131;sem(1)
+132;sem(2)
+133;sem(3)
+134;sem(4)
+135;D212 - Physiklabor
+136;iMiev (TC-Freyung)
+137;D011 - Wasserbaulabor
+138;K105 - Besprechungsraum (ü. Dekanat AI)
+139;B004 - Foyer
+142;VW Bus T5 (DEG - Buchung über die Information)
+143;Raum der Stille
+144;J212 - 3D Studio
+145;J002 - Besprechungsraum
+146;J008 - EDV
+147;J007 - Fernsehstudio (Buchung über O. Bauer)
+148;J009
+149;J001
+150;J101
+151;J102 - EDV
+152;J103 (buchbar in Absprache mit Prof. Garmann)
+153;J211
+154;J210
+155;J217
+156;L108 - EDV
+168;D109
+171;C006 (Labor)
+178;C108 (Labor)
+210;Turnhalle Comenius Untere
+211;EC 1.04 - 1.06
+212;EC 1.07 - 1.10 (S)
+213;EC 1.11 - 1.12
+214;EC 1.13 - 1.14 (S)
+215;EC 1.15 - 1.16
+216;EC 1.17 - 1.20 (S)
+217;EC 2.10 (Besprechungsraum 1)
+218;Nissan Leaf (EC Rottal-Inn)
+226;E105
+227;E109
+237;EC 0.13 - 0.16 (S)
+240;E213
+680;E110
+681;L106 (S) (buchbar über NuW)
+684;L103 (Labor)
+687;L105 (Labor)
+688;Glühweinhütte (Buchung über die Information)
+689;Seminarraum 1
+690;Seminarraum 2
+691;LA 27-0.03
+693;LA 27-2.05 (K)
+694;LA 27-2.06 (Bewegungsraum)
+697;LA 27-2.13 (EDV)
+698;LA 27-2.02 (Buchung über Dekanat AGW)
+699;LA 27-2.09 (S)
+700;E108
+703;H003 Senatssaal (Buchung über Frau Netzer)
+704;H U101 EDV
+709;DEGG&#x27;s Labor
+710;Turnhalle Comenius dreifach
+712;C011 (Getriebelabor)
+713;EC 2.11 (Besprechungsraum 2)
+714;Kulturraum (Buchung über Frau Seitzl)
+715;Eingangsbereich Geb. H
+716;Eingangsbereich Geb. I
+717;Eingangsbereich Geb. J
+718;Eingangsbereich Geb. K
+719;Eingangsbereich Geb. L
+720;C007 (Labor)
+722;J004 - Schnittraum
+723;2.45 Besprechungsraum 
+724;EC.B 0.01
+725;EC.B 0.07 (S)
+726;EC.B 0.10 (S)
+727;EC.B 0.13 (Chemielabor)
+728;EC.B 1.01 (EDV)
+729;EC.B 1.06 (S)
+730;EC.B 1.07 (Tourismus-/e-Health-Labor)
+731;EC.B 1.09 (EcoLab)
+732;EC.B 1.12 (E-Technik-Labor)
+734;Stadthalle Pfarrkirchen
+735;Extern
+736;Fitnessstudio Tycoon
+738;Turnhalle Förderschule
+739;Stadion
+740;E107
+741;Teams AI
+742;Stadthalle 1
+743;Stadthalle 2
+744;L001
+745;E008 (Labor)
+746;E102a (Labor)
+747;Asklepiosklinik
+748;Schwimmbad Osterhofen
+749;Turnhalle Gym Metten
+750;Schwimmbad Hengersberg
+751;LA 27-0.01&#x60;.split(&quot;\n&quot;);
+
 }
+
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;{{&#x27;cRoomsText&#x27;|translate}}&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;p&gt;{{&#x27;cRoomsText&#x27;|translate}} id {{roomId}}, &quot;{{roomDescription}}&quot;&lt;/p&gt;
+&lt;mat-form-field appearance&#x3D;&quot;fill&quot;&gt;
+  &lt;mat-label&gt;{{&#x27;cRoomSelect&#x27;|translate}}&lt;/mat-label&gt;
+&lt;mat-select #roomSelect (selectionChange)&#x3D;&quot;changeRoom($event.value)&quot;&gt;
+    &lt;mat-option *ngFor&#x3D;&quot;let room of rooms3&quot; [value]&#x3D;&quot;room.id&quot;&gt;
+      {{room.description}}
+    &lt;/mat-option&gt;
+&lt;/mat-select&gt;
+&lt;/mat-form-field&gt;
+
+&lt;table id&#x3D;&quot;roomstable1&quot; mat-table [dataSource]&#x3D;&quot;events&quot; class&#x3D;&quot;mat-elevation-z8&quot;&gt;
+  &lt;!-- Position Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;id&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; EventId &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let event&quot;&gt; {{event.eventId}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Name Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;description&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Description &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let event&quot;&gt; {{event.description}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Weight Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;organizer&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Organizer &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let event&quot;&gt; {{event.organiser}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;!-- Symbol Column --&gt;
+  &lt;ng-container matColumnDef&#x3D;&quot;participants&quot;&gt;
+    &lt;th mat-header-cell *matHeaderCellDef&gt; Participants &lt;/th&gt;
+    &lt;td mat-cell *matCellDef&#x3D;&quot;let event&quot;&gt; {{event.participants}} &lt;/td&gt;
+  &lt;/ng-container&gt;
+
+  &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
+  &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns;&quot;&gt;&lt;/tr&gt;
+
 
 </code></pre>
     </div>
@@ -246,7 +1098,11 @@ export class RoomsComponent implements OnInit {
                 <p class="comment">
                     <code>./rooms.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">#roomstable1 {
+    width: 100%;
+    
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -274,8 +1130,8 @@ export class RoomsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>{{\'cRoomsText\'|translate}}</p></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><p>{{\'cRoomsText\'|translate}} id {{roomId}}, "{{roomDescription}}"</p><mat-form-field appearance="fill">  <mat-label>{{\'cRoomSelect\'|translate}}</mat-label><mat-select #roomSelect (selectionChange)="changeRoom($event.value)">    <mat-option *ngFor="let room of rooms3" [value]="room.id">      {{room.description}}    </mat-option></mat-select></mat-form-field><table id="roomstable1" mat-table [dataSource]="events" class="mat-elevation-z8">  <!-- Position Column -->  <ng-container matColumnDef="id">    <th mat-header-cell *matHeaderCellDef> EventId </th>    <td mat-cell *matCellDef="let event"> {{event.eventId}} </td>  </ng-container>  <!-- Name Column -->  <ng-container matColumnDef="description">    <th mat-header-cell *matHeaderCellDef> Description </th>    <td mat-cell *matCellDef="let event"> {{event.description}} </td>  </ng-container>  <!-- Weight Column -->  <ng-container matColumnDef="organizer">    <th mat-header-cell *matHeaderCellDef> Organizer </th>    <td mat-cell *matCellDef="let event"> {{event.organiser}} </td>  </ng-container>  <!-- Symbol Column -->  <ng-container matColumnDef="participants">    <th mat-header-cell *matHeaderCellDef> Participants </th>    <td mat-cell *matCellDef="let event"> {{event.participants}} </td>  </ng-container>  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RoomsComponent'};
 </script>

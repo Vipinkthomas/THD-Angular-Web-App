@@ -137,6 +137,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_authService">_authService</a>
+                            </li>
+                            <li>
                                 <a href="#menuItems">menuItems</a>
                             </li>
                         </ul>
@@ -172,15 +176,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(_authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/navbar/navbar.component.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/navbar/navbar.component.ts:36</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -216,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">src/app/navbar/navbar.component.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/navbar/navbar.component.ts:40</a></div>
                 </td>
             </tr>
 
@@ -243,6 +277,34 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="_authService"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            _authService</b>
+                            <a href="#_authService"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/navbar/navbar.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="menuItems"></a>
                         <span class="name">
                             <b>
@@ -263,40 +325,30 @@
     
     {
       label: &#x27;Home&#x27;,
-      icon: &#x27;home&#x27;,
       link: &#x27;/&#x27;
     },
     {
       label: &#x27;News&#x27;,
-      icon: &#x27;info&#x27;,
       link: &#x27;/news&#x27;
     },
     {
       label: &#x27;Events&#x27;,
-      icon: &#x27;event_note&#x27;,
       link: &#x27;/event&#x27;
     },
     {
       label: &#x27;Navigate&#x27;,
-      icon: &#x27;directions_walk&#x27;,
       link: &#x27;/navigation&#x27;
     },
     {
-      label: &#x27;Register&#x27;,
-      icon: &#x27;login&#x27;,
-      link: &#x27;/signup&#x27;
-    },
-    {
-      label: &#x27;Login&#x27;,
-      icon: &#x27;perm_identity&#x27;,
-      link: &#x27;login&#x27;
-    },
+      label: &#x27;Room&#x27;,
+      link: &#x27;/rooms&#x27;
+    }
   ]</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/navbar/navbar.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/navbar/navbar.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -309,7 +361,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;./../auth.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { MenuItem } from &#x27;../menuitems&#x27;;
 /**
  * set width Breakpoint
@@ -320,41 +373,32 @@ import { MenuItem } from &#x27;../menuitems&#x27;;
   styleUrls: [&#x27;./navbar.component.scss&#x27;]
 })
 export class NavbarComponent implements OnInit {
+
   menuItems: MenuItem[] &#x3D; [
     
     {
       label: &#x27;Home&#x27;,
-      icon: &#x27;home&#x27;,
       link: &#x27;/&#x27;
     },
     {
       label: &#x27;News&#x27;,
-      icon: &#x27;info&#x27;,
       link: &#x27;/news&#x27;
     },
     {
       label: &#x27;Events&#x27;,
-      icon: &#x27;event_note&#x27;,
       link: &#x27;/event&#x27;
     },
     {
       label: &#x27;Navigate&#x27;,
-      icon: &#x27;directions_walk&#x27;,
       link: &#x27;/navigation&#x27;
     },
     {
-      label: &#x27;Register&#x27;,
-      icon: &#x27;login&#x27;,
-      link: &#x27;/signup&#x27;
-    },
-    {
-      label: &#x27;Login&#x27;,
-      icon: &#x27;perm_identity&#x27;,
-      link: &#x27;login&#x27;
-    },
+      label: &#x27;Room&#x27;,
+      link: &#x27;/rooms&#x27;
+    }
   ];
 
-  constructor() { }
+  constructor(public _authService:AuthService) { }
 
   ngOnInit(): void {
     
@@ -365,42 +409,82 @@ export class NavbarComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;div-toolbar&quot;&gt;
-&lt;mat-toolbar class&#x3D;&quot;main-toolbar&quot; color&#x3D;&quot;primary&quot;&gt;
-    &lt;mat-toolbar-row class&#x3D;&quot;mat-tool-logo&quot;&gt;
-      &lt;span&gt;&lt;a href&#x3D;&quot;&quot;&gt;&lt;img src&#x3D;&quot;/assets/THD-Logo.png&quot;&gt;&lt;/a&gt;&lt;/span&gt;
-      &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
-      &lt;button mat-icon-button (click)&#x3D;&quot;sidenav.toggle()&quot; fxShow&#x3D;&quot;false&quot; fxShow.lt-md&gt;
-        &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
-      &lt;/button&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
+  &lt;mat-toolbar-row class&#x3D;&quot;mat-tool-logo&quot;&gt;
+    &lt;span &gt;&lt;a href&#x3D;&quot;http://localhost:4200/&quot;&gt;&lt;img src&#x3D;&quot;/assets/THD-Logo.png&quot;&gt;&lt;/a&gt;&lt;/span&gt;
+    &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
+  &lt;/mat-toolbar-row&gt;
+  &lt;mat-toolbar-row&gt;
+    &lt;button class&#x3D;&quot;menu-button&quot; mat-icon-button (click)&#x3D;&quot;sidenav.toggle()&quot; fxShow&#x3D;&quot;false&quot; fxShow.lt-md&gt;
+      &lt;mat-icon&gt;menu&lt;/mat-icon&gt;
+    &lt;/button&gt;
+    &lt;div fxShow&#x3D;&quot;true&quot; fxHide.lt-sm&gt;
+    &lt;button  mat-button *ngFor&#x3D;&quot;let item of menuItems&quot; fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
+      routerLink&#x3D;&quot;{{item.link}}&quot; &gt;
+      {{ item.label | translate}}
+    &lt;/button&gt;
 
-      &lt;button  mat-button *ngFor&#x3D;&quot;let item of menuItems&quot; fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
-        routerLink&#x3D;&quot;{{item.link}}&quot; &gt;
-          &lt;mat-icon class&#x3D;&quot;mr&quot;&gt;{{item.icon}}&lt;/mat-icon&gt;
-        {{ item.label | translate}}
-        &lt;/button&gt;
-   &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
-    &lt;/mat-toolbar-row&gt;
-  &lt;/mat-toolbar&gt;
+    &lt;button  *ngIf&#x3D;&quot;!_authService.loggedIn()&quot; mat-button fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
+      routerLink&#x3D;&#x27;/register&#x27; &gt;
+      {{ &#x27;Register&#x27; | translate}}
+    &lt;/button&gt;
 
-  
-  &lt;mat-sidenav-container fxFlexFill&gt;
-    &lt;mat-sidenav #sidenav class&#x3D;&quot;app-sidenav mat-elevation-z10&quot;
-      mode&#x3D; &#x27;over&#x27;&gt;
-      &lt;mat-nav-list&gt;
-        &lt;mat-list-item *ngFor&#x3D;&quot;let item of menuItems&quot;&gt;
-          &lt;div fxShow&#x3D;&quot;false&quot; fxShow.lt-md  routerLink&#x3D;&quot;{{item.link}}&quot;&gt;
-            &lt;button mat-button (click)&#x3D;&quot;sidenav.toggle()&quot;&gt;
-                &lt;mat-icon class&#x3D;&quot;mr&quot;&gt;{{item.icon}}&lt;/mat-icon&gt;
-                {{item.label | translate}}
-            &lt;/button&gt;
-            &lt;mat-divider&gt;&lt;/mat-divider&gt;
+    &lt;button  *ngIf&#x3D;&quot;!_authService.loggedIn()&quot; mat-button fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
+      routerLink&#x3D;&#x27;/login&#x27; &gt;
+      {{ &#x27;Login&#x27; | translate}}
+    &lt;/button&gt;
+
+    &lt;button  *ngIf&#x3D;&quot;_authService.loggedIn()&quot; mat-button fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
+     (click)&#x3D;&quot;_authService.logoutUser()&quot; &gt;
+      &lt;mat-icon class&#x3D;&quot;mr&quot;&gt;mood_bad&lt;/mat-icon&gt;
+      {{ &#x27;Logout&#x27; | translate}}
+    &lt;/button&gt;
+      
+    &lt;/div&gt;&lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
+    &lt;app-select-language&gt;&lt;/app-select-language&gt;
+  &lt;/mat-toolbar-row&gt;
+&lt;/mat-toolbar&gt;
+
+&lt;mat-sidenav-container fxFlexFill&gt;
+&lt;mat-sidenav #sidenav fullscreen class&#x3D;&quot;app-sidenav mat-elevation-z10&quot;
+      mode&#x3D;&quot;over&quot; class&#x3D;&quot;main-sidenav&quot;&gt;
+    &lt;mat-nav-list&gt;
+      &lt;mat-list-item *ngFor&#x3D;&quot;let item of menuItems&quot;&gt;
+        &lt;div fxShow&#x3D;&quot;false&quot; fxShow.lt-md  routerLink&#x3D;&quot;{{item.link}}&quot;&gt;
+          &lt;button mat-button (click)&#x3D;&quot;sidenav.toggle()&quot;&gt;
+              {{item.label | translate}}
+          &lt;/button&gt;
+          &lt;mat-divider&gt;&lt;/mat-divider&gt;
         &lt;/div&gt;
-        &lt;/mat-list-item&gt;
-      &lt;/mat-nav-list&gt;
-    &lt;/mat-sidenav&gt;
-    &lt;mat-sidenav-content&gt;&lt;div class&#x3D;&quot;main-content&quot;&gt;&lt;router-outlet&gt;&lt;/router-outlet&gt;&lt;/div&gt;&lt;/mat-sidenav-content&gt;
-  &lt;/mat-sidenav-container&gt;&lt;/div&gt;
+      &lt;/mat-list-item&gt;
+      &lt;mat-list-item *ngIf&#x3D;&quot;!_authService.loggedIn()&quot;&gt;
+        &lt;div fxShow&#x3D;&quot;false&quot; fxShow.lt-md  routerLink&#x3D;&#x27;/register&#x27;&gt;
+          &lt;button mat-button (click)&#x3D;&quot;sidenav.toggle()&quot;&gt;
+              {{&#x27;Register&#x27; | translate}}
+          &lt;/button&gt;
+          &lt;mat-divider&gt;&lt;/mat-divider&gt;
+        &lt;/div&gt;
+      &lt;/mat-list-item&gt;
+      &lt;mat-list-item *ngIf&#x3D;&quot;!_authService.loggedIn()&quot;&gt;
+        &lt;div fxShow&#x3D;&quot;false&quot; fxShow.lt-md  routerLink&#x3D;&#x27;/login&#x27;&gt;
+          &lt;button mat-button (click)&#x3D;&quot;sidenav.toggle()&quot;&gt;
+              {{&#x27;Login&#x27; | translate}}
+          &lt;/button&gt;
+          &lt;mat-divider&gt;&lt;/mat-divider&gt;
+        &lt;/div&gt;
+      &lt;/mat-list-item&gt;
+      &lt;mat-list-item *ngIf&#x3D;&quot;_authService.loggedIn()&quot;&gt;
+        &lt;div fxShow&#x3D;&quot;false&quot; fxShow.lt-md&gt;
+          &lt;button mat-button (click)&#x3D;&quot;sidenav.toggle() &amp;&amp; _authService.logoutUser()&quot;&gt;
+              {{&#x27;Logout&#x27; | translate}}
+          &lt;/button&gt;
+          &lt;mat-divider&gt;&lt;/mat-divider&gt;
+        &lt;/div&gt;
+      &lt;/mat-list-item&gt;
+    &lt;/mat-nav-list&gt;
+  &lt;/mat-sidenav&gt;
+  &lt;mat-sidenav-content class&#x3D;&quot;sn-content&quot;&gt;&lt;router-outlet&gt;&lt;/router-outlet&gt;&lt;/mat-sidenav-content&gt;
+&lt;/mat-sidenav-container&gt;
 </code></pre>
     </div>
 
@@ -408,27 +492,38 @@ export class NavbarComponent implements OnInit {
                 <p class="comment">
                     <code>./navbar.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.main-toolbar{
+                <pre class="line-numbers"><code class="language-scss">.main {
+    margin: 10px;
+}
 
-    padding: 20px;
-    width:100%; 
-    height: 100px !important;
-    z-index: 1;
+.flexSpaceBetween {
+  justify-content: space-around;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.main-sidenav{
+    height:400px;
 }
 
 mat-toolbar{
   span{
       img{
-          width: 100%;
-          max-width: 300px;
-          height: auto;
-          margin-top: 8px;
+          height: 50px;
+          padding-top:5px;
+          padding-left: 10px;
       }
   }
 }
-.main-content{
-    padding:100px;
-    height:100vh;
+.sn-content{
+  padding-top:10px;
+  padding-bottom: 40px;
+  height:100vh;
+  background-color: #ffffff;
 }</code></pre>
     </div>
 
@@ -457,8 +552,8 @@ mat-toolbar{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="div-toolbar"><mat-toolbar class="main-toolbar" color="primary">    <mat-toolbar-row class="mat-tool-logo">      <span><a href=""><img src="/assets/THD-Logo.png"></a></span>      <span class="spacer"></span>      <button mat-icon-button (click)="sidenav.toggle()" fxShow="false" fxShow.lt-md>        <mat-icon>menu</mat-icon>      </button>      <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"        routerLink="{{item.link}}" >          <mat-icon class="mr">{{item.icon}}</mat-icon>        {{ item.label | translate}}        </button>   <span class="spacer"></span>    </mat-toolbar-row>  </mat-toolbar>    <mat-sidenav-container fxFlexFill>    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10"      mode= \'over\'>      <mat-nav-list>        <mat-list-item *ngFor="let item of menuItems">          <div fxShow="false" fxShow.lt-md  routerLink="{{item.link}}">            <button mat-button (click)="sidenav.toggle()">                <mat-icon class="mr">{{item.icon}}</mat-icon>                {{item.label | translate}}            </button>            <mat-divider></mat-divider>        </div>        </mat-list-item>      </mat-nav-list>    </mat-sidenav>    <mat-sidenav-content><div class="main-content"><router-outlet></router-outlet></div></mat-sidenav-content>  </mat-sidenav-container></div></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">  <mat-toolbar-row class="mat-tool-logo">    <span ><a href="http://localhost:4200/"><img src="/assets/THD-Logo.png"></a></span>    <span class="spacer"></span>  </mat-toolbar-row>  <mat-toolbar-row>    <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxShow="false" fxShow.lt-md>      <mat-icon>menu</mat-icon>    </button>    <div fxShow="true" fxHide.lt-sm>    <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"      routerLink="{{item.link}}" >      {{ item.label | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/register\' >      {{ \'Register\' | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/login\' >      {{ \'Login\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"     (click)="_authService.logoutUser()" >      <mat-icon class="mr">mood_bad</mat-icon>      {{ \'Logout\' | translate}}    </button>          </div><span class="spacer"></span>    <app-select-language></app-select-language>  </mat-toolbar-row></mat-toolbar><mat-sidenav-container fxFlexFill><mat-sidenav #sidenav fullscreen class="app-sidenav mat-elevation-z10"      mode="over" class="main-sidenav">    <mat-nav-list>      <mat-list-item *ngFor="let item of menuItems">        <div fxShow="false" fxShow.lt-md  routerLink="{{item.link}}">          <button mat-button (click)="sidenav.toggle()">              {{item.label | translate}}          </button>          <mat-divider></mat-divider>        </div>      </mat-list-item>      <mat-list-item *ngIf="!_authService.loggedIn()">        <div fxShow="false" fxShow.lt-md  routerLink=\'/register\'>          <button mat-button (click)="sidenav.toggle()">              {{\'Register\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </mat-list-item>      <mat-list-item *ngIf="!_authService.loggedIn()">        <div fxShow="false" fxShow.lt-md  routerLink=\'/login\'>          <button mat-button (click)="sidenav.toggle()">              {{\'Login\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </mat-list-item>      <mat-list-item *ngIf="_authService.loggedIn()">        <div fxShow="false" fxShow.lt-md>          <button mat-button (click)="sidenav.toggle() && _authService.logoutUser()">              {{\'Logout\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </mat-list-item>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content class="sn-content"><router-outlet></router-outlet></mat-sidenav-content></mat-sidenav-container></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};
 </script>
