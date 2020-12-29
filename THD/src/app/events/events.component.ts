@@ -1,8 +1,11 @@
-import { EventService } from './../event.service';
+import { EventService } from '../service/event.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-events',
@@ -10,6 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+  myControl = new FormControl();
   data={"access":"public"}
   isCreateButton=false;
   isUpdateButton=false;
@@ -17,25 +21,35 @@ export class EventsComponent implements OnInit {
   updateEventForm: FormGroup;
   deleteEventForm: FormGroup;
   events=[]
+  lang_sel:any;
+  options: any[]=['All events']
+  filteredOptions: Observable<string[]>;
+
   CreateEvent={
-    "event_name": "",
-    "event_desc": "",
+    "event_name_en": "",
+    "event_name_de": "",
+    "event_desc_en": "",
+    "event_desc_de": "",
     "event_date": "",
     "access": "public",
     "imageURL": "image",
-    "iconName": "icon"
+    "iconName": "icon",
+    "createdby": ""
 
   };
   UpdateFullEvent={
     "_id":"",
   "UpdateEvent": {
     "_id":"",
-    "event_name": "",
-    "event_desc": "",
+    "event_name_en": "",
+    "event_name_de": "",
     "event_date": "",
     "access": "public",
     "imageURL": "image",
-    "iconName": "icon"
+    "iconName": "icon",
+    "createdby": "",
+    "event_desc_en": "",
+    "event_desc_de": ""
 
   }
 };
@@ -43,9 +57,13 @@ export class EventsComponent implements OnInit {
   DeleteEvent={
     "_id":""
   };
-  constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder) { }
+  constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder,public translate: TranslateService) { }
   
   ngOnInit(): void {
+
+
+    this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
+
     this.createEventForm = this.formBuilder.group({
       eventname: ['', Validators.required],
       eventdesc: ['', Validators.required],
@@ -63,8 +81,16 @@ export class EventsComponent implements OnInit {
       eventdate: ['', Validators.required]
     });
 
+
     this._eventService.getEvents(this.data)
-    .subscribe(res=>this.events=res,
+    .subscribe(
+      res=>{
+        this.events=res;
+        console.log(res);
+        for (var index1 in this.events) {
+          this.options.push(this.events[index1].event_name)
+        }
+      },
       err=>{
         console.log(err)
         if (err instanceof HttpErrorResponse){
@@ -74,6 +100,11 @@ export class EventsComponent implements OnInit {
         }
       
       })
+
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
 
   createEvent(){
@@ -141,6 +172,12 @@ export class EventsComponent implements OnInit {
     this.UpdateFullEvent._id=data;
     this.UpdateFullEvent.UpdateEvent._id=data;
     console.log(this.UpdateFullEvent._id);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(this.options)
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
 

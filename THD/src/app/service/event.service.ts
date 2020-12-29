@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 export class EventService {
 
   private eventUrl="http://localhost:3000/api/events"
+  private publicEventUrl="http://localhost:3000/api/publicevents"
   private createEventUrl="http://localhost:3000/api/addevents"
   private updateEventUrl="http://localhost:3000/api/updateevents"
   private deleteEventUrl="http://localhost:3000/api/deleteevents"
@@ -17,6 +18,10 @@ export class EventService {
 
   getEvents(data){
     return this._http.post<any>(this.eventUrl,data)
+  }
+
+  getPublicEvents(data){
+    return this._http.post<any>(this.publicEventUrl,data)
   }
 
   createEvents(data){

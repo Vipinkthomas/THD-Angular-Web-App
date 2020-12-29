@@ -27,10 +27,12 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 
-import { AuthService } from './auth.service';
-import { EventService } from './event.service';
-import { AuthGuard } from './auth.guard';
-import { TokenInterceptorService } from './token-interceptor.service';
+import { PopUpService } from './service/pop-up.service';
+import { AuthService } from './service/auth.service';
+import { MarkerService } from './service/marker.service';
+import { EventService } from './service/event.service';
+import { AuthGuard } from './service_guard/auth.guard';
+import { TokenInterceptorService } from './service/token-interceptor.service';
 
 /**
  Main THD Module 
@@ -63,7 +65,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     FormsModule,
     HttpClientModule
     ],
-  providers: [AuthService,EventService,AuthGuard,
+  providers: [AuthService,MarkerService,EventService,AuthGuard,PopUpService,
   { 
     provide:HTTP_INTERCEPTORS,
     useClass:TokenInterceptorService,

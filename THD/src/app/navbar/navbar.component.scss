@@ -1,33 +1,35 @@
-.main {
-    margin: 10px;
-}
-
-.flexSpaceBetween {
-  justify-content: space-around;
-}
 
 .spacer {
   flex: 1 1 auto;
 }
 
-
-
-.main-sidenav{
-    height:400px;
+mat-toolbar{
+  //padding: 20px;
+  position: fixed;
+  min-height: 100px !important; 
+  height: 100px !important;
+  z-index: 1;
 }
 
 mat-toolbar{
   span{
       img{
-          height: 50px;
-          padding-top:5px;
-          padding-left: 10px;
+          padding-top: 10px;
+          width: 100%;
+          max-width: 300px;
+          height: auto;
       }
   }
 }
-.sn-content{
-  padding-top:10px;
-  padding-bottom: 40px;
-  height:100vh;
-  background-color: #ffffff;
+
+.header{
+    
+  top: 0;
+  width: 100%;
+  position: sticky;
+  display:flex;
+  justify-content:flex-end; 
+  background-color: white;
+  z-index: 999;
+  
 }

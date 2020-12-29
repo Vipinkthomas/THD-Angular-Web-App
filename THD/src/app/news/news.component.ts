@@ -1,8 +1,10 @@
-import { NewsService } from './../news.service';
+import { NewsService } from '../service/news.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-news',
@@ -11,6 +13,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewsComponent implements OnInit {
 
+
+  myControl = new FormControl();
   data={"access":"public"}
   isCreateButton=false;
   isUpdateButton=false;
@@ -18,6 +22,9 @@ export class NewsComponent implements OnInit {
   updateNewsForm: FormGroup;
   deleteNewsForm: FormGroup;
   news=[]
+  options: any[]=['All News']
+  filteredOptions: Observable<string[]>;
+
   CreateNews={
     "news_name": "",
     "news_desc": "",
@@ -59,7 +66,14 @@ export class NewsComponent implements OnInit {
     });
 
     this._newsService.getNews(this.data)
-    .subscribe(res=>this.news=res,
+    .subscribe(
+      res=>{
+        this.news=res;
+        for (var index1 in this.news) {
+          this.options.push(this.news[index1].news_name)
+        }
+
+      },
       err=>{
         console.log(err)
         if (err instanceof HttpErrorResponse){
@@ -69,7 +83,15 @@ export class NewsComponent implements OnInit {
         }
       
       })
+
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
   }
+
+
+
 
   createNews(){
 
@@ -141,6 +163,12 @@ export class NewsComponent implements OnInit {
     this.UpdateFullNews._id=data;
     this.UpdateFullNews.UpdateNews._id=data;
     console.log(this.UpdateFullNews._id);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    console.log(this.options)
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
 

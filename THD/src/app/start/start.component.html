@@ -6,21 +6,67 @@
   </div>           
 </div>
 
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="5px">
-<mat-card class="example-card" *ngFor="let card of cards" [ngStyle]="{'background': card.color}" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <!-- <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-  </mat-card-header>
-  <mat-card-content routerLink = "/event">
-    <p>
-      {{card.content}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card></div>
+  <mat-card class="example-card" *ngFor="let event of events" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title *ngIf="lang_sel">{{event.event_name_en}}</mat-card-title>
+      <mat-card-title *ngIf="!lang_sel">{{event.event_name_de}}</mat-card-title>
+      <!--<mat-card-subtitle></mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content>
+      <p *ngIf="lang_sel">
+        {{event.event_desc_en}}
+      </p>
+
+      <p *ngIf="!lang_sel">
+        {{event.event_desc_de}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Like</button>
+      <button mat-button>Share</button>
+    </mat-card-actions>
+  </mat-card></div>
+  
+  <mat-divider></mat-divider>
+
+  <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+    <mat-card class="example-card1" *ngFor="let n of news" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title *ngIf="lang_sel">{{n.news_name_en}}</mat-card-title>
+        <mat-card-title *ngIf="!lang_sel">{{n.news_name_de}}</mat-card-title>
+        <!--<mat-card-subtitle></mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content>
+        <p *ngIf="lang_sel">
+          {{n.news_desc_en}}
+        </p>
+
+        <p *ngIf="!lang_sel">
+          {{n.news_desc_de}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Like</button>
+        <button mat-button>Share</button>
+      </mat-card-actions>
+    </mat-card></div>
   

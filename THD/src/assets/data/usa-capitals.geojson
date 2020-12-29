@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95349,48.82949]},
+		"properties":{"name":"J-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95411,48.82953]},
+		"properties":{"name":"H-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95429,48.82921]},
+		"properties":{"name":"K-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95494,48.82923]},
+		"properties":{"name":"I-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95546,48.82878]},
+		"properties":{"name":"L-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95435,48.82982]},
+		"properties":{"name":"D-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95413,48.83015]},
+		"properties":{"name":"Mensa"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95568,48.82932]},
+		"properties":{"name":"E-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95587,48.82954]},
+		"properties":{"name":"Bibliothek"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95570,48.82988]},
+		"properties":{"name":"C-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95486,48.83017]},
+		"properties":{"name":"B-Building"}
+	},
+	{
+		"type":"Feature",
+		"geometry":{"type":"Point","coordinates":[12.95417,48.83041]},
+		"properties":{"name":"A-Building"}
+	}
+
+]}
