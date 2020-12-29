@@ -12,11 +12,33 @@ mongoose.set('useNewUrlParser', true);
 
 const router =express.Router();
 
+/**
+ * Cloud Mongodb connection
+ */
 
-const db="mongodb+srv://uservipin:pwdvipin@cluster0.pzziq.mongodb.net/THD?retryWrites=true&w=majority";
+// const db="mongodb+srv://uservipin:pwdvipin@cluster0.pzziq.mongodb.net/THD?retryWrites=true&w=majority";
 
 
-mongoose.connect(db,err=>{
+// mongoose.connect(db,err=>{
+//     if (err){
+//         console.error('Error!'+err);
+//     }
+//     else{
+//         console.log('Connected to MongoDB');
+//     }
+// });
+
+/**
+ * local Mongodb connection
+ */
+
+const db="mongodb://localhost:27017/"
+
+mongoose.connect(db,{
+    dbName: 'THD',
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+},err=>{
     if (err){
         console.error('Error!'+err);
     }
@@ -24,6 +46,8 @@ mongoose.connect(db,err=>{
         console.log('Connected to MongoDB');
     }
 });
+
+
 
 function verifyToken(req,res,next){
 
@@ -104,9 +128,11 @@ router.post('/login',(req,res)=>{
             
             else if(bcrypt.compareSync(userData.password,user.password))
                 {
+                
+                let role=user.role
                 let payload={ subject: user._id}
                 let token=jwt.sign(payload,'secretKey')
-                res.status(200).send({token});
+                res.status(200).send({token,role});
             }
             else
             {
@@ -206,6 +232,33 @@ router.post('/events',verifyToken,(req,res)=>{
 });
 
 /**
+ * View Public Event
+ */
+
+router.post('/publicevents',(req,res)=>{
+    let eventData=req.body;
+    
+    Event.find({access:eventData.access},(error,event)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!event){
+                res.status(401).send('No Events');
+            } 
+            else{
+                res.status(200).send(event);
+            }
+        }
+
+
+    });
+
+
+});
+
+/**
  * Add News
  */
 
@@ -228,7 +281,34 @@ router.post('/addnews',(req,res)=>{
  * View News
  */
 
-router.post('/news',(req,res)=>{
+router.post('/news',verifyToken,(req,res)=>{
+    let newsData=req.body;
+    
+    News.find({access:newsData.access},(error,news)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!news){
+                res.status(401).send('No News');
+            } 
+            else{
+                res.status(200).send(news);
+            }
+        }
+
+
+    });
+
+
+});
+
+/**
+ * View public News
+ */
+
+router.post('/publicnews',(req,res)=>{
     let newsData=req.body;
     
     News.find({access:newsData.access},(error,news)=>{
