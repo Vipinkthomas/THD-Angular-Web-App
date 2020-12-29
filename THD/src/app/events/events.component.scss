@@ -8,7 +8,16 @@
     padding: 20px;
     background: map-get($thd-palette-primary,500);
 }
-  
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 50%;
+}
+
+.example-full-width {
+  width: 50%;
+}
 .example-header-image {
    // background: map-get($thd-palette-accent, 500);
    // background-size:cover;

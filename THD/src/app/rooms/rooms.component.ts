@@ -1,9 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
 // import { DataSource } from "@angular/cdk/collections";
-import { HttpService } from '../http.service';
-import { MenuItem } from '../menuitems';
-import { Room } from '../room';
+import { HttpService } from '../service/http.service';
+import { Room } from '../models/room';
 
 
 @Component({

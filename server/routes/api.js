@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const User= require('../models/user')
 const Event= require('../models/event')
 const News= require('../models/news')
+const Navigation= require('../models/navigation')
 const mongoose= require('mongoose')
 const jwt=require('jsonwebtoken')
 
@@ -11,11 +12,33 @@ mongoose.set('useNewUrlParser', true);
 
 const router =express.Router();
 
+/**
+ * Cloud Mongodb connection
+ */
 
-const db="mongodb+srv://uservipin:pwdvipin@cluster0.pzziq.mongodb.net/THD?retryWrites=true&w=majority";
+// const db="mongodb+srv://uservipin:pwdvipin@cluster0.pzziq.mongodb.net/THD?retryWrites=true&w=majority";
 
 
-mongoose.connect(db,err=>{
+// mongoose.connect(db,err=>{
+//     if (err){
+//         console.error('Error!'+err);
+//     }
+//     else{
+//         console.log('Connected to MongoDB');
+//     }
+// });
+
+/**
+ * local Mongodb connection
+ */
+
+const db="mongodb://localhost:27017/"
+
+mongoose.connect(db,{
+    dbName: 'THD',
+    useNewUrlParser: true,
+    useUnifiedTopology: true 
+},err=>{
     if (err){
         console.error('Error!'+err);
     }
@@ -23,6 +46,8 @@ mongoose.connect(db,err=>{
         console.log('Connected to MongoDB');
     }
 });
+
+
 
 function verifyToken(req,res,next){
 
@@ -103,9 +128,11 @@ router.post('/login',(req,res)=>{
             
             else if(bcrypt.compareSync(userData.password,user.password))
                 {
+                
+                let role=user.role
                 let payload={ subject: user._id}
                 let token=jwt.sign(payload,'secretKey')
-                res.status(200).send({token});
+                res.status(200).send({token,role});
             }
             else
             {
@@ -147,12 +174,12 @@ router.post('/updateevents',(req,res)=>{
     let eventData= req.body.UpdateEvent;
     let event=new Event(eventData);
     let id=req.body._id;
-    Event.updateOne({"_id":id},{$set:event},(error,addedEvent)=>{
+    Event.updateOne({"_id":id},{$set:event},(error,updatedEvent)=>{
         if (error){
             console.log(error);
         }
         else{
-            res.status(200).send(addedEvent)
+            res.status(200).send(updatedEvent)
         }
 
     });
@@ -165,12 +192,12 @@ router.post('/updateevents',(req,res)=>{
 
 router.post('/deleteevents',(req,res)=>{
     let id= req.body
-    Event.deleteOne(id,(error,addedEvent)=>{
+    Event.deleteOne(id,(error,deletedEvent)=>{
         if (error){
             console.log(error);
         }
         else{
-            res.status(200).send(addedEvent)
+            res.status(200).send(deletedEvent)
         }
 
     });
@@ -205,13 +232,40 @@ router.post('/events',verifyToken,(req,res)=>{
 });
 
 /**
+ * View Public Event
+ */
+
+router.post('/publicevents',(req,res)=>{
+    let eventData=req.body;
+    
+    Event.find({access:eventData.access},(error,event)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!event){
+                res.status(401).send('No Events');
+            } 
+            else{
+                res.status(200).send(event);
+            }
+        }
+
+
+    });
+
+
+});
+
+/**
  * Add News
  */
 
-router.post('/addNews',(req,res)=>{
+router.post('/addnews',(req,res)=>{
     let newsData= req.body;
     let news=new News(newsData);
-    News.save((error,addedNews)=>{
+    news.save((error,addedNews)=>{
         if (error){
             console.log(error);
         }
@@ -227,7 +281,7 @@ router.post('/addNews',(req,res)=>{
  * View News
  */
 
-router.post('/news',(req,res)=>{
+router.post('/news',verifyToken,(req,res)=>{
     let newsData=req.body;
     
     News.find({access:newsData.access},(error,news)=>{
@@ -248,6 +302,98 @@ router.post('/news',(req,res)=>{
     });
 
 
+});
+
+/**
+ * View public News
+ */
+
+router.post('/publicnews',(req,res)=>{
+    let newsData=req.body;
+    
+    News.find({access:newsData.access},(error,news)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!news){
+                res.status(401).send('No News');
+            } 
+            else{
+                res.status(200).send(news);
+            }
+        }
+
+
+    });
+
+
+});
+
+
+/**
+ * Update News
+ */
+
+router.post('/updatenews',(req,res)=>{
+    let newsData= req.body.UpdateNews;
+    let news=new News(newsData);
+    let id=req.body._id;
+    News.updateOne({"_id":id},{$set:news},(error,updatedNews)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(updatedNews)
+        }
+
+    });
+
+});
+
+/**
+ * Delete News
+ */
+
+router.post('/deletenews',(req,res)=>{
+    let id= req.body
+    News.deleteOne(id,(error,deletedNews)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(deletedNews)
+        }
+
+    });
+
+});
+
+
+
+/**
+ * Navigation
+ */
+
+router.post('/navigation',(req,res)=>{
+    
+    Navigation.find({},(error,navigation)=>{
+
+        if (error){
+            console.log(error)
+        }
+        else{
+            if(!navigation){
+                res.status(401).send('No Data');
+            } 
+            else{
+                res.status(200).send(navigation);
+            }
+        }
+
+
+    })
 });
 
 

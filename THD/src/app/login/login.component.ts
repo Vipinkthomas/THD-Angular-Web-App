@@ -1,8 +1,7 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
-import { JwtService } from '../jwt.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { JwtService } from '../jwt.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private jwtService: JwtService, private router: Router, private formBuilder: FormBuilder,private _auth:AuthService) { }
+  constructor(private router: Router, private formBuilder: FormBuilder,private _auth:AuthService) { }
   minPw = 8;
   loginForm: FormGroup;
   isSubmitted = false;
@@ -30,14 +29,7 @@ export class LoginComponent implements OnInit {
   get username() { return this.loginForm.get('username'); }
   get password() { return this.loginForm.get('password'); }
 
-  login1() {
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-    this.jwtService.login(this.loginForm.value);
-    this.router.navigateByUrl('/admin');
-  }
+
   login() : void {
     console.log(this.loggedUser)
       this._auth.login(this.loggedUser)
@@ -45,7 +37,9 @@ export class LoginComponent implements OnInit {
         res=>{
           console.log(res)
           localStorage.setItem('token',res.token)
-          this.router.navigate(['/event'])
+          sessionStorage.setItem('role',res.role)
+          sessionStorage.setItem('name',this.loginForm.controls['username'].value)
+          this.router.navigate(['/admin'])
         },
         err=>console.log(err))
     }

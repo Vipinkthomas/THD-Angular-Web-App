@@ -1,6 +1,6 @@
-import { AuthService } from './../auth.service';
+import { AuthService } from '../service/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from '../menuitems';
+import { MenuItem } from '../models/menuitems';
 /**
  * set width Breakpoint
  */
@@ -14,20 +14,9 @@ export class NavbarComponent implements OnInit {
   menuItems: MenuItem[] = [
     
     {
-      label: 'Home',
-      link: '/'
-    },
-    {
-      label: 'News',
-      link: '/news'
-    },
-    {
-      label: 'Events',
-      link: '/event'
-    },
-    {
       label: 'Navigate',
-      link: '/navigation'
+      link: '/navigation',
+      
     },
     {
       label: 'Room',

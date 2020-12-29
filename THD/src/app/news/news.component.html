@@ -1,1 +1,130 @@
-<p>{{'cNewsText'|translate}}</p>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+
+
+
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+    <mat-card class="example-card" *ngFor="let n of news" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{n.news_name}}</mat-card-title>
+        <!--<mat-card-subtitle></mat-card-subtitle> -->
+      </mat-card-header>
+      <mat-card-content routerLink = "/news">
+        <p>
+          {{n.news_desc}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="isUpdate(n._id)">Update</button>
+        <button mat-button (click)="deleteNews(n._id)">Delete</button>
+      </mat-card-actions>
+    </mat-card></div>
+   
+    <mat-divider></mat-divider>
+
+    <button mat-button color="primary" (click)="isCreate()">
+      Create
+    </button>
+      
+<div class="create-news" *ngIf="isCreateButton">
+  <mat-card class="example-card1">
+    
+    <mat-card-header>
+      <mat-card-title><h2>Create News</h2></mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form class="example-form" [formGroup]="createNewsForm">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="CreateNews.news_name" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="CreateNews.news_desc" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="CreateNews.news_date" matInput tpye="date" placeholder="Newsdate" formControlName="newsdate" required>
+              </mat-form-field>
+            </td>
+          </tr>
+    </table>
+      </form>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-raised-button (click)="createNews()" color="primary">Create News</button>
+    </mat-card-actions>
+  
+  </mat-card>
+</div>
+
+
+
+
+<div class="update-news" *ngIf="isUpdateButton">
+  <mat-card class="example-card1">
+    
+    <mat-card-header>
+      <mat-card-title><h2>Update News</h2></mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form class="example-form" [formGroup]="updateNewsForm">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_name" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_desc" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field>
+              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_date" matInput tpye="date" placeholder="Newsdate" formControlName="newsdate" required>
+              </mat-form-field>
+            </td>
+          </tr>
+    </table>
+      </form>
+    </mat-card-content>
+    
+    <mat-card-actions>
+      <button mat-raised-button (click)="updateNews()" color="primary">Update News</button>
+    </mat-card-actions>
+  
+  </mat-card>
+</div>

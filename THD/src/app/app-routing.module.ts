@@ -9,19 +9,18 @@ import { StartComponent } from './start/start.component';
 import { InternationalComponent } from './international/international.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { JwtGuard } from './jwt.guard';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './service_guard/auth.guard';
 
 const routes:Routes=[
   { path: '', component: StartComponent },
-  { path: 'navigation', component: NavigationComponent },
+  { path: 'navigation', component: NavigationComponent, canActivate: [AuthGuard]  },
   { path: 'rooms', component: RoomsComponent },
   { path: 'international', component: InternationalComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent, canActivate: [JwtGuard] },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'event', component: EventsComponent, canActivate: [AuthGuard] },
-  { path: 'news', component: NewsComponent}
+  { path: 'news', component: NewsComponent, canActivate: [AuthGuard] }
 
 ]
 
