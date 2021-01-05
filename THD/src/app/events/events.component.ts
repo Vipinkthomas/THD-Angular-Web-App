@@ -88,7 +88,6 @@ export class EventsComponent implements OnInit {
       res=>{
         this.events=res;
         this.temp_events=this.events;
-        console.log(res);
         for (var index1 in this.events) {
           this.options.push(this.events[index1].event_name_en)
           console.log(this.events[index1].event_name_en)
