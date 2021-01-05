@@ -19,6 +19,8 @@ export class StartComponent implements OnInit {
   data={"access":"public"}
   events=[]
   news=[]
+  temp_events=[]
+  temp_news=[]
   lang_sel:any;
   options: any[]=['All Events and News']
   filteredOptions: Observable<string[]>;
@@ -34,6 +36,7 @@ export class StartComponent implements OnInit {
     .subscribe(
       res=>{
         this.events=res;
+        this.temp_events=this.events;
         for (var index1 in this.events) {
           this.options.push(this.events[index1].event_name)
         }
@@ -53,6 +56,7 @@ export class StartComponent implements OnInit {
       .subscribe(
         res=>{
           this.news=res;
+          this.temp_news=this.news;
           for (var index1 in this.news) {
             this.options.push(this.news[index1].news_name)
           }
@@ -77,8 +81,36 @@ export class StartComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    console.log(filterValue)
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    this.temp_news=[];
+    this.temp_events=[];
+
+    if(filterValue.toLowerCase()=="all events and news")
+    {
+      this.temp_news=this.news;
+      this.temp_events=this.events;
+    }
+    else{
+  for(var i=0;i<this.news.length;i++){
+
+    if(this.news[i].news_name.toLowerCase().includes(filterValue.toLowerCase()))   
+    {
+      this.temp_news.push(this.news[i])
+      
+
+    }
+  }
+  for(var i=0;i<this.events.length;i++){
+    if(this.events[i].event_name.toLowerCase().includes(filterValue.toLowerCase()))
+    {
+      this.temp_events.push(this.events[i])
+    }
+    
+
+  }
+}
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
+    
+    
   }
 
 }

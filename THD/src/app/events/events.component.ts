@@ -21,6 +21,7 @@ export class EventsComponent implements OnInit {
   updateEventForm: FormGroup;
   deleteEventForm: FormGroup;
   events=[]
+  temp_events=[]
   lang_sel:any;
   options: any[]=['All events']
   filteredOptions: Observable<string[]>;
@@ -86,9 +87,11 @@ export class EventsComponent implements OnInit {
     .subscribe(
       res=>{
         this.events=res;
+        this.temp_events=this.events;
         console.log(res);
         for (var index1 in this.events) {
           this.options.push(this.events[index1].event_name)
+          console.log(this.events[index1].event_name)
         }
       },
       err=>{
@@ -176,8 +179,27 @@ export class EventsComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    console.log(this.options)
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    this.temp_events=[]
+    if(filterValue.toLowerCase()=="all events")
+    {
+      this.temp_events=this.events;
+    }
+    else
+    {
+  for(var i=0;i<this.events.length;i++){
+
+    if(this.events[i].event_name.toLowerCase().includes(filterValue.toLowerCase()))   
+    {
+      this.temp_events.push(this.events[i])
+      
+
+    }
+    
+
+      }
+    }
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
+    
   }
 
 

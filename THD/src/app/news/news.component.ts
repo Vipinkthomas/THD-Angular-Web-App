@@ -22,6 +22,7 @@ export class NewsComponent implements OnInit {
   updateNewsForm: FormGroup;
   deleteNewsForm: FormGroup;
   news=[]
+  temp_news=[]
   options: any[]=['All News']
   filteredOptions: Observable<string[]>;
 
@@ -69,6 +70,7 @@ export class NewsComponent implements OnInit {
     .subscribe(
       res=>{
         this.news=res;
+        this.temp_news=this.news;
         for (var index1 in this.news) {
           this.options.push(this.news[index1].news_name)
         }
@@ -167,8 +169,28 @@ export class NewsComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    console.log(this.options)
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    this.temp_news=[]
+    if(filterValue.toLowerCase()=="all news")
+    {
+      
+
+          this.temp_news=this.news      
+
+    }
+    else{
+  for(var i=0;i<this.news.length;i++){
+
+    if(this.news[i].news_name.toLowerCase().includes(filterValue.toLowerCase()))   
+    {
+      this.temp_news.push(this.news[i])
+
+    }
+    
+
+  }
+}
+    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
+    
   }
 
 
