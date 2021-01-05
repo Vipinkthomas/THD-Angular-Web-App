@@ -38,7 +38,7 @@ export class StartComponent implements OnInit {
         this.events=res;
         this.temp_events=this.events;
         for (var index1 in this.events) {
-          this.options.push(this.events[index1].event_name)
+          this.options.push(this.events[index1].event_name_en)
         }
 
       },
@@ -58,7 +58,7 @@ export class StartComponent implements OnInit {
           this.news=res;
           this.temp_news=this.news;
           for (var index1 in this.news) {
-            this.options.push(this.news[index1].news_name)
+            this.options.push(this.news[index1].news_name_en)
           }
   
         },
@@ -92,7 +92,7 @@ export class StartComponent implements OnInit {
     else{
   for(var i=0;i<this.news.length;i++){
 
-    if(this.news[i].news_name.toLowerCase().includes(filterValue.toLowerCase()))   
+    if(this.news[i].news_name_en.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_news.push(this.news[i])
       
@@ -100,7 +100,7 @@ export class StartComponent implements OnInit {
     }
   }
   for(var i=0;i<this.events.length;i++){
-    if(this.events[i].event_name.toLowerCase().includes(filterValue.toLowerCase()))
+    if(this.events[i].event_name_en.toLowerCase().includes(filterValue.toLowerCase()))
     {
       this.temp_events.push(this.events[i])
     }

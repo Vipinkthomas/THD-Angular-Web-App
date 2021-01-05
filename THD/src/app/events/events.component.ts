@@ -90,8 +90,8 @@ export class EventsComponent implements OnInit {
         this.temp_events=this.events;
         console.log(res);
         for (var index1 in this.events) {
-          this.options.push(this.events[index1].event_name)
-          console.log(this.events[index1].event_name)
+          this.options.push(this.events[index1].event_name_en)
+          console.log(this.events[index1].event_name_en)
         }
       },
       err=>{
@@ -188,7 +188,7 @@ export class EventsComponent implements OnInit {
     {
   for(var i=0;i<this.events.length;i++){
 
-    if(this.events[i].event_name.toLowerCase().includes(filterValue.toLowerCase()))   
+    if(this.events[i].event_name_en.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_events.push(this.events[i])
       
