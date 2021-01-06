@@ -2,7 +2,7 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text"
-           placeholder="Pick one"
+           placeholder="Pick One"
            aria-label="Number"
            matInput
            [formControl]="myControl"
@@ -22,17 +22,23 @@
     <mat-card class="example-card" *ngFor="let n of news" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{n.news_name}}</mat-card-title>
+        <mat-card-title *ngIf="lang_sel">{{n.news_name_en}}</mat-card-title>
+        <mat-card-title *ngIf="!lang_sel">{{n.news_name_de}}</mat-card-title>
         <!--<mat-card-subtitle></mat-card-subtitle> -->
       </mat-card-header>
-      <mat-card-content routerLink = "/news">
+      <mat-card-content *ngIf="lang_sel">
         <p>
-          {{n.news_desc}}
+          {{n.news_desc_en}}
+        </p>
+      </mat-card-content>
+      <mat-card-content *ngIf="!lang_sel">
+        <p>
+          {{n.news_desc_de}}
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="isUpdate(n._id)">Update</button>
-        <button mat-button (click)="deleteNews(n._id)">Delete</button>
+        <button mat-button matTooltip="Update" matTooltipPosition="above" (click)="isUpdate(n._id)"><mat-icon>update</mat-icon></button>
+        <button mat-button matTooltip="Delete" matTooltipPosition="above" (click)="deleteNews(n._id)"><mat-icon>delete</mat-icon></button>
       </mat-card-actions>
     </mat-card></div>
    

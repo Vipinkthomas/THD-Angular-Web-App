@@ -10,7 +10,10 @@ const newsSchema=new NewsSchema({
     iconName: String,
     createdby: String,
     news_desc_en:String,
-    news_desc_de:String
+    news_desc_de:String,
+    numLike:Number,
+    numShare:Number,
+    numDisLike:Number
 });
 
 module.exports=mongoose.model('news',newsSchema,'news');

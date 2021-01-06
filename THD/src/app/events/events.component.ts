@@ -83,25 +83,7 @@ export class EventsComponent implements OnInit {
     });
 
 
-    this._eventService.getEvents(this.data)
-    .subscribe(
-      res=>{
-        this.events=res;
-        this.temp_events=this.events;
-        for (var index1 in this.events) {
-          this.options.push(this.events[index1].event_name_en)
-          console.log(this.events[index1].event_name_en)
-        }
-      },
-      err=>{
-        console.log(err)
-        if (err instanceof HttpErrorResponse){
-          if(err.status===401){
-            this.router.navigate(['/login'])
-          }
-        }
-      
-      })
+      this.eventLoad()
 
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
@@ -123,6 +105,7 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      this.eventLoad()
 
   }
   updateEvent(){
@@ -137,6 +120,7 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      this.eventLoad()
   }
   deleteEvent(data: any){
     this.DeleteEvent._id=data;
@@ -151,6 +135,7 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      this.eventLoad()
   }
 
   isCreate(){
@@ -187,7 +172,7 @@ export class EventsComponent implements OnInit {
     {
   for(var i=0;i<this.events.length;i++){
 
-    if(this.events[i].event_name_en.toLowerCase().includes(filterValue.toLowerCase()))   
+    if(this.events[i].event_name_en.toLowerCase().includes(filterValue.toLowerCase())||this.events[i].event_name_de.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_events.push(this.events[i])
       
@@ -199,6 +184,31 @@ export class EventsComponent implements OnInit {
     }
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
     
+  }
+
+  eventLoad(){
+    this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
+    this._eventService.getEvents(this.data)
+    .subscribe(
+      res=>{
+        this.events=res;
+        this.temp_events=this.events;
+        for (var index1 in this.events) {
+          if(this.lang_sel)
+          this.options.push(this.events[index1].event_name_en)
+          else
+          this.options.push(this.events[index1].event_name_de)
+        }
+      },
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
   }
 
 

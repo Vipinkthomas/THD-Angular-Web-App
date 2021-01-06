@@ -1,6 +1,6 @@
 import { AfterViewInit, Component} from '@angular/core';
 import 'leaflet';
-import { MarkerService } from '../service/marker.service';
+import { MarkerService } from '../../service/marker.service';
 import "leaflet-routing-machine";
 //import "mapbox";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
@@ -27,10 +27,10 @@ L.Marker.prototype.options.icon = iconDefault;
 
 @Component({
   selector: 'app-navigation',
-  templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  templateUrl: './outdoor.component.html',
+  styleUrls: ['./outdoor.component.scss']
 })
-export class NavigationComponent implements AfterViewInit{
+export class OutdoorComponent implements AfterViewInit{
 
   private map:any;
   

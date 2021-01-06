@@ -5,7 +5,7 @@
   </mat-toolbar-row>
   <mat-toolbar-row color="primary">
 
-    <button mat-icon-button [matMenuTriggerFor]="dropMenu"[fxShow]="false" [fxShow.sm]="true" [fxShow.xs]="true">
+    <button mat-icon-button [matMenuTriggerFor]="dropMenu" [fxShow]="false" [fxShow.sm]="true" [fxShow.xs]="true">
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -19,6 +19,10 @@
     <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
     routerLink='/' >
     {{ 'Home' | translate}}
+  </button>
+
+    <button mat-button [matMenuTriggerFor]="dropMenu1" fxShow="true" fxShow.lt-md="false">
+    {{ 'Navigation' | translate}}
   </button>
 
     <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"
@@ -56,9 +60,9 @@
     <app-select-language></app-select-language>
 
 
+    
   <ng-container>
     
-
     <mat-menu #dropMenu="matMenu" color="primary">
 
       <ng-container *ngIf="_authService.loggedIn()">
@@ -74,6 +78,15 @@
         <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/'>
           <button mat-menu-item>
             {{'Home' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+      </ng-container>
+
+      <ng-container>
+        <div fxShow="false" fxShow.sm="true" fxShow.xs="true">
+          <button mat-menu-item [matMenuTriggerFor]="dropMenu1">
+            {{'Navigation' | translate}}
           </button>
           <mat-divider></mat-divider>
         </div>
@@ -136,5 +149,32 @@
 
   </mat-menu>
 </ng-container>
+
+<ng-container>
+    
+      <mat-menu #dropMenu1="matMenu" color="primary">
+  
+        <ng-container>
+        <div routerLink='/outdoor'>
+          <button mat-menu-item>
+            {{'Outdoor Navigation' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+        </ng-container>
+  
+        <ng-container *ngIf="_authService.loggedIn()">
+          <div routerLink='/indoor'>
+            <button mat-menu-item>
+              {{'Indoor Navigation' | translate}}
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+        </ng-container>
+
+    </mat-menu>
+  </ng-container>
+
+
 </mat-toolbar-row>
 </mat-toolbar>

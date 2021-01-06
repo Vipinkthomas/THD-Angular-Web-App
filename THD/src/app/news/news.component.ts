@@ -21,26 +21,35 @@ export class NewsComponent implements OnInit {
   createNewsForm: FormGroup;
   updateNewsForm: FormGroup;
   deleteNewsForm: FormGroup;
+  lang_sel:any;
   news=[]
   temp_news=[]
   options: any[]=['All News']
   filteredOptions: Observable<string[]>;
 
   CreateNews={
-    "news_name": "",
-    "news_desc": "",
+    "news_name_en": "",
+    "news_desc_en": "",
+    "news_name_de": "",
+    "news_desc_de": "",
     "news_date": "",
     "access": "public",
     "imageURL": "image",
-    "iconName": "icon"
+    "iconName": "icon",
+    createdby: "",
+    "numLike":0,
+    "numDisLike":0,
+    "numShare":0
 
   };
   UpdateFullNews={
     "_id":"",
   "UpdateNews": {
     "_id":"",
-    "news_name": "",
-    "news_desc": "",
+    "news_name_en": "",
+    "news_desc_en": "",
+    "news_name_de": "",
+    "news_desc_de": "",
     "news_date": "",
     "access": "public",
     "imageURL": "image",
@@ -66,25 +75,7 @@ export class NewsComponent implements OnInit {
       newsdate: ['', Validators.required]
     });
 
-    this._newsService.getNews(this.data)
-    .subscribe(
-      res=>{
-        this.news=res;
-        this.temp_news=this.news;
-        for (var index1 in this.news) {
-          this.options.push(this.news[index1].news_name_en)
-        }
-
-      },
-      err=>{
-        console.log(err)
-        if (err instanceof HttpErrorResponse){
-          if(err.status===401){
-            this.router.navigate(['/login'])
-          }
-        }
-      
-      })
+      this.newsLoad()
 
       this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
@@ -109,6 +100,7 @@ export class NewsComponent implements OnInit {
       
       })
       this.isCreateButton=false;
+      this.newsLoad()
   }
 
   
@@ -125,6 +117,7 @@ export class NewsComponent implements OnInit {
       
       })
       this.isUpdateButton=false;
+      this.newsLoad()
   }
 
 
@@ -142,6 +135,7 @@ export class NewsComponent implements OnInit {
         }
       
       })
+      this.newsLoad()
   }
 
   isCreate(){
@@ -180,7 +174,7 @@ export class NewsComponent implements OnInit {
     else{
   for(var i=0;i<this.news.length;i++){
 
-    if(this.news[i].news_name_en.toLowerCase().includes(filterValue.toLowerCase()))   
+    if(this.news[i].news_name_en.toLowerCase().includes(filterValue.toLowerCase())||this.news[i].news_name_de.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_news.push(this.news[i])
 
@@ -193,5 +187,30 @@ export class NewsComponent implements OnInit {
     
   }
 
+  newsLoad(){
+    this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
+    this._newsService.getNews(this.data)
+    .subscribe(
+      res=>{
+        this.news=res;
+        this.temp_news=this.news;
+        for (var index1 in this.news) {
+          if(this.lang_sel)
+          this.options.push(this.news[index1].news_name_en)
+          else
+          this.options.push(this.news[index1].news_name_de)
+        }
+
+      },
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
+  }
 
 }

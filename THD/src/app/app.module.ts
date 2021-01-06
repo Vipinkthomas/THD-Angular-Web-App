@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { StartComponent } from './start/start.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { OutdoorComponent } from './navigation/outdoor/outdoor.component';
+import { IndoorComponent } from './navigation/indoor/indoor.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { InternationalComponent } from './international/international.component';
 import { LoginComponent } from './login/login.component';
@@ -34,6 +35,7 @@ import { EventService } from './service/event.service';
 import { AuthGuard } from './service_guard/auth.guard';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 
+
 /**
  Main THD Module 
 */
@@ -42,7 +44,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
   declarations: [
     AppComponent,
     StartComponent,
-    NavigationComponent,
+    OutdoorComponent,
     RoomsComponent,
     InternationalComponent,
     LoginComponent,
@@ -51,7 +53,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     NavbarComponent,
     EventsComponent,
     NewsComponent,
-    RegisterComponent
+    RegisterComponent,
+    IndoorComponent
   ],
 
   imports: [

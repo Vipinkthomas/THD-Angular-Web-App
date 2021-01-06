@@ -151,7 +151,7 @@ router.post('/login',(req,res)=>{
  * Add Events
  */
 
-router.post('/addevents',(req,res)=>{
+router.post('/addevents',verifyToken,(req,res)=>{
     let eventData= req.body;
     let event=new Event(eventData);
     event.save((error,addedEvent)=>{
@@ -190,7 +190,7 @@ router.post('/updateevents',(req,res)=>{
  * Delete Events
  */
 
-router.post('/deleteevents',(req,res)=>{
+router.post('/deleteevents',verifyToken,(req,res)=>{
     let id= req.body
     Event.deleteOne(id,(error,deletedEvent)=>{
         if (error){
@@ -262,7 +262,7 @@ router.post('/publicevents',(req,res)=>{
  * Add News
  */
 
-router.post('/addnews',(req,res)=>{
+router.post('/addnews',verifyToken,(req,res)=>{
     let newsData= req.body;
     let news=new News(newsData);
     news.save((error,addedNews)=>{
@@ -356,7 +356,7 @@ router.post('/updatenews',(req,res)=>{
  * Delete News
  */
 
-router.post('/deletenews',(req,res)=>{
+router.post('/deletenews',verifyToken,(req,res)=>{
     let id= req.body
     News.deleteOne(id,(error,deletedNews)=>{
         if (error){
@@ -376,7 +376,7 @@ router.post('/deletenews',(req,res)=>{
  * Navigation
  */
 
-router.post('/navigation',(req,res)=>{
+router.post('/navigation',verifyToken,(req,res)=>{
     
     Navigation.find({},(error,navigation)=>{
 

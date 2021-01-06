@@ -24,6 +24,23 @@ export class StartComponent implements OnInit {
   lang_sel:any;
   options: any[]=['All Events and News']
   filteredOptions: Observable<string[]>;
+  UpdateFullNews={
+    "_id":"",
+  "UpdateNews": {
+    "_id":"",
+    "numLike":0,
+    "numDisLike":0
+
+  }
+};
+UpdateFullEvent={
+  "_id":"",
+"UpdateEvent": {
+  "_id":"",
+  "numLike":0,
+  "numDisLike":0
+}
+};
 
   /**
   * @ignore
@@ -32,45 +49,10 @@ export class StartComponent implements OnInit {
   ngOnInit(): void {
 
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
-    this._eventService.getPublicEvents(this.data)
-    .subscribe(
-      res=>{
-        this.events=res;
-        this.temp_events=this.events;
-        for (var index1 in this.events) {
-          this.options.push(this.events[index1].event_name_en)
-        }
 
-      },
-      err=>{
-        console.log(err)
-        if (err instanceof HttpErrorResponse){
-          if(err.status===401){
-            // ;
-          }
-        }
-      
-      })
-
-      this._newsService.getPublicNews(this.data)
-      .subscribe(
-        res=>{
-          this.news=res;
-          this.temp_news=this.news;
-          for (var index1 in this.news) {
-            this.options.push(this.news[index1].news_name_en)
-          }
-  
-        },
-        err=>{
-          console.log(err)
-          if (err instanceof HttpErrorResponse){
-            if(err.status===401){
-              // ;
-            }
-          }
-        
-        })
+    this.publicEventsLoad()
+    this.publicNewsLoad()
+    
 
         this.filteredOptions = this.myControl.valueChanges.pipe(
           startWith(''),
@@ -112,5 +94,134 @@ export class StartComponent implements OnInit {
     
     
   }
+
+  eventLike(id:any,numLike:any,numDisLike:any){
+
+    this.UpdateFullEvent.UpdateEvent.numLike=numLike+1
+    this.UpdateFullEvent.UpdateEvent.numDisLike=numDisLike
+    this.UpdateFullEvent._id=id;
+    this.UpdateFullEvent.UpdateEvent._id=id
+    console.log(this.UpdateFullEvent)
+    this._eventService.updateEvents(this.UpdateFullEvent)
+     .subscribe(res=>this.news=res,
+       err=>{
+         console.log(err)
+         if (err instanceof HttpErrorResponse){
+           if(err.status===401){
+             //
+           }
+         }
+       
+       })
+       this.publicEventsLoad()
+
+  }
+  eventDisLike(id:any,numLike:any,numDisLike:any){
+    this.UpdateFullEvent.UpdateEvent.numLike=numLike
+    this.UpdateFullEvent.UpdateEvent.numDisLike=numDisLike+1
+    this.UpdateFullEvent._id=id;
+    this.UpdateFullEvent.UpdateEvent._id=id
+    console.log(this.UpdateFullEvent)
+    this._eventService.updateEvents(this.UpdateFullEvent)
+     .subscribe(res=>this.news=res,
+       err=>{
+         console.log(err)
+         if (err instanceof HttpErrorResponse){
+           if(err.status===401){
+             //
+           }
+         }
+       
+       })
+       this.publicEventsLoad()
+   }
+
+   newsLike(id:any,numLike:any,numDisLike:any){
+    this.UpdateFullNews.UpdateNews.numLike=numLike+1
+    this.UpdateFullNews.UpdateNews.numDisLike=numDisLike
+   this.UpdateFullNews._id=id;
+   this.UpdateFullNews.UpdateNews._id=id
+   console.log(this.UpdateFullNews)
+   this._newsService.updateNews(this.UpdateFullNews)
+    .subscribe(res=>this.news=res,
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            //
+          }
+        }
+      
+      })
+      this.publicNewsLoad()
+ 
+   }
+
+   newsDisLike(id:any,numLike:any,numDisLike:any){
+    this.UpdateFullNews.UpdateNews.numLike=numLike
+    this.UpdateFullNews.UpdateNews.numDisLike=numDisLike+1
+     this.UpdateFullNews._id=id;
+     this.UpdateFullNews.UpdateNews._id=id;
+     console.log(this.UpdateFullNews)
+     this._newsService.updateNews(this.UpdateFullNews)
+      .subscribe(res=>this.news=res,
+        err=>{
+          console.log(err)
+          if (err instanceof HttpErrorResponse){
+            if(err.status===401){
+              //
+            }
+          }
+        
+        })
+        this.publicNewsLoad()
+    }
+
+
+    publicEventsLoad(){
+    this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
+    this._eventService.getPublicEvents(this.data)
+    .subscribe(
+      res=>{
+        this.events=res;
+        this.temp_events=this.events;
+        for (var index1 in this.events) {
+          this.options.push(this.events[index1].event_name_en)
+        }
+
+      },
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            // ;
+          }
+        }
+      
+      })
+    }
+
+    publicNewsLoad(){
+      this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
+      this._newsService.getPublicNews(this.data)
+      .subscribe(
+        res=>{
+          this.news=res;
+          this.temp_news=this.news;
+          for (var index1 in this.news) {
+            this.options.push(this.news[index1].news_name_en)
+          }
+  
+        },
+        err=>{
+          console.log(err)
+          if (err instanceof HttpErrorResponse){
+            if(err.status===401){
+              // ;
+            }
+          }
+        
+        })
+      }
 
 }

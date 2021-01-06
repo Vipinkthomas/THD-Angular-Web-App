@@ -10,7 +10,10 @@ const eventSchema=new EventSchema({
     iconName: String,
     createdby: String,
     event_desc_en:String,
-    event_desc_de:String
+    event_desc_de:String,
+    numLike:Number,
+    numShare:Number,
+    numDisLike:Number
 });
 
 module.exports=mongoose.model('event',eventSchema,'event');

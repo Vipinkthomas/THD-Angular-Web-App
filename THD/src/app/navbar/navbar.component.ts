@@ -12,12 +12,6 @@ import { MenuItem } from '../models/menuitems';
 export class NavbarComponent implements OnInit {
 
   menuItems: MenuItem[] = [
-    
-    {
-      label: 'Navigate',
-      link: '/navigation',
-      
-    },
     {
       label: 'Room',
       link: '/rooms'
