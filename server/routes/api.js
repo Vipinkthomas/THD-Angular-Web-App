@@ -210,8 +210,7 @@ router.post('/deleteevents',verifyToken,(req,res)=>{
 
 router.post('/events',verifyToken,(req,res)=>{
     let eventData=req.body;
-    
-    Event.find({access:eventData.access},(error,event)=>{
+    Event.find(eventData,(error,event)=>{
 
         if (error){
             console.log(error)
@@ -235,10 +234,9 @@ router.post('/events',verifyToken,(req,res)=>{
  * View Public Event
  */
 
-router.post('/publicevents',(req,res)=>{
+router.post('/publicevents',(req,res)=>{  
     let eventData=req.body;
-    
-    Event.find({access:"public"},(error,event)=>{
+    Event.find(eventData,(error,event)=>{
 
         if (error){
             console.log(error)
@@ -284,7 +282,7 @@ router.post('/addnews',verifyToken,(req,res)=>{
 router.post('/news',verifyToken,(req,res)=>{
     let newsData=req.body;
     
-    News.find({access:newsData.access},(error,news)=>{
+    News.find(newsData,(error,news)=>{
 
         if (error){
             console.log(error)
@@ -309,9 +307,8 @@ router.post('/news',verifyToken,(req,res)=>{
  */
 
 router.post('/publicnews',(req,res)=>{
-    let newsData=req.body;
-    
-    News.find({access:newsData.access},(error,news)=>{
+    let newsData=req.body;   
+    News.find(newsData,(error,news)=>{
 
         if (error){
             console.log(error)
