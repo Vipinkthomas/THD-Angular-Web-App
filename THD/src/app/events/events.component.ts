@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-events',
@@ -58,7 +59,7 @@ export class EventsComponent implements OnInit {
   DeleteEvent={
     "_id":""
   };
-  constructor(private _eventService:EventService,private router:Router,private formBuilder: FormBuilder,public translate: TranslateService) { }
+  constructor(private _snackBar:MatSnackBar,private _eventService:EventService,private router:Router,private formBuilder: FormBuilder,public translate: TranslateService) { }
   
   ngOnInit(): void {
 
@@ -91,7 +92,7 @@ export class EventsComponent implements OnInit {
       );
   }
 
-  createEvent(){
+  createEvent(action:any,name:any){
 
     // console.log('running'+this.createEventForm.controls['eventname'].value+this.createEventForm.controls['eventdesc'].value+this.createEventForm.controls['eventdate'].value)
     this._eventService.createEvents(this.CreateEvent)
@@ -105,10 +106,11 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      this.snackBar(action,name)
       this.eventLoad()
 
   }
-  updateEvent(){
+  updateEvent(action:any,name:any){
     this._eventService.updateEvents(this.UpdateFullEvent)
     .subscribe(res=>this.events=res,
       err=>{
@@ -120,9 +122,10 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      this.snackBar(action,name)
       this.eventLoad()
   }
-  deleteEvent(data: any){
+  deleteEvent(data: any,action:any,name:any){
     this.DeleteEvent._id=data;
     this._eventService.deleteEvents(this.DeleteEvent)
     .subscribe(res=>this.events=res,
@@ -135,6 +138,8 @@ export class EventsComponent implements OnInit {
         }
       
       })
+      
+      this.snackBar(action,name)
       this.eventLoad()
   }
 
@@ -211,5 +216,10 @@ export class EventsComponent implements OnInit {
       })
   }
 
+  snackBar(action:any,name:any){
+    this._snackBar.open(action,name, {
+      duration: 2000,
+    });
+  }
 
 }

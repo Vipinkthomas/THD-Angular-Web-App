@@ -13,7 +13,6 @@ export class AdminComponent implements OnInit {
   userrole = "";
 
   private first=true;
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {

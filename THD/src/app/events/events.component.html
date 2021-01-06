@@ -35,7 +35,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-button matTooltip="Update" matTooltipPosition="above" (click)="isUpdate(event._id)"><mat-icon>update</mat-icon></button>
-      <button mat-button matTooltip="Delete" matTooltipPosition="above" (click)="deleteEvent(event._id)"><mat-icon>delete</mat-icon></button>
+      <button mat-button matTooltip="Delete" matTooltipPosition="above" (click)="deleteEvent(event._id,'Deleted',event.event_name_en)"><mat-icon>delete</mat-icon></button>
     </mat-card-actions>
   </mat-card></div>
  
@@ -81,7 +81,7 @@
   </mat-card-content>
   
   <mat-card-actions>
-    <button mat-raised-button (click)="createEvent()" color="primary">Create Event</button>
+    <button mat-raised-button (click)="createEvent('Created',CreateEvent.event_name_en)" color="primary">Create Event</button>
   </mat-card-actions>
 
 </mat-card>
@@ -126,7 +126,7 @@
   </mat-card-content>
   
   <mat-card-actions>
-    <button mat-raised-button (click)="updateEvent()" color="primary">Update Event</button>
+    <button mat-raised-button (click)="updateEvent('Updated',UpdateFullEvent.UpdateEvent.event_name_en)" color="primary">Update Event</button>
   </mat-card-actions>
 
 </mat-card>

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-news',
@@ -60,7 +61,7 @@ export class NewsComponent implements OnInit {
   DeleteNews={
     "_id":""
   };
-  constructor(private _newsService:NewsService,private router:Router,private formBuilder: FormBuilder) { }
+  constructor(private _snackBar:MatSnackBar,private _newsService:NewsService,private router:Router,private formBuilder: FormBuilder) { }
   
   ngOnInit(): void {
     this.createNewsForm = this.formBuilder.group({
@@ -86,7 +87,7 @@ export class NewsComponent implements OnInit {
 
 
 
-  createNews(){
+  createNews(action:any,name:any){
 
     this._newsService.createNews(this.CreateNews)
     .subscribe(res=>this.news=res,
@@ -100,11 +101,12 @@ export class NewsComponent implements OnInit {
       
       })
       this.isCreateButton=false;
+      this.snackBar(action,name)
       this.newsLoad()
   }
 
   
-  updateNews(){
+  updateNews(action,name){
     this._newsService.updateNews(this.UpdateFullNews)
     .subscribe(res=>this.news=res,
       err=>{
@@ -117,11 +119,12 @@ export class NewsComponent implements OnInit {
       
       })
       this.isUpdateButton=false;
+      this.snackBar(action,name)
       this.newsLoad()
   }
 
 
-  deleteNews(data: any){
+  deleteNews(data: any,action:any,name:any){
     this.DeleteNews._id=data;
     console.log(this.DeleteNews._id);
     this._newsService.deleteNews(this.DeleteNews)
@@ -135,6 +138,7 @@ export class NewsComponent implements OnInit {
         }
       
       })
+      this.snackBar(action,name)
       this.newsLoad()
   }
 
@@ -211,6 +215,11 @@ export class NewsComponent implements OnInit {
         }
       
       })
+  }
+  snackBar(action:any,name:any){
+    this._snackBar.open(action,name, {
+      duration: 2000,
+    });
   }
 
 }

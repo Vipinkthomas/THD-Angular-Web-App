@@ -38,7 +38,7 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button matTooltip="Update" matTooltipPosition="above" (click)="isUpdate(n._id)"><mat-icon>update</mat-icon></button>
-        <button mat-button matTooltip="Delete" matTooltipPosition="above" (click)="deleteNews(n._id)"><mat-icon>delete</mat-icon></button>
+        <button mat-button matTooltip="Delete" matTooltipPosition="above" (click)="deleteNews(n._id,'Deleted',n.news_name_en)"><mat-icon>delete</mat-icon></button>
       </mat-card-actions>
     </mat-card></div>
    
@@ -61,14 +61,14 @@
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="CreateNews.news_name" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
+              <input [(ngModel)]="CreateNews.news_name_en" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="CreateNews.news_desc" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
+              <input [(ngModel)]="CreateNews.news_desc_en" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
               </mat-form-field>
             </td>
           </tr>
@@ -84,7 +84,7 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button mat-raised-button (click)="createNews()" color="primary">Create News</button>
+      <button mat-raised-button (click)="createNews('Created',CreateNews.news_name_en)" color="primary">Create News</button>
     </mat-card-actions>
   
   </mat-card>
@@ -106,14 +106,14 @@
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_name" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
+              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_name_en" matInput tpye="text" placeholder="Newsname" formControlName="newsname" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field>
-              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_desc" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
+              <input [(ngModel)]="UpdateFullNews.UpdateNews.news_desc_en" matInput tpye="textbox" placeholder="Newsdesc" formControlName="newsdesc" required>
               </mat-form-field>
             </td>
           </tr>
@@ -129,7 +129,7 @@
     </mat-card-content>
     
     <mat-card-actions>
-      <button mat-raised-button (click)="updateNews()" color="primary">Update News</button>
+      <button mat-raised-button (click)="updateNews('Updated',UpdateFullNews.UpdateNews.news_name_en)" color="primary">Update News</button>
     </mat-card-actions>
   
   </mat-card>
