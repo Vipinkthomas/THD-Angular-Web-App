@@ -5,6 +5,7 @@ import { NewsService } from '../service/news.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { AuthService } from '../service/auth.service';
 
 
 
@@ -16,7 +17,10 @@ import { map, startWith } from 'rxjs/operators';
 export class StartComponent implements OnInit {
 
   myControl = new FormControl();
-  data={"access":"public"}
+  data:any;
+  
+  
+  
   events=[]
   news=[]
   temp_events=[]
@@ -45,9 +49,16 @@ UpdateFullEvent={
   /**
   * @ignore
   */
-  constructor(private _eventService:EventService,private _newsService:NewsService) { }
+  constructor(private _eventService:EventService,private _newsService:NewsService,private _authService:AuthService) { }
   ngOnInit(): void {
 
+    if(this._authService.loggedIn()){
+      this.data={}
+    }
+    else{
+      this.data={"access":"public"}
+    }
+    console.log(this.data)
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
 
     this.publicEventsLoad()

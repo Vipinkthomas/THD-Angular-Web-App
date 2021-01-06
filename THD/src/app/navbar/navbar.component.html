@@ -10,16 +10,18 @@
     </button>
 
     <div fxShow="true" fxHide.lt-sm>
-
+    
+    <button mat-button fxShow="true" fxShow.lt-md="false"
+      routerLink='/' >
+      {{ 'Home' | translate}}
+    </button>
+    
     <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
       routerLink='/admin' >
-      {{ 'AdminHome' | translate}}
+      {{ 'Profile' | translate}}
     </button>
 
-    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
-    routerLink='/' >
-    {{ 'Home' | translate}}
-  </button>
+
 
     <button mat-button [matMenuTriggerFor]="dropMenu1" fxShow="true" fxShow.lt-md="false">
     {{ 'Navigation' | translate}}
@@ -65,16 +67,7 @@
     
     <mat-menu #dropMenu="matMenu" color="primary">
 
-      <ng-container *ngIf="_authService.loggedIn()">
-      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/admin'>
-        <button mat-menu-item>
-          {{'AdminHome' | translate}}
-        </button>
-        <mat-divider></mat-divider>
-      </div>
-      </ng-container>
-
-      <ng-container *ngIf="!_authService.loggedIn()">
+      <ng-container>
         <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/'>
           <button mat-menu-item>
             {{'Home' | translate}}
@@ -82,6 +75,15 @@
           <mat-divider></mat-divider>
         </div>
       </ng-container>
+
+      <ng-container *ngIf="_authService.loggedIn()">
+        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/admin'>
+          <button mat-menu-item>
+            {{'Profile' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+        </ng-container>
 
       <ng-container>
         <div fxShow="false" fxShow.sm="true" fxShow.xs="true">

@@ -238,7 +238,7 @@ router.post('/events',verifyToken,(req,res)=>{
 router.post('/publicevents',(req,res)=>{
     let eventData=req.body;
     
-    Event.find({access:eventData.access},(error,event)=>{
+    Event.find({access:"public"},(error,event)=>{
 
         if (error){
             console.log(error)
