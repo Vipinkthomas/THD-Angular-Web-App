@@ -21,15 +21,13 @@
       {{ 'Profile' | translate}}
     </button>
 
-
-
     <button mat-button [matMenuTriggerFor]="dropMenu1" fxShow="true" fxShow.lt-md="false">
     {{ 'Navigation' | translate}}
   </button>
 
-    <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"
-      routerLink="{{item.link}}" >
-      {{ item.label | translate}}
+    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
+      routerLink='/rooms' >
+      {{ 'Room' | translate}}
     </button>
 
     <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"
@@ -94,14 +92,14 @@
         </div>
       </ng-container>
 
-      <ng-container *ngFor="let item of menuItems">
-          <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink="{{item.link}}">
-              <button mat-menu-item>
-                  {{item.label | translate}}
-              </button>
-              <mat-divider></mat-divider>
-          </div>
-      </ng-container>
+      <ng-container *ngIf="_authService.loggedIn()">
+        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/rooms'>
+          <button mat-menu-item>
+            {{'Room' | translate}}
+          </button>
+          <mat-divider></mat-divider>
+        </div>
+        </ng-container>
 
       <ng-container *ngIf="_authService.loggedIn()">
       <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink='/event'>

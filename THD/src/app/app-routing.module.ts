@@ -26,7 +26,7 @@ const routes:Routes=[
   { path: 'outdoor', component: OutdoorComponent},
   { path: 'indoor', component: IndoorComponent, canActivate: [AuthGuard] },
   { path: 'config', component: ConfigComponent, canActivate: [AuthGuard] },
-  { path: 'rooms', component: RoomsComponent },
+  { path: 'rooms', component: RoomsComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
