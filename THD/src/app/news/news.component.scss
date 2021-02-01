@@ -27,3 +27,27 @@
     max-width: 500px;
     margin-left: 30%;
   } 
+
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  a:link {
+    color:black;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: black;
+  }
+  
+  /* mouse over link */
+  a:hover {
+    color: map-get($thd-palette-primary,50);
+  }
+  
+  /* selected link */
+  a:active {
+    color: map-get($thd-palette-primary,50);
+  }

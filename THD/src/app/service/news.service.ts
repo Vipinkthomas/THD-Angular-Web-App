@@ -15,11 +15,11 @@ export class NewsService {
   constructor(private _http:HttpClient) { }
 
   getNews(data){
-    return this._http.post<any>(this.newsUrl,data)
+    return this._http.get<any>(this.newsUrl,data)
   }
 
-  getPublicNews(data){
-    return this._http.post<any>(this.publicNewsUrl,data)
+  getPublicNews(){
+    return this._http.get<any>(this.publicNewsUrl)
   }
 
   createNews(data){

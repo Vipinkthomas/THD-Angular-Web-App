@@ -7,20 +7,23 @@ import { PopUpService } from './pop-up.service';
   providedIn: 'root'
 })
 export class MarkerService {
-  capitals: string = '../../assets/data/usa-capitals.geojson';
+  buildings: string = '../../assets/data/buildings.geojson';
 
   constructor(private http: HttpClient,private popupService: PopUpService) { }
 
   makeCapitalCircleMarkers(map: L.Map): void {
-    this.http.get(this.capitals).subscribe((res: any) => {
+    this.http.get(this.buildings).subscribe((res: any) => {
       for (const c of res.features) {
         const lat = c.geometry.coordinates[0];
         const lon = c.geometry.coordinates[1];
-        const circle = L.circleMarker([lon, lat])
+        const circle = L.circleMarker([lon, lat],{radius:5,fill:true})
         circle.bindPopup(this.popupService.makeCapitalCirclePopup(c.properties));
         circle.addTo(map);
       }
     });
+
+  //    }
+  //  });
 
   }
 }

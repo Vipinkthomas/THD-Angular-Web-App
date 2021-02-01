@@ -23,7 +23,7 @@ export class NewsComponent implements OnInit {
   updateNewsForm: FormGroup;
   deleteNewsForm: FormGroup;
   lang_sel:any;
-  news=[]
+  news:any;
   temp_news=[]
   options: any[]=['All News']
   filteredOptions: Observable<string[]>;
@@ -37,7 +37,7 @@ export class NewsComponent implements OnInit {
     "access": "public",
     "imageURL": "image",
     "iconName": "icon",
-    createdby: "",
+    "createdby": "",
     "numLike":0,
     "numDisLike":0,
     "numShare":0
@@ -54,7 +54,10 @@ export class NewsComponent implements OnInit {
     "news_date": "",
     "access": "public",
     "imageURL": "image",
-    "iconName": "icon"
+    "iconName": "icon",
+    "createdby": "",
+    "numLike":0,
+    "numDisLike":0
   }
 };
 
@@ -65,21 +68,33 @@ export class NewsComponent implements OnInit {
   
   ngOnInit(): void {
     this.createNewsForm = this.formBuilder.group({
-      newsname: ['', Validators.required],
-      newsdesc: ['', Validators.required],
-      newsdate: ['', Validators.required]
+      newsdate: ['', Validators.required],
+      newsname_en: ['', Validators.required],
+      newsdesc_en: ['', Validators.required],
+      newsname_de: ['', Validators.required],
+      newsdesc_de: ['', Validators.required],
+      access: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      iconName: ['', Validators.required],
+      createdby: ['', Validators.required]
     });
 
     this.updateNewsForm = this.formBuilder.group({
-      newsname: ['', Validators.required],
-      newsdesc: ['', Validators.required],
-      newsdate: ['', Validators.required]
+      newsdate: ['', Validators.required],
+      newsname_en: ['', Validators.required],
+      newsdesc_en: ['', Validators.required],
+      newsname_de: ['', Validators.required],
+      newsdesc_de: ['', Validators.required],
+      access: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      iconName: ['', Validators.required],
+      createdby: ['', Validators.required]
     });
 
       this.newsLoad()
 
       this.filteredOptions = this.myControl.valueChanges.pipe(
-        startWith(''),
+        startWith('All News'),
         map(value => this._filter(value))
       );
   }
@@ -162,6 +177,24 @@ export class NewsComponent implements OnInit {
     }
     this.UpdateFullNews._id=data;
     this.UpdateFullNews.UpdateNews._id=data;
+    for (var index1 in this.news) {
+      if(this.news[index1]._id==data)
+      {
+        this.UpdateFullNews.UpdateNews.access=this.news[index1].access
+        this.UpdateFullNews.UpdateNews.news_date=this.news[index1].event_date
+        this.UpdateFullNews.UpdateNews.news_desc_de=this.news[index1].event_desc_de
+        this.UpdateFullNews.UpdateNews.news_desc_en=this.news[index1].event_desc_en
+        this.UpdateFullNews.UpdateNews.news_name_en=this.news[index1].event_name_en
+        this.UpdateFullNews.UpdateNews.news_name_de=this.news[index1].event_name_de
+        this.UpdateFullNews.UpdateNews.iconName=this.news[index1].iconName
+        this.UpdateFullNews.UpdateNews.createdby=this.news[index1].createdby
+        this.UpdateFullNews.UpdateNews.imageURL=this.news[index1].imageURL
+        this.UpdateFullNews.UpdateNews.numLike=this.news[index1].numLike
+        this.UpdateFullNews.UpdateNews.numDisLike=this.news[index1].numDisLike
+        console.log(this.UpdateFullNews.UpdateNews)
+        break;
+      }
+    }
     console.log(this.UpdateFullNews._id);
   }
 
@@ -170,24 +203,19 @@ export class NewsComponent implements OnInit {
     this.temp_news=[]
     if(filterValue.toLowerCase()=="all news")
     {
-      
-
-          this.temp_news=this.news      
-
+      this.temp_news=this.news;
     }
-    else{
-  for(var i=0;i<this.news.length;i++){
+    else
+    {
+    for(var i=0;i<this.news.length;i++){
 
     if(this.news[i].news_name_en.toLowerCase().includes(filterValue.toLowerCase())||this.news[i].news_name_de.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_news.push(this.news[i])
-
     }
-    
-
-  }
-}
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
+      }
+    }
+      return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
     
   }
 

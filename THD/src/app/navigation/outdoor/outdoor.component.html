@@ -1,6 +1,51 @@
 <div class="map-container">
+  <div class="route">
+    <form [formGroup] ="navigationForm" class="normal-form">
+      <div 
+      fxLayout="row"
+      fxLayout.xs="column"
+      fxLayoutGap="20px"
+      fxLayoutAlign="center">
+  
+      <mat-form-field>
+        <mat-select
+          placeholder="FROM"
+          [(ngModel)]="fromBuilding"
+          formControlName="fromRoom"
+        >
+        <mat-option *ngFor="let building of buildingsList" [value]="building.name">
+          {{building.name}}
+        </mat-option></mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select
+        placeholder="TO"
+        [(ngModel)]="toBuilding"
+        formControlName="toRoom"
+        >
+        <mat-option *ngFor="let building of buildingsList" [value]="building.name">
+          {{building.name}}
+        </mat-option></mat-select>
+      </mat-form-field>
+    <button class="find-button"
+    mat-raised-button
+    color="primary"
+    type="submit"
+    (click)="findRoute()"
+    >
+    Search
+    </button>
+  </div>
+  
+    </form>
+  </div>
+  
   <div class="map-frame">
-    <div id="map"></div>
+    
+  
+    <div id="map">
+      
+    </div>
   </div>
 </div>
 

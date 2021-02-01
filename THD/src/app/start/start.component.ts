@@ -18,11 +18,8 @@ export class StartComponent implements OnInit {
 
   myControl = new FormControl();
   data:any;
-  
-  
-  
-  events=[]
-  news=[]
+  events:any;
+  news:any;
   temp_events=[]
   temp_news=[]
   lang_sel:any;
@@ -64,11 +61,10 @@ UpdateFullEvent={
     this.publicEventsLoad()
     this.publicNewsLoad()
     
-
-        this.filteredOptions = this.myControl.valueChanges.pipe(
-          startWith(''),
-          map(value => this._filter(value))
-        );
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith('All Events and News'),
+        map(value => this._filter(value))
+      );
 
   }
 
@@ -191,7 +187,7 @@ UpdateFullEvent={
 
     publicEventsLoad(){
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
-    this._eventService.getPublicEvents(this.data)
+    this._eventService.getPublicEvents()
     .subscribe(
       res=>{
         this.events=res;
@@ -214,7 +210,7 @@ UpdateFullEvent={
 
     publicNewsLoad(){
       this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
-      this._newsService.getPublicNews(this.data)
+      this._newsService.getPublicNews()
       .subscribe(
         res=>{
           this.news=res;

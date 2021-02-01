@@ -208,7 +208,7 @@ router.post('/deleteevents',verifyToken,(req,res)=>{
  * View Event
  */
 
-router.post('/events',verifyToken,(req,res)=>{
+router.get('/events',verifyToken,(req,res)=>{
     let eventData=req.body;
     Event.find(eventData,(error,event)=>{
 
@@ -234,8 +234,8 @@ router.post('/events',verifyToken,(req,res)=>{
  * View Public Event
  */
 
-router.post('/publicevents',(req,res)=>{  
-    let eventData=req.body;
+router.get('/publicevents',(req,res)=>{  
+    let eventData={"access":"public"}
     Event.find(eventData,(error,event)=>{
 
         if (error){
@@ -279,7 +279,7 @@ router.post('/addnews',verifyToken,(req,res)=>{
  * View News
  */
 
-router.post('/news',verifyToken,(req,res)=>{
+router.get('/news',verifyToken,(req,res)=>{
     let newsData=req.body;
     
     News.find(newsData,(error,news)=>{
@@ -306,8 +306,8 @@ router.post('/news',verifyToken,(req,res)=>{
  * View public News
  */
 
-router.post('/publicnews',(req,res)=>{
-    let newsData=req.body;   
+router.get('/publicnews',(req,res)=>{
+    let newsData={"access":"public"}
     News.find(newsData,(error,news)=>{
 
         if (error){
@@ -373,7 +373,7 @@ router.post('/deletenews',verifyToken,(req,res)=>{
  * Navigation
  */
 
-router.post('/navigation',verifyToken,(req,res)=>{
+router.get('/navigation',verifyToken,(req,res)=>{
     
     Navigation.find({},(error,navigation)=>{
 

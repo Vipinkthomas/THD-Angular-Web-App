@@ -21,7 +21,7 @@ export class EventsComponent implements OnInit {
   createEventForm: FormGroup;
   updateEventForm: FormGroup;
   deleteEventForm: FormGroup;
-  events=[]
+  events:any;
   temp_events=[]
   lang_sel:any;
   options: any[]=['All events']
@@ -36,7 +36,10 @@ export class EventsComponent implements OnInit {
     "access": "public",
     "imageURL": "image",
     "iconName": "icon",
-    "createdby": ""
+    "createdby": "",
+    "numLike":0,
+    "numDisLike":0
+
 
   };
   UpdateFullEvent={
@@ -46,12 +49,14 @@ export class EventsComponent implements OnInit {
     "event_name_en": "",
     "event_name_de": "",
     "event_date": "",
-    "access": "public",
-    "imageURL": "image",
-    "iconName": "icon",
+    "access": "",
+    "imageURL": "",
+    "iconName": "",
     "createdby": "",
     "event_desc_en": "",
-    "event_desc_de": ""
+    "event_desc_de": "",
+    "numLike":0,
+    "numDisLike":0
 
   }
 };
@@ -67,15 +72,27 @@ export class EventsComponent implements OnInit {
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
 
     this.createEventForm = this.formBuilder.group({
-      eventname: ['', Validators.required],
-      eventdesc: ['', Validators.required],
-      eventdate: ['', Validators.required]
+      eventname_en: ['', Validators.required],
+      eventdesc_en: ['', Validators.required],
+      eventname_de: ['', Validators.required],
+      eventdesc_de: ['', Validators.required],
+      eventdate: ['', Validators.required],
+      access: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      iconName: ['', Validators.required],
+      createdby: ['', Validators.required]
     });
 
     this.updateEventForm = this.formBuilder.group({
-      eventname: ['', Validators.required],
-      eventdesc: ['', Validators.required],
-      eventdate: ['', Validators.required]
+      eventname_en: ['', Validators.required],
+      eventdesc_en: ['', Validators.required],
+      eventname_de: ['', Validators.required],
+      eventdesc_de: ['', Validators.required],
+      eventdate: ['', Validators.required],
+      access: ['', Validators.required],
+      imageURL: ['', Validators.required],
+      iconName: ['', Validators.required],
+      createdby: ['', Validators.required]
     });
 
     this.deleteEventForm = this.formBuilder.group({
@@ -87,7 +104,7 @@ export class EventsComponent implements OnInit {
       this.eventLoad()
 
       this.filteredOptions = this.myControl.valueChanges.pipe(
-        startWith(''),
+        startWith('All Events'),
         map(value => this._filter(value))
       );
   }
@@ -163,7 +180,23 @@ export class EventsComponent implements OnInit {
     }
     this.UpdateFullEvent._id=data;
     this.UpdateFullEvent.UpdateEvent._id=data;
-    console.log(this.UpdateFullEvent._id);
+    for (var index1 in this.events) {
+      if(this.events[index1]._id==data)
+      {
+        this.UpdateFullEvent.UpdateEvent.access=this.events[index1].access
+        this.UpdateFullEvent.UpdateEvent.event_date=this.events[index1].event_date
+        this.UpdateFullEvent.UpdateEvent.event_desc_de=this.events[index1].event_desc_de
+        this.UpdateFullEvent.UpdateEvent.event_desc_en=this.events[index1].event_desc_en
+        this.UpdateFullEvent.UpdateEvent.event_name_en=this.events[index1].event_name_en
+        this.UpdateFullEvent.UpdateEvent.event_name_de=this.events[index1].event_name_de
+        this.UpdateFullEvent.UpdateEvent.iconName=this.events[index1].iconName
+        this.UpdateFullEvent.UpdateEvent.createdby=this.events[index1].createdby
+        this.UpdateFullEvent.UpdateEvent.imageURL=this.events[index1].imageURL
+        this.UpdateFullEvent.UpdateEvent.numLike=this.events[index1].numLike
+        this.UpdateFullEvent.UpdateEvent.numDisLike=this.events[index1].numDisLike
+        break;
+      }
+    }
   }
 
   private _filter(value: string): string[] {
@@ -175,19 +208,15 @@ export class EventsComponent implements OnInit {
     }
     else
     {
-  for(var i=0;i<this.events.length;i++){
+    for(var i=0;i<this.events.length;i++){
 
     if(this.events[i].event_name_en.toLowerCase().includes(filterValue.toLowerCase())||this.events[i].event_name_de.toLowerCase().includes(filterValue.toLowerCase()))   
     {
       this.temp_events.push(this.events[i])
-      
-
     }
-    
-
       }
     }
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
+      return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);  
     
   }
 
@@ -199,10 +228,14 @@ export class EventsComponent implements OnInit {
         this.events=res;
         this.temp_events=this.events;
         for (var index1 in this.events) {
-          if(this.lang_sel)
+          if(this.lang_sel){
           this.options.push(this.events[index1].event_name_en)
-          else
+          console.log(this.options)
+          }
+          else{
           this.options.push(this.events[index1].event_name_de)
+          console.log(this.options)
+          }
         }
       },
       err=>{
