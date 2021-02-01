@@ -9,9 +9,15 @@
 # Prerequisites:
 
  1. Clone the project https://mygit.th-deg.de/vt16684/THD   
- 2. Install **[MongoDB](https://docs.mongodb.com/manual/administration/install-community)** and **[Node.js](https://nodejs.org/en/)** version 12.8.1
+ 2. Install **[MongoDB](https://docs.mongodb.com/manual/administration/install-community)** and **[Node.js](https://nodejs.org/en/)** version 
+
+    Node: v14.15.4
+
  3. Restore the MongoDB backup included in the project using `mongorestore --db THD THD\MongoDB\THD` ( not mandatory, but recommended. Otherwise create the DB). 
  4. Install Angular CLI: `npm install -g @angular/cli` 
+
+    Angular CLI: v11.1.1
+
  5. Navigate to `/THD/THD` Run `npm install` to install the dependencies
  6. Navigate to `/THD/server` Run `npm install` to install the dependencies(dependencies are already present, but would recommend to do a `npm install`)
 
