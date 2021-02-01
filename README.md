@@ -1,31 +1,34 @@
 # THD
 
-**link to the project:** https://mygit.th-deg.de/vt16684/THD
+**Developer Name :** Vipin Koshy Thomas
 
-**Student Name :** Vipin Koshy Thomas
+**Team :** Alone
+
+**Project URL:** https://mygit.th-deg.de/vt16684/THD
 
 # Prerequisites:
 
- 1. Install **[MongoDB](https://docs.mongodb.com/manual/administration/install-community)** and **[Node.js](https://nodejs.org/en/)** version 12.8.1
- 2. Install Angular CLI: `npm install -g @angular/cli`
- 3. Download or clone the project from https://mygit.th-deg.de/mh02127/thd/
- 4. Navigate to `thd/thd-app` Run `npm install` to install the dependencies
- 5. Navigate to `thd/server` Run `npm install` to install the dependencies
- 6. Execute `mongod` to start the MongoDB daemon
+ 1. Clone the project https://mygit.th-deg.de/vt16684/THD   
+ 2. Install **[MongoDB](https://docs.mongodb.com/manual/administration/install-community)** and **[Node.js](https://nodejs.org/en/)** version 12.8.1
+ 3. Restore the MongoDB backup included in the project using `mongorestore --db THD THD\MongoDB\THD` ( not mandatory, but recommended. Otherwise create the DB). 
+ 4. Install Angular CLI: `npm install -g @angular/cli` 
+ 5. Navigate to `/THD/THD` Run `npm install` to install the dependencies
+ 6. Navigate to `/THD/server` Run `npm install` to install the dependencies(dependencies are already present, but would recommend to do a `npm install`)
 
 
-# Running the application:
+# To Run Application:
 
-1. Navigate to `thd/thd-app` and Run `ng build` to build the Angular app 
+1. Navigate to `/THD/THD` and Run `ng build` to build the Angular app 
 2. Run `ng serve` to start the application
-3. Navigate to `/thd/server` and Run `node server.js` in another console window to start the Node.js server
-4. Browse to `http://127.0.0.1:4200/`
+3. Execute `mongod` to start the MongoDB daemon
+4. Navigate to `/THD/server` and Run `node server` in the another console.
+5. Follow the link `http://127.0.0.1:4200/`
+6. Sample Login details: (If you are using restored MongoDB database THD, mentioned above)
 
+    Username : c@a.com
 
+    Password : abcdefgh
 
+## Find Further Information here
 
-## Further Information
-
-**Wiki**
-
-- For more information about the project, check the [Wiki](https://mygit.th-deg.de/vt16684/THD/-/wikis/home)
+[**Project Wiki**](https://mygit.th-deg.de/vt16684/THD/-/wikis/home)
