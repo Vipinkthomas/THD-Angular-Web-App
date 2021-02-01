@@ -23,6 +23,11 @@
 3. Execute `mongod` to start the MongoDB daemon
 4. Navigate to `/THD/server` and Run `node server` in the another console.
 5. Follow the link `http://127.0.0.1:4200/`
+6. Sample Login details: (If you are using restored MongoDB database THD, mentioned above)
+
+    Username : c@a.com
+
+    Password : abcdefgh
 
 ## Find Further Information here
 
