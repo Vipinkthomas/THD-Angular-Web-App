@@ -63,7 +63,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Thabella api call</p>
+                <p>Room service class</p>
 
             </p>
 
@@ -82,7 +82,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#apiUrl">apiUrl</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#eventsUrl">eventsUrl</a>
                             </li>
                         </ul>
                     </td>
@@ -97,7 +98,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#sendGetRequest">sendGetRequest</a>
+                                <a href="#getEventInfo">getEventInfo</a>
                             </li>
                         </ul>
                     </td>
@@ -117,17 +118,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(httpClient: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/http.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/http.service.ts:15</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>a constructor to create new instance of this class</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -140,7 +143,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>httpClient</td>
+                                                        <td>http</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
@@ -169,32 +172,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sendGetRequest"></a>
+                    <a name="getEventInfo"></a>
                     <span class="name">
                         <b>
-                            sendGetRequest
+                            getEventInfo
                         </b>
-                        <a href="#sendGetRequest"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getEventInfo"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>sendGetRequest(url)</code>
+<code>getEventInfo(roomIdSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dateSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, hourSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/app/service/http.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/service/http.service.ts:31</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This function send GET request to the endpoint API in the backend server and it returns a JSON object 
+with the event info in a specific room</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -202,13 +208,17 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                     <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>url</td>
+                                    <td>roomIdSelected</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -216,7 +226,39 @@
 
 
                                     <td>
-                                        <p>api url info{</p>
+                                        <p>: id of the selected room by the user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>dateSelected</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: date selected by the user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>hourSelected</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>: hour selected by the user</p>
 
                                     </td>
                                 </tr>
@@ -224,19 +266,13 @@
                         </table>
                     </div>
                     <div>
-                        <b>Example :</b>
-                        <div>
-                            <pre class="line-numbers"><code class="language-html">to get thabella info
-sendGetRequest(url)</code></pre>
-                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        <p>response from server</p>
-
+                        
                     </div>
                 </td>
             </tr>
@@ -252,11 +288,12 @@ sendGetRequest(url)</code></pre>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="apiUrl"></a>
+                        <a name="eventsUrl"></a>
                         <span class="name">
                             <b>
-                            apiUrl</b>
-                            <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                                <span class="modifier">Private</span>
+                            eventsUrl</b>
+                            <a href="#eventsUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -268,15 +305,21 @@ sendGetRequest(url)</code></pre>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;https://thabella.th-deg.de/thabella/opn/period/findByRoom/146/2020-11-24%208:00&quot;</code>
+                            <i>Default value : </i><code>&quot;http://localhost:3000/api/thabellaevents/&quot;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/http.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/http.service.ts:15</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>endpoint url for events</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -288,31 +331,38 @@ sendGetRequest(url)</code></pre>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Event } from &#x27;../models/event&#x27;;
 
 /**
- * Thabella api call
+ * Room service class
  */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class HttpService {
-  apiUrl &#x3D; &quot;https://thabella.th-deg.de/thabella/opn/period/findByRoom/146/2020-11-24%208:00&quot;;
-
-  constructor(private httpClient: HttpClient) { }
 
   /**
-  * @example
-  * to get thabella info
-  * sendGetRequest(url)
-  *
-  * @param {URL} url  api url info{@link Todo}
-  * @returns response from server
-  */
-  sendGetRequest(url) {
-    return this.httpClient.get&lt;Event&gt;(url); // this.apiUrl
-  }
+   * endpoint url for events
+   */
+  private eventsUrl &#x3D; &quot;http://localhost:3000/api/thabellaevents/&quot;
 
+
+  /**
+   * a constructor to create new instance of this class
+   * @param http 
+   */
+  constructor(private http: HttpClient) { }
+
+  /**
+   * This function send GET request to the endpoint API in the backend server and it returns a JSON object 
+   * with the event info in a specific room
+   * @param roomIdSelected : id of the selected room by the user
+   * @param dateSelected : date selected by the user
+   * @param hourSelected : hour selected by the user
+   */
+  getEventInfo(roomIdSelected: string, dateSelected: string, hourSelected: string){
+    
+    return this.http.get&lt;any&gt;(this.eventsUrl, { params: {roomId: roomIdSelected, date: dateSelected, hour: hourSelected}})
+  }
 }
 
 </code></pre>

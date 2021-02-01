@@ -5,14 +5,17 @@
     // text-align: center;
     max-width: 100%;
     padding-bottom: 10px;
+    left:0px;
     
 }
 footer {
     text-align: center;
-    position: relative;
+    position: fixed;
     width: 100%;
     color: white;
-    background-color:map-get($thd-palette-primary,500);
+    bottom: 0px;
+    left: 0px;
+    background-color:#313131;
   }
 
 

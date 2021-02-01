@@ -233,20 +233,35 @@ export class AppComponent {
   &lt;div class&#x3D;&#x27;main-content&#x27;&gt;
   &lt;router-outlet&gt;&lt;/router-outlet&gt;
   &lt;/div&gt;
-&lt;!--footer--&gt;</code></pre>
+&lt;!--footer--&gt;
+&lt;footer&gt;
+  https://www.th-deg.de
+&lt;/footer&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-styleData">
                 <p class="comment">
                     <code>./app.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.main-content{
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../custom-theme.scss&#x27;;
+.main-content{
 
     padding-top: 100px;
     // text-align: center;
     max-width: 100%;
+    padding-bottom: 10px;
+    left:0px;
     
 }
+footer {
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    color: white;
+    bottom: 0px;
+    left: 0px;
+    background-color:#313131;
+  }
 
 
 </code></pre>
@@ -277,7 +292,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--header-->  <app-navbar></app-navbar><!--main content-->  <div class=\'main-content\'>  <router-outlet></router-outlet>  </div><!--footer--></div>'
+        var COMPONENT_TEMPLATE = '<div><!--header-->  <app-navbar></app-navbar><!--main content-->  <div class=\'main-content\'>  <router-outlet></router-outlet>  </div><!--footer--><footer>  https://www.th-deg.de</footer></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

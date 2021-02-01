@@ -3,7 +3,7 @@ import { HttpService } from '../service/http.service';
 import { Event } from '../models/event';
 import { Room } from '../models/room';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 /**
  *rooms class which holds the code for rooms component
  */
@@ -14,7 +14,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RoomsComponent implements OnInit {
   /**
-   * Angular form to search for events in a room with three controls (room, date, time)
+   * 
    */
   roomsForm: FormGroup = new FormGroup({
     room: new FormControl('', Validators.required),
@@ -23,7 +23,7 @@ export class RoomsComponent implements OnInit {
   })
 
   /**
-   *variable o type Room which will hold the room id and room name
+   *
    */
   roomsArray: Room[]
 
@@ -119,7 +119,7 @@ export class RoomsComponent implements OnInit {
    * a constructor to create new instance of this class
    * @param roomsService : the injected roomsService will be used to call a GET request to retrieve events
    */
-  constructor(private httpService: HttpService) {
+  constructor(private _snackBar:MatSnackBar,private httpService: HttpService) {
     this.roomsArray = []
     /**
      * iterating through the array of rooms defined below and split the id and split the id and the description
@@ -144,40 +144,47 @@ export class RoomsComponent implements OnInit {
   /**
    *This function is used to find events in a specific room based on user inputs
    */
-  findEvent() {
+  eventInfo() {
     
-    //parsing the date to a specific format in which the external api understands it
+    // finding out the date 
     this.newDate =
-      this.selectedDate.getFullYear() + //extract the year from the date
+      this.selectedDate.getFullYear() +
       '-' +
-      (this.selectedDate.getMonth() + 1) + //extract the month from the date
+      (this.selectedDate.getMonth() + 1) +
       '-' +
-      this.selectedDate.getDate() //extract the day from the date
+      this.selectedDate.getDate() 
 
     this.roomId = this.selectedRoom.id
 
     this.roomDescription = this.selectedRoom.description
 
     this.httpService
-      .getEvents(this.roomId, this.newDate, this.hourSelected) //passing roomId, newDate, hourSelected to getEvents
-      .subscribe((res) => {
-        this.jsonEvent = JSON.parse(res.body) //parse the body of response to json and assign it to jsonEvent
-        this.events = []
-
-        if(this.jsonEvent.length !== 0){
-          this.events.push(this.jsonEvent[0])
-          this.noEventFlag = false
-          
-        } else{
-          this.noEventFlag = true
-          setTimeout(()=>this.noEventFlag = false , 2000) //Setting noEventFlag to False to hide the message for "no events"
+      .getEventInfo(this.roomId, this.newDate, this.hourSelected).subscribe(
+      (responseBody) => {
+    
+        if(responseBody[0]){
+        this.events = []; 
+        this.events.push(responseBody[0]);
+        console.log(responseBody);
+        }
+        else{
+          this.events = []
+          this.snackBar("No Items present","")
 
         }
-      })
+      });
+
+      
+  }
+
+  snackBar(action:any,name:any){
+    this._snackBar.open(action,name, {
+      duration: 2000,
+    });
   }
 
   /**
-   *array of string that holds all ids and descriptions
+   *rooms info
    */
   rooms = `1;A008
     2;A009 - Besprechungsraum (Buchung ü. Dekanat)

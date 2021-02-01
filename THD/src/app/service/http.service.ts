@@ -28,7 +28,7 @@ export class HttpService {
    * @param dateSelected : date selected by the user
    * @param hourSelected : hour selected by the user
    */
-  getEvents(roomIdSelected: string, dateSelected: string, hourSelected: string){
+  getEventInfo(roomIdSelected: string, dateSelected: string, hourSelected: string){
     
     return this.http.get<any>(this.eventsUrl, { params: {roomId: roomIdSelected, date: dateSelected, hour: hourSelected}})
   }

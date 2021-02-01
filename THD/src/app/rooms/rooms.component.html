@@ -29,8 +29,8 @@
 
 <div class="find-button">
   <!--Find button-->
-  <button mat-raised-button color="accent" type="submit" (click)="findEvent()" [disabled]="roomsForm.invalid">
-    {{ "Find" | translate }}
+  <button mat-raised-button color="accent" type="submit" (click)="eventInfo()" [disabled]="roomsForm.invalid">
+    {{ "Event Info" | translate }}
   </button>
 </div>
 
@@ -64,7 +64,3 @@
 
 
 </table>
-<!--displaying message if no events found-->
-<div class="no-event-message">
-  <p *ngIf="noEventFlag">{{ "No Events in this particular room!" | translate }}</p>
-</div>

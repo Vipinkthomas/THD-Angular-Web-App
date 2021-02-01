@@ -9,6 +9,8 @@ mat-toolbar{
   min-height: 100px !important; 
   height: 100px !important;
   z-index: 1;
+  left:0px;
+  top:0px;
 }
 
 mat-toolbar{
@@ -20,16 +22,4 @@ mat-toolbar{
           height: auto;
       }
   }
-}
-
-.header{
-    
-  top: 0;
-  width: 100%;
-  position: sticky;
-  display:flex;
-  justify-content:flex-end; 
-  background-color: white;
-  z-index: 999;
-  
 }

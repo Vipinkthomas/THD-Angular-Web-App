@@ -1,9 +1,4 @@
-<div class="example-button-container">
-  <button mat-fab color="primary" aria-label="create nav" matTooltip="Create Buidling" matTooltipPosition="right" (click)="isCreate()">
-    <a href="config#createForm">
-    <mat-icon>create</mat-icon></a>
-  </button>
-</div>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="100px">
 <table mat-table [dataSource]="navigation" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -48,10 +43,14 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+<div class="example-button-container" fxLayoutAlign="center">
+  <button mat-fab color="primary" aria-label="create nav" matTooltip="Create Buidling" matTooltipPosition="right" (click)="isCreate()">
+    <a href="config#createForm">
+    <mat-icon>create</mat-icon></a>
+  </button>
+</div>
 
-<mat-divider></mat-divider>
-
-<div id="createForm" class="create-event" *ngIf="isCreateButton">
+<div id="createForm" class="create-event" *ngIf="isCreateButton" fxLayoutAlign="center">
   <mat-card class="example-card1">
     
     <mat-card-header>
@@ -99,11 +98,10 @@
   
   </mat-card>
   </div>
+
   
   
-  
-  
-  <div id="updateForm" class="update-event" *ngIf="isUpdateButton">
+  <div id="updateForm" class="update-event" *ngIf="isUpdateButton" fxLayoutAlign="center">
   <mat-card class="example-card1">
     
     <mat-card-header>
@@ -151,5 +149,6 @@
   
   </mat-card>
   </div>
+</div>
   
   

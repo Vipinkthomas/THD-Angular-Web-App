@@ -140,9 +140,6 @@
                                     <span class="modifier">Public</span>
                                 <a href="#_authService">_authService</a>
                             </li>
-                            <li>
-                                <a href="#menuItems">menuItems</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -181,7 +178,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/navbar/navbar.component.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/navbar/navbar.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -250,8 +247,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/navbar/navbar.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">src/app/navbar/navbar.component.ts:15</a></div>
                 </td>
             </tr>
 
@@ -294,44 +291,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/navbar/navbar.component.ts:21</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="menuItems"></a>
-                        <span class="name">
-                            <b>
-                            menuItems</b>
-                            <a href="#menuItems"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../interfaces/MenuItem.html" target="_self" >MenuItem[]</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[
-    {
-      label: &#x27;Room&#x27;,
-      link: &#x27;/rooms&#x27;
-    }
-  ]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/navbar/navbar.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/navbar/navbar.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -346,7 +306,6 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;../service/auth.service&#x27;;
 import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { MenuItem } from &#x27;../models/menuitems&#x27;;
 /**
  * set width Breakpoint
  */
@@ -356,13 +315,6 @@ import { MenuItem } from &#x27;../models/menuitems&#x27;;
   styleUrls: [&#x27;./navbar.component.scss&#x27;]
 })
 export class NavbarComponent implements OnInit {
-
-  menuItems: MenuItem[] &#x3D; [
-    {
-      label: &#x27;Room&#x27;,
-      link: &#x27;/rooms&#x27;
-    }
-  ];
 
   constructor(public _authService:AuthService) { }
 
@@ -398,15 +350,13 @@ export class NavbarComponent implements OnInit {
       {{ &#x27;Profile&#x27; | translate}}
     &lt;/button&gt;
 
-
-
     &lt;button mat-button [matMenuTriggerFor]&#x3D;&quot;dropMenu1&quot; fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;&gt;
     {{ &#x27;Navigation&#x27; | translate}}
   &lt;/button&gt;
 
-    &lt;button  mat-button *ngFor&#x3D;&quot;let item of menuItems&quot; fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
-      routerLink&#x3D;&quot;{{item.link}}&quot; &gt;
-      {{ item.label | translate}}
+    &lt;button  *ngIf&#x3D;&quot;_authService.loggedIn()&quot; mat-button fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
+      routerLink&#x3D;&#x27;/rooms&#x27; &gt;
+      {{ &#x27;Room&#x27; | translate}}
     &lt;/button&gt;
 
     &lt;button  *ngIf&#x3D;&quot;_authService.loggedIn()&quot; mat-button fxShow&#x3D;&quot;true&quot; fxShow.lt-md&#x3D;&quot;false&quot;
@@ -471,14 +421,14 @@ export class NavbarComponent implements OnInit {
         &lt;/div&gt;
       &lt;/ng-container&gt;
 
-      &lt;ng-container *ngFor&#x3D;&quot;let item of menuItems&quot;&gt;
-          &lt;div fxShow&#x3D;&quot;false&quot; fxShow.sm&#x3D;&quot;true&quot; fxShow.xs&#x3D;&quot;true&quot;  routerLink&#x3D;&quot;{{item.link}}&quot;&gt;
-              &lt;button mat-menu-item&gt;
-                  {{item.label | translate}}
-              &lt;/button&gt;
-              &lt;mat-divider&gt;&lt;/mat-divider&gt;
-          &lt;/div&gt;
-      &lt;/ng-container&gt;
+      &lt;ng-container *ngIf&#x3D;&quot;_authService.loggedIn()&quot;&gt;
+        &lt;div fxShow&#x3D;&quot;false&quot; fxShow.sm&#x3D;&quot;true&quot; fxShow.xs&#x3D;&quot;true&quot;  routerLink&#x3D;&#x27;/rooms&#x27;&gt;
+          &lt;button mat-menu-item&gt;
+            {{&#x27;Room&#x27; | translate}}
+          &lt;/button&gt;
+          &lt;mat-divider&gt;&lt;/mat-divider&gt;
+        &lt;/div&gt;
+        &lt;/ng-container&gt;
 
       &lt;ng-container *ngIf&#x3D;&quot;_authService.loggedIn()&quot;&gt;
       &lt;div fxShow&#x3D;&quot;false&quot; fxShow.sm&#x3D;&quot;true&quot; fxShow.xs&#x3D;&quot;true&quot;  routerLink&#x3D;&#x27;/event&#x27;&gt;
@@ -584,6 +534,8 @@ mat-toolbar{
   min-height: 100px !important; 
   height: 100px !important;
   z-index: 1;
+  left:0px;
+  top:0px;
 }
 
 mat-toolbar{
@@ -595,18 +547,6 @@ mat-toolbar{
           height: auto;
       }
   }
-}
-
-.header{
-    
-  top: 0;
-  width: 100%;
-  position: sticky;
-  display:flex;
-  justify-content:flex-end; 
-  background-color: white;
-  z-index: 999;
-  
 }</code></pre>
     </div>
 
@@ -635,7 +575,7 @@ mat-toolbar{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">  <mat-toolbar-row class="mat-tool-logo" color="primary">    <span ><a href="http://localhost:4200/"><img src="/assets/THD-Logo.png"></a></span>    <span class="spacer"></span>  </mat-toolbar-row>  <mat-toolbar-row color="primary">    <button mat-icon-button [matMenuTriggerFor]="dropMenu" [fxShow]="false" [fxShow.sm]="true" [fxShow.xs]="true">      <mat-icon>menu</mat-icon>    </button>    <div fxShow="true" fxHide.lt-sm>        <button mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/\' >      {{ \'Home\' | translate}}    </button>        <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/admin\' >      {{ \'Profile\' | translate}}    </button>    <button mat-button [matMenuTriggerFor]="dropMenu1" fxShow="true" fxShow.lt-md="false">    {{ \'Navigation\' | translate}}  </button>    <button  mat-button *ngFor="let item of menuItems" fxShow="true" fxShow.lt-md="false"      routerLink="{{item.link}}" >      {{ item.label | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/event\' >      {{ \'Events\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/news\' >      {{ \'News\' | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/register\' >      {{ \'Register\' | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/login\' >      {{ \'Login\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"     (click)="_authService.logoutUser()" >      <mat-icon class="mr">mood_bad</mat-icon>      {{ \'Logout\' | translate}}    </button>          </div><span class="spacer"></span>    <app-select-language></app-select-language>      <ng-container>        <mat-menu #dropMenu="matMenu" color="primary">      <ng-container>        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/\'>          <button mat-menu-item>            {{\'Home\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/admin\'>          <button mat-menu-item>            {{\'Profile\' | translate}}          </button>          <mat-divider></mat-divider>        </div>        </ng-container>      <ng-container>        <div fxShow="false" fxShow.sm="true" fxShow.xs="true">          <button mat-menu-item [matMenuTriggerFor]="dropMenu1">            {{\'Navigation\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </ng-container>      <ng-container *ngFor="let item of menuItems">          <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink="{{item.link}}">              <button mat-menu-item>                  {{item.label | translate}}              </button>              <mat-divider></mat-divider>          </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/event\'>        <button mat-menu-item>          {{\'Events\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/news\'>        <button mat-menu-item>          {{\'News\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="!_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/register\'>        <button mat-menu-item>          {{\'Register\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="!_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/login\'>        <button mat-menu-item>          {{\'Login\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true">        <button mat-menu-item (click)="_authService.logoutUser()">          {{\'Logout\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>  </mat-menu></ng-container><ng-container>          <mat-menu #dropMenu1="matMenu" color="primary">          <ng-container>        <div routerLink=\'/outdoor\'>          <button mat-menu-item>            {{\'Outdoor Navigation\' | translate}}          </button>          <mat-divider></mat-divider>        </div>        </ng-container>          <ng-container *ngIf="_authService.loggedIn()">          <div routerLink=\'/indoor\'>            <button mat-menu-item>              {{\'Indoor Navigation\' | translate}}            </button>            <mat-divider></mat-divider>          </div>        </ng-container>        <ng-container *ngIf="_authService.loggedIn()">          <div routerLink=\'/config\'>            <button mat-menu-item>              {{\'Config\' | translate}}            </button>            <mat-divider></mat-divider>          </div>        </ng-container>    </mat-menu>  </ng-container></mat-toolbar-row></mat-toolbar></div>'
+        var COMPONENT_TEMPLATE = '<div><mat-toolbar color="primary">  <mat-toolbar-row class="mat-tool-logo" color="primary">    <span ><a href="http://localhost:4200/"><img src="/assets/THD-Logo.png"></a></span>    <span class="spacer"></span>  </mat-toolbar-row>  <mat-toolbar-row color="primary">    <button mat-icon-button [matMenuTriggerFor]="dropMenu" [fxShow]="false" [fxShow.sm]="true" [fxShow.xs]="true">      <mat-icon>menu</mat-icon>    </button>    <div fxShow="true" fxHide.lt-sm>        <button mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/\' >      {{ \'Home\' | translate}}    </button>        <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/admin\' >      {{ \'Profile\' | translate}}    </button>    <button mat-button [matMenuTriggerFor]="dropMenu1" fxShow="true" fxShow.lt-md="false">    {{ \'Navigation\' | translate}}  </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/rooms\' >      {{ \'Room\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/event\' >      {{ \'Events\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/news\' >      {{ \'News\' | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/register\' >      {{ \'Register\' | translate}}    </button>    <button  *ngIf="!_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"      routerLink=\'/login\' >      {{ \'Login\' | translate}}    </button>    <button  *ngIf="_authService.loggedIn()" mat-button fxShow="true" fxShow.lt-md="false"     (click)="_authService.logoutUser()" >      <mat-icon class="mr">mood_bad</mat-icon>      {{ \'Logout\' | translate}}    </button>          </div><span class="spacer"></span>    <app-select-language></app-select-language>      <ng-container>        <mat-menu #dropMenu="matMenu" color="primary">      <ng-container>        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/\'>          <button mat-menu-item>            {{\'Home\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/admin\'>          <button mat-menu-item>            {{\'Profile\' | translate}}          </button>          <mat-divider></mat-divider>        </div>        </ng-container>      <ng-container>        <div fxShow="false" fxShow.sm="true" fxShow.xs="true">          <button mat-menu-item [matMenuTriggerFor]="dropMenu1">            {{\'Navigation\' | translate}}          </button>          <mat-divider></mat-divider>        </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">        <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/rooms\'>          <button mat-menu-item>            {{\'Room\' | translate}}          </button>          <mat-divider></mat-divider>        </div>        </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/event\'>        <button mat-menu-item>          {{\'Events\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/news\'>        <button mat-menu-item>          {{\'News\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="!_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/register\'>        <button mat-menu-item>          {{\'Register\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="!_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true"  routerLink=\'/login\'>        <button mat-menu-item>          {{\'Login\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>      <ng-container *ngIf="_authService.loggedIn()">      <div fxShow="false" fxShow.sm="true" fxShow.xs="true">        <button mat-menu-item (click)="_authService.logoutUser()">          {{\'Logout\' | translate}}        </button>        <mat-divider></mat-divider>      </div>      </ng-container>  </mat-menu></ng-container><ng-container>          <mat-menu #dropMenu1="matMenu" color="primary">          <ng-container>        <div routerLink=\'/outdoor\'>          <button mat-menu-item>            {{\'Outdoor Navigation\' | translate}}          </button>          <mat-divider></mat-divider>        </div>        </ng-container>          <ng-container *ngIf="_authService.loggedIn()">          <div routerLink=\'/indoor\'>            <button mat-menu-item>              {{\'Indoor Navigation\' | translate}}            </button>            <mat-divider></mat-divider>          </div>        </ng-container>        <ng-container *ngIf="_authService.loggedIn()">          <div routerLink=\'/config\'>            <button mat-menu-item>              {{\'Config\' | translate}}            </button>            <mat-divider></mat-divider>          </div>        </ng-container>    </mat-menu>  </ng-container></mat-toolbar-row></mat-toolbar></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};

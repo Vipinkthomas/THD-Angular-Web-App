@@ -83,7 +83,6 @@ import { NgModule } from &#x27;@angular/core&#x27;;
 import { Routes, RouterModule, Router } from &#x27;@angular/router&#x27;;
 import { OutdoorComponent } from &#x27;./navigation/outdoor/outdoor.component&#x27;;
 import { StartComponent } from &#x27;./start/start.component&#x27;;
-import { InternationalComponent } from &#x27;./international/international.component&#x27;;
 import { LoginComponent } from &#x27;./login/login.component&#x27;;
 import { AdminComponent } from &#x27;./admin/admin.component&#x27;;
 import { AuthGuard } from &#x27;./service_guard/auth.guard&#x27;;
@@ -99,8 +98,7 @@ const routes:Routes&#x3D;[
   { path: &#x27;outdoor&#x27;, component: OutdoorComponent},
   { path: &#x27;indoor&#x27;, component: IndoorComponent, canActivate: [AuthGuard] },
   { path: &#x27;config&#x27;, component: ConfigComponent, canActivate: [AuthGuard] },
-  { path: &#x27;rooms&#x27;, component: RoomsComponent },
-  { path: &#x27;international&#x27;, component: InternationalComponent },
+  { path: &#x27;rooms&#x27;, component: RoomsComponent, canActivate: [AuthGuard] },
   { path: &#x27;register&#x27;, component: RegisterComponent },
   { path: &#x27;login&#x27;, component: LoginComponent },
   { path: &#x27;admin&#x27;, component: AdminComponent, canActivate: [AuthGuard] },
