@@ -28,6 +28,8 @@ const router =express.Router();
 //     }
 // });
 
+
+
 /**
  * local Mongodb connection
  */
@@ -393,6 +395,65 @@ router.get('/navigation',verifyToken,(req,res)=>{
     })
 });
 
+
+/**
+ * Delete Navigation
+ */
+
+router.post('/deletenav',verifyToken,(req,res)=>{
+    let id= req.body
+    Navigation.deleteOne(id,(error,deletedNav)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(deletedNav)
+        }
+
+    });
+
+});
+
+/**
+ * Update Navigation
+ */
+
+router.post('/updatenav',(req,res)=>{
+    let navData= req.body.UpdateNav;
+    let nav=new Navigation(navData);
+    let id=req.body._id;
+    console.log(id,nav)
+    Navigation.updateOne({"_id":id},{$set:nav},(error,updatedNav)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            console.log(updatedNav)
+            res.status(200).send(updatedNav)
+        }
+
+    });
+
+});
+
+/**
+ * Add Navigation
+ */
+
+router.post('/addnav',verifyToken,(req,res)=>{
+    let navData= req.body;
+    let nav=new Navigation(navData);
+    nav.save((error,addedNav)=>{
+        if (error){
+            console.log(error);
+        }
+        else{
+            res.status(200).send(addedNav)
+        }
+
+    });
+
+});
 
 
 

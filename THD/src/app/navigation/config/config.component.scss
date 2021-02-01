@@ -1,0 +1,31 @@
+//@import '../../custom-theme.scss';
+table {
+  width: 50%; 
+}
+
+a:link {
+  color:black;
+}
+
+/* visited link */
+a:visited {
+  color: black;
+}
+
+/* mouse over link */
+a:hover {
+  color: white;
+}
+
+/* selected link */
+a:active {
+  color: white;
+}
+.example-card1 {
+  max-height: 500px;
+//  z-index: 300;
+  margin-top:20px; 
+  min-width: 400px;
+  max-width: 500px;
+  margin-left: 30%;
+} 

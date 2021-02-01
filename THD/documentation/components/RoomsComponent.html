@@ -713,7 +713,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/rooms/rooms.component.ts:78</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/rooms/rooms.component.ts:77</a></div>
                             </td>
                         </tr>
 
@@ -782,9 +782,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 // import { DataSource } from &quot;@angular/cdk/collections&quot;;
-import { HttpService } from &#x27;../http.service&#x27;;
-import { MenuItem } from &#x27;../menuitems&#x27;;
-import { Room } from &#x27;../room&#x27;;
+import { HttpService } from &#x27;../service/http.service&#x27;;
+import { Room } from &#x27;../models/room&#x27;;
+
 
 @Component({
   selector: &#x27;app-rooms&#x27;,
@@ -833,7 +833,6 @@ export class RoomsComponent implements OnInit {
     // this.now &#x3D; new Date().toString().split(&#x27; &#x27;)[4];
     this.now &#x3D; urlDateTime.substring(0, 10) + &quot; &quot; + urlDateTime.substring(11, 16);
     //console.log(this.rooms3.find(room &#x3D;&gt; room.id &#x3D;&#x3D; rid));
-
     this.roomId &#x3D; selectedRoom.id;
     this.roomDescription &#x3D; selectedRoom.description;
     //this.roomDescription &#x3D; this.rooms3[this.roomId];
@@ -1131,7 +1130,7 @@ export class RoomsComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>{{\'cRoomsText\'|translate}} id {{roomId}}, "{{roomDescription}}"</p><mat-form-field appearance="fill">  <mat-label>{{\'cRoomSelect\'|translate}}</mat-label><mat-select #roomSelect (selectionChange)="changeRoom($event.value)">    <mat-option *ngFor="let room of rooms3" [value]="room.id">      {{room.description}}    </mat-option></mat-select></mat-form-field><table id="roomstable1" mat-table [dataSource]="events" class="mat-elevation-z8">  <!-- Position Column -->  <ng-container matColumnDef="id">    <th mat-header-cell *matHeaderCellDef> EventId </th>    <td mat-cell *matCellDef="let event"> {{event.eventId}} </td>  </ng-container>  <!-- Name Column -->  <ng-container matColumnDef="description">    <th mat-header-cell *matHeaderCellDef> Description </th>    <td mat-cell *matCellDef="let event"> {{event.description}} </td>  </ng-container>  <!-- Weight Column -->  <ng-container matColumnDef="organizer">    <th mat-header-cell *matHeaderCellDef> Organizer </th>    <td mat-cell *matCellDef="let event"> {{event.organiser}} </td>  </ng-container>  <!-- Symbol Column -->  <ng-container matColumnDef="participants">    <th mat-header-cell *matHeaderCellDef> Participants </th>    <td mat-cell *matCellDef="let event"> {{event.participants}} </td>  </ng-container>  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'RoomsComponent'};
 </script>

@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>HttpService</li>
+  <li>MarkerService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/service/http.service.ts</code>
+            <code>src/app/service/marker.service.ts</code>
         </p>
 
 
@@ -75,7 +75,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#apiUrl">apiUrl</a>
+                                <a href="#buildings">buildings</a>
                             </li>
                         </ul>
                     </td>
@@ -90,7 +90,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#sendGetRequest">sendGetRequest</a>
+                                <a href="#makeCapitalCircleMarkers">makeCapitalCircleMarkers</a>
                             </li>
                         </ul>
                     </td>
@@ -110,12 +110,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(httpClient: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, popupService: <a href="../injectables/PopUpService.html">PopUpService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/http.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/marker.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -133,10 +133,22 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>httpClient</td>
+                                                        <td>http</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>popupService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PopUpService.html" target="_self" >PopUpService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -162,18 +174,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sendGetRequest"></a>
+                    <a name="makeCapitalCircleMarkers"></a>
                     <span class="name">
                         <b>
-                            sendGetRequest
+                            makeCapitalCircleMarkers
                         </b>
-                        <a href="#sendGetRequest"><span class="icon ion-ios-link"></span></a>
+                        <a href="#makeCapitalCircleMarkers"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>sendGetRequest(url)</code>
+<code>makeCapitalCircleMarkers(map: <a href="../anys/L.html">L.Map</a>)</code>
                 </td>
             </tr>
 
@@ -181,7 +193,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/service/http.service.ts:14</a></div>
+                            class="link-to-prism">src/app/service/marker.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -195,12 +207,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>url</td>
+                                    <td>map</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/variables.html#L" target="_self" >L.Map</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -214,7 +230,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -234,11 +250,11 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="apiUrl"></a>
+                        <a name="buildings"></a>
                         <span class="name">
                             <b>
-                            apiUrl</b>
-                            <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                            buildings</b>
+                            <a href="#buildings"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -250,12 +266,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;https://thabella.th-deg.de/thabella/opn/period/findByRoom/146/2020-11-24%208:00&quot;</code>
+                            <i>Default value : </i><code>&#x27;../../assets/data/buildings.geojson&#x27;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/http.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/marker.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -270,28 +286,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { Event } from &#x27;../models/event&#x27;;
+import * as L from &#x27;leaflet&#x27;;
+import { PopUpService } from &#x27;./pop-up.service&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class HttpService {
-  apiUrl &#x3D; &quot;https://thabella.th-deg.de/thabella/opn/period/findByRoom/146/2020-11-24%208:00&quot;;
+export class MarkerService {
+  buildings: string &#x3D; &#x27;../../assets/data/buildings.geojson&#x27;;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient,private popupService: PopUpService) { }
 
-  sendGetRequest(url) {
-    return this.httpClient.get&lt;Event&gt;(url); // this.apiUrl
+  makeCapitalCircleMarkers(map: L.Map): void {
+    this.http.get(this.buildings).subscribe((res: any) &#x3D;&gt; {
+      for (const c of res.features) {
+        const lat &#x3D; c.geometry.coordinates[0];
+        const lon &#x3D; c.geometry.coordinates[1];
+        const circle &#x3D; L.circleMarker([lon, lat],{radius:5,fill:true})
+        circle.bindPopup(this.popupService.makeCapitalCirclePopup(c.properties));
+        circle.addTo(map);
+      }
+    });
+
+  //    }
+  //  });
+
   }
-
-  /*
-  sendPostRequest(data: Object): Observable&lt;Object&gt; {
-    return this.httpClient.post(this.apiUrl, data);
-  }
-  */
 }
-
 </code></pre>
     </div>
 
@@ -325,7 +346,7 @@ export class HttpService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'HttpService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MarkerService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

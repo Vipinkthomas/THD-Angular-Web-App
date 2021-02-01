@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>AuthService</li>
+  <li>NavigationService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,7 +56,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/service/auth.service.ts</code>
+            <code>src/app/service/navigation.service.ts</code>
         </p>
 
 
@@ -76,11 +76,19 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_loginUrl">_loginUrl</a>
+                                <a href="#createNavigationUrl">createNavigationUrl</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#_registerUrl">_registerUrl</a>
+                                <a href="#deleteNavigationUrl">deleteNavigationUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#navigationUrl">navigationUrl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateNavigationUrl">updateNavigationUrl</a>
                             </li>
                         </ul>
                     </td>
@@ -95,19 +103,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getToken">getToken</a>
+                                <a href="#createNavigation">createNavigation</a>
                             </li>
                             <li>
-                                <a href="#loggedIn">loggedIn</a>
+                                <a href="#deleteNavigation">deleteNavigation</a>
                             </li>
                             <li>
-                                <a href="#login">login</a>
+                                <a href="#getNavigation">getNavigation</a>
                             </li>
                             <li>
-                                <a href="#logoutUser">logoutUser</a>
-                            </li>
-                            <li>
-                                <a href="#register">register</a>
+                                <a href="#updateNavigation">updateNavigation</a>
                             </li>
                         </ul>
                     </td>
@@ -127,12 +132,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(_http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/auth.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/navigation.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -150,22 +155,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>http</td>
+                                                        <td>_http</td>
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>router</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -191,96 +184,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getToken"></a>
+                    <a name="createNavigation"></a>
                     <span class="name">
                         <b>
-                            getToken
+                            createNavigation
                         </b>
-                        <a href="#getToken"><span class="icon ion-ios-link"></span></a>
+                        <a href="#createNavigation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getToken()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/service/auth.service.ts:31</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loggedIn"></a>
-                    <span class="name">
-                        <b>
-                            loggedIn
-                        </b>
-                        <a href="#loggedIn"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>loggedIn()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/service/auth.service.ts:22</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="login"></a>
-                    <span class="name">
-                        <b>
-                            login
-                        </b>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>login(user)</code>
+<code>createNavigation(data)</code>
                 </td>
             </tr>
 
@@ -288,7 +203,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/service/auth.service.ts:19</a></div>
+                            class="link-to-prism">src/app/service/navigation.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -307,7 +222,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>data</td>
 
                                     <td>
                                         No
@@ -335,18 +250,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="logoutUser"></a>
+                    <a name="deleteNavigation"></a>
                     <span class="name">
                         <b>
-                            logoutUser
+                            deleteNavigation
                         </b>
-                        <a href="#logoutUser"><span class="icon ion-ios-link"></span></a>
+                        <a href="#deleteNavigation"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>logoutUser()</code>
+<code>deleteNavigation(data)</code>
                 </td>
             </tr>
 
@@ -354,46 +269,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/service/auth.service.ts:26</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="register"></a>
-                    <span class="name">
-                        <b>
-                            register
-                        </b>
-                        <a href="#register"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>register(user)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/service/auth.service.ts:16</a></div>
+                            class="link-to-prism">src/app/service/navigation.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -412,7 +288,112 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>data</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNavigation"></a>
+                    <span class="name">
+                        <b>
+                            getNavigation
+                        </b>
+                        <a href="#getNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNavigation()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app/service/navigation.service.ts:16</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNavigation"></a>
+                    <span class="name">
+                        <b>
+                            updateNavigation
+                        </b>
+                        <a href="#updateNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateNavigation(data)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/service/navigation.service.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
 
                                     <td>
                                         No
@@ -446,12 +427,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_loginUrl"></a>
+                        <a name="createNavigationUrl"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _loginUrl</b>
-                            <a href="#_loginUrl"><span class="icon ion-ios-link"></span></a>
+                            createNavigationUrl</b>
+                            <a href="#createNavigationUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -463,12 +444,12 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;http://localhost:3000/api/login&quot;</code>
+                            <i>Default value : </i><code>&quot;http://localhost:3000/api/addnav&quot;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/auth.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/navigation.service.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -479,12 +460,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="_registerUrl"></a>
+                        <a name="deleteNavigationUrl"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            _registerUrl</b>
-                            <a href="#_registerUrl"><span class="icon ion-ios-link"></span></a>
+                            deleteNavigationUrl</b>
+                            <a href="#deleteNavigationUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -496,12 +477,78 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&quot;http://localhost:3000/api/register&quot;</code>
+                            <i>Default value : </i><code>&quot;http://localhost:3000/api/deletenav&quot;</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/service/auth.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/navigation.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="navigationUrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            navigationUrl</b>
+                            <a href="#navigationUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;http://localhost:3000/api/navigation&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/service/navigation.service.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="updateNavigationUrl"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            updateNavigationUrl</b>
+                            <a href="#updateNavigationUrl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;http://localhost:3000/api/updatenav&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/service/navigation.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -516,36 +563,31 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class AuthService {
+export class NavigationService {
 
-  private _registerUrl&#x3D;&quot;http://localhost:3000/api/register&quot;
-  private _loginUrl&#x3D;&quot;http://localhost:3000/api/login&quot;
+  private navigationUrl&#x3D;&quot;http://localhost:3000/api/navigation&quot;
+  private createNavigationUrl&#x3D;&quot;http://localhost:3000/api/addnav&quot;
+  private updateNavigationUrl&#x3D;&quot;http://localhost:3000/api/updatenav&quot;
+  private deleteNavigationUrl&#x3D;&quot;http://localhost:3000/api/deletenav&quot;
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private _http:HttpClient) { }
 
-  register(user){
-    return this.http.post&lt;any&gt;(this._registerUrl,user)
+  getNavigation(){
+    return this._http.get&lt;any&gt;(this.navigationUrl)
   }
-  login(user){
-    return this.http.post&lt;any&gt;(this._loginUrl,user)
+  createNavigation(data){
+    return this._http.post&lt;any&gt;(this.createNavigationUrl,data)
   }
-  loggedIn(){
-    return !!localStorage.getItem(&#x27;token&#x27;)
-  }
-
-  logoutUser(){
-    localStorage.removeItem(&#x27;token&#x27;)
-    this.router.navigate([&#x27;/login&#x27;])
+  updateNavigation(data){
+    return this._http.post&lt;any&gt;(this.updateNavigationUrl,data)
   }
 
-  getToken(){
-    return localStorage.getItem(&#x27;token&#x27;)
+  deleteNavigation(data){
+    return this._http.post&lt;any&gt;(this.deleteNavigationUrl,data)
   }
 }
 </code></pre>
@@ -581,7 +623,7 @@ export class AuthService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NavigationService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -95,11 +95,6 @@ export class EventsComponent implements OnInit {
       createdby: ['', Validators.required]
     });
 
-    this.deleteEventForm = this.formBuilder.group({
-      eventname: ['', Validators.required],
-      eventdate: ['', Validators.required]
-    });
-
 
       this.eventLoad()
 
@@ -124,6 +119,7 @@ export class EventsComponent implements OnInit {
       
       })
       this.snackBar(action,name)
+      this.isCreateButton=false;
       this.eventLoad()
 
   }
@@ -140,6 +136,7 @@ export class EventsComponent implements OnInit {
       
       })
       this.snackBar(action,name)
+      this.isUpdateButton=false;
       this.eventLoad()
   }
   deleteEvent(data: any,action:any,name:any){

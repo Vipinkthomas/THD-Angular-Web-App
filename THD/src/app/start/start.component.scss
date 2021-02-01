@@ -1,6 +1,5 @@
 @import '../../custom-theme.scss';
 
-//background: map-get($thd-palette-accent, 500);
 
 .example-card {
     margin-top: 10px;
@@ -63,27 +62,4 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
-}
-
-#minHeader {
-    position: absolute;
-    right: 15px;
-    top: 775px;
-    color: white;
-    font-size: 15px;
-    text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ffffff 0px 0px 20px, #ffffff 0px 0px 25px, #ffffff 0px 0px 20px;
-}
-
-.infobox {
-    line-height: 1;
-}
-
-.infotext_big {
-    font-size: 5vw;
-    color: #fff;
-}
-
-.infotext_small {
-    font-size: 2vw;
-    color: #fff;
 }

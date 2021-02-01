@@ -130,7 +130,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#first">first</a>
+                            </li>
+                            <li>
                                 <a href="#userName">userName</a>
+                            </li>
+                            <li>
+                                <a href="#userrole">userrole</a>
                             </li>
                         </ul>
                     </td>
@@ -144,9 +151,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                <a href="#logout">logout</a>
-                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -168,12 +172,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(jwtService: <a href="../injectables/JwtService.html">JwtService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/admin/admin.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -191,10 +195,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>jwtService</td>
+                                                        <td>authService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/JwtService.html" target="_self" >JwtService</a></code>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -236,45 +240,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="logout"></a>
-                    <span class="name">
-                        <b>
-                            logout
-                        </b>
-                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>logout()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/admin/admin.component.ts:20</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <b>
@@ -293,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/admin/admin.component.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/admin/admin.component.ts:18</a></div>
                 </td>
             </tr>
 
@@ -320,6 +285,33 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="first"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            first</b>
+                            <a href="#first"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="userName"></a>
                         <span class="name">
                             <b>
@@ -341,7 +333,39 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/admin/admin.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin/admin.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userrole"></a>
+                        <span class="name">
+                            <b>
+                            userrole</b>
+                            <a href="#userrole"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&quot;&quot;</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/admin/admin.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -354,9 +378,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;../service/auth.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
-import { JwtService } from &#x27;../jwt.service&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 
 @Component({
   selector: &#x27;app-admin&#x27;,
@@ -364,19 +389,22 @@ import { JwtService } from &#x27;../jwt.service&#x27;;
   styleUrls: [&#x27;./admin.component.scss&#x27;]
 })
 export class AdminComponent implements OnInit {
+  userName &#x3D; &quot;&quot;;
+  userrole &#x3D; &quot;&quot;;
 
-  constructor(private jwtService: JwtService, private router: Router) { }
+  private first&#x3D;true;
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userName &#x3D; localStorage.getItem(&#x27;access_token&#x27;).split(&quot;;&quot;)[0];
+
+    this.userName &#x3D; sessionStorage.getItem(&#x27;name&#x27;);
+    this.userrole &#x3D; sessionStorage.getItem(&#x27;role&#x27;);
+    // sessionStorage.removeItem(&#x27;role&#x27;)
+    // sessionStorage.removeItem(&#x27;name&#x27;)
+    
   }
 
-  userName &#x3D; &quot;&quot;;
-
-  logout() {
-    this.jwtService.logout();
-    this.router.navigateByUrl(&#x27;/login&#x27;);
-  }
+  
 }
 
 </code></pre>
@@ -384,15 +412,15 @@ export class AdminComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
-    &lt;h1&gt;
-      Welcome User with E-Mail {{userName}}!
-    &lt;/h1&gt;
+    &lt;h1&gt;Profile : {{userrole}}&lt;/h1&gt;
+    &lt;h2&gt;
+      Welcome User with E-Mail &lt;h1 color&#x3D;&quot;blue&quot;&gt; {{userName}}! &lt;/h1&gt;
+    &lt;/h2&gt;
     &lt;p&gt;
-      &lt;button mat-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;logout()&quot;&gt;
-        Logout
-      &lt;/button&gt;
     &lt;/p&gt;
   &lt;/div&gt;
+
+  
   
 </code></pre>
     </div>
@@ -401,7 +429,8 @@ export class AdminComponent implements OnInit {
                 <p class="comment">
                     <code>./admin.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -429,8 +458,8 @@ export class AdminComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="text-align:center">    <h1>      Welcome User with E-Mail {{userName}}!    </h1>    <p>      <button mat-button color="warn" (click)="logout()">        Logout      </button>    </p>  </div>  </div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NavigationComponent', 'selector': 'app-navigation'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><div style="text-align:center">    <h1>Profile : {{userrole}}</h1>    <h2>      Welcome User with E-Mail <h1 color="blue"> {{userName}}! </h1>    </h2>    <p>    </p>  </div>    </div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
 </script>
