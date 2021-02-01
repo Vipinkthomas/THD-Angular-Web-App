@@ -5,6 +5,7 @@ const Event= require('../models/event')
 const News= require('../models/news')
 const Navigation= require('../models/navigation')
 const mongoose= require('mongoose')
+const Request = require("request");
 const jwt=require('jsonwebtoken')
 
 mongoose.set('useUnifiedTopology', true);
@@ -455,6 +456,17 @@ router.post('/addnav',verifyToken,(req,res)=>{
 
 });
 
-
+//thabella api call
+router.get("/thabellaevents", (req, res) => {
+    Request.get(
+      `https://thabella.th-deg.de/thabella/opn/period/findByRoom/${req.query.roomId}/${req.query.date}%20${req.query.hour}`,
+      (error, response, body) => {
+        if (error) {
+          res.status(401).send(error);
+        }
+        res.status(200).json(response);
+      }
+    );
+  });
 
 module.exports=router;

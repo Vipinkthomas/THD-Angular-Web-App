@@ -64,6 +64,13 @@
             <code>src/app/select-language/select-language.component.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>interface for language</p>
+
+            </p>
 
 
         <section>
@@ -161,11 +168,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { TranslateLoader, TranslateModule, TranslateService } from &#x27;@ngx-translate/core&#x27;;
 
+
+/**
+  * interface for language
+  */
 interface Languages {
   value: string;
   viewValue: string;
 }
 
+/**
+ * for language selection
+ */
 @Component({
   selector: &#x27;app-select-language&#x27;,
   templateUrl: &#x27;./select-language.component.html&#x27;,
@@ -175,18 +189,35 @@ interface Languages {
 
 export class SelectLanguageComponent implements OnInit {
   
+/**
+ * language array
+ */
   languages: Languages[] &#x3D; [
     { value: &#x27;en&#x27;, viewValue: &#x27;EN&#x27; },
     { value: &#x27;de&#x27;, viewValue: &#x27;DE&#x27; }
   ]
 
+/**
+ * Component Initialisation executed after constructor
+ */
   ngOnInit() {
     console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
    
   }
 
+/**
+ * constructor
+ */
   constructor(public translate: TranslateService) { }
 
+  /**
+  * @example
+  * to change language
+  * changeLanguage(l: string)
+  *
+  * @param {string} l language info{@link Todo}
+  * @returns void
+  */
   changeLanguage(l: string): void {
     this.translate.use(l);
     console.log(&quot;changeLanguage: &quot; + l);

@@ -1,39 +1,70 @@
-<p>{{'cRoomsText'|translate}} id {{roomId}}, "{{roomDescription}}"</p>
-<mat-form-field appearance="fill">
-  <mat-label>{{'cRoomSelect'|translate}}</mat-label>
-<mat-select #roomSelect (selectionChange)="changeRoom($event.value)">
-    <mat-option *ngFor="let room of rooms3" [value]="room.id">
-      {{room.description}}
-    </mat-option>
-</mat-select>
-</mat-form-field>
+<form [formGroup]="roomsForm" class="normal-form">
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px" fxLayoutAlign="center">
+    <mat-form-field>
+      <!--select room-->
+      <mat-select placeholder="{{ 'Select Room' | translate }}" formControlName="room" [(ngModel)]="selectedRoom">
+        <mat-option *ngFor="let room of roomsArray" [value]="room">{{room.description}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-<table id="roomstable1" mat-table [dataSource]="events" class="mat-elevation-z8">
+    <!--Date picker-->
+    <mat-form-field>
+      <mat-label>{{ "Choose a date" | translate }}</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" formControlName="date" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!--select time-->
+    <mat-form-field>
+      <mat-select placeholder="{{ 'Select Time' | translate }}" [(ngModel)]="hourSelected" formControlName="time">
+        <mat-option *ngFor="let hour of hours" [value]="hour">{{
+          hour
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+
+<div class="find-button">
+  <!--Find button-->
+  <button mat-raised-button color="accent" type="submit" (click)="findEvent()" [disabled]="roomsForm.invalid">
+    {{ "Find" | translate }}
+  </button>
+</div>
+
+<table id="roomstable" mat-table [dataSource]="events" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> EventId </th>
-    <td mat-cell *matCellDef="let event"> {{event.eventId}} </td>
+    <th mat-header-cell *matHeaderCellDef>{{ "Event Id" | translate }}</th>
+    <td mat-cell *matCellDef="let event">{{ event.eventId }}</td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="description">
-    <th mat-header-cell *matHeaderCellDef> Description </th>
-    <td mat-cell *matCellDef="let event"> {{event.description}} </td>
+    <th mat-header-cell *matHeaderCellDef>{{ "Description" | translate }}</th>
+    <td mat-cell *matCellDef="let event">{{ event.description }}</td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="organizer">
-    <th mat-header-cell *matHeaderCellDef> Organizer </th>
-    <td mat-cell *matCellDef="let event"> {{event.organiser}} </td>
+    <th mat-header-cell *matHeaderCellDef>{{ "Organizer" | translate }}</th>
+    <td mat-cell *matCellDef="let event">{{ event.organiser }}</td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="participants">
-    <th mat-header-cell *matHeaderCellDef> Participants </th>
-    <td mat-cell *matCellDef="let event"> {{event.participants}} </td>
+    <th mat-header-cell *matHeaderCellDef>{{ "Participants" | translate }}</th>
+    <td mat-cell *matCellDef="let event">{{ event.participants }}</td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
 
+</table>
+<!--displaying message if no events found-->
+<div class="no-event-message">
+  <p *ngIf="noEventFlag">{{ "No Events in this particular room!" | translate }}</p>
+</div>

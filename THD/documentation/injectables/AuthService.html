@@ -59,6 +59,14 @@
             <code>src/app/service/auth.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Auth service for authenication management has states
+loggedin true/false</p>
+
+            </p>
 
 
 
@@ -132,7 +140,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/auth.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/auth.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -209,8 +217,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/service/auth.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/service/auth.service.ts:77</a></div>
                 </td>
             </tr>
 
@@ -218,8 +226,19 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to get token from localstorage
+getToken()</code></pre>
+                        </div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>response from server</p>
 
                     </div>
                 </td>
@@ -248,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/service/auth.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/service/auth.service.ts:51</a></div>
                 </td>
             </tr>
 
@@ -257,9 +276,19 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">check whether user is logged in or not
+loggedIn()</code></pre>
+                        </div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -287,8 +316,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/service/auth.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/service/auth.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -303,6 +332,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -314,18 +344,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>user info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to login
+login(user)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -353,8 +393,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/service/auth.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/service/auth.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -362,8 +402,20 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">remove token and redirect to login page
+to logout
+logoutUser()</code></pre>
+                        </div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>null</p>
 
                     </div>
                 </td>
@@ -392,8 +444,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">src/app/service/auth.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/service/auth.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -408,6 +460,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -419,18 +472,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>user info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to register
+register(user)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -468,7 +531,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/auth.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/auth.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -501,7 +564,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/service/auth.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/service/auth.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -518,7 +581,10 @@
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
-
+/**
+ * Auth service for authenication management has states
+ * loggedin true/false
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
@@ -529,21 +595,64 @@ export class AuthService {
 
   constructor(private http:HttpClient,private router:Router) { }
 
+  /**
+  * @example
+  * to register
+  * register(user)
+  *
+  * @param {string} user  user info{@link Todo}
+  * @returns response from server
+  */
   register(user){
     return this.http.post&lt;any&gt;(this._registerUrl,user)
   }
+
+  /**
+  * @example
+  * to login
+  * login(user)
+  *
+  * @param {string} user  user info{@link Todo}
+  * @returns response from server
+  */
   login(user){
     return this.http.post&lt;any&gt;(this._loginUrl,user)
   }
+
+  /**
+  * @example
+  * check whether user is logged in or not
+  * loggedIn()
+  *
+  * @param {} null
+  * @returns {boolean}
+  */
   loggedIn(){
     return !!localStorage.getItem(&#x27;token&#x27;)
   }
 
+  /**
+  * @example
+  * remove token and redirect to login page
+  * to logout
+  * logoutUser()
+  *
+  * @param {string} 
+  * @returns null
+  */
   logoutUser(){
     localStorage.removeItem(&#x27;token&#x27;)
     this.router.navigate([&#x27;/login&#x27;])
   }
 
+  /**
+  * @example
+  * to get token from localstorage
+  * getToken()
+  *
+  * @param {string} user  user info{@link Todo}
+  * @returns response from server
+  */
   getToken(){
     return localStorage.getItem(&#x27;token&#x27;)
   }

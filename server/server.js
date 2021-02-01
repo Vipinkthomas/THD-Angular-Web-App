@@ -16,7 +16,6 @@ const bodyParser= require('body-parser');
 
 const PORT =3000;
 const api=require('./routes/api');
-const apiajax=require('./routes/apiajax');
 
 /**
  * Express object used to set up the application
@@ -29,7 +28,6 @@ app.use(cors());
  * to handle json data
  */
 
-app.use('/apiajax',apiajax)
 app.use(bodyParser.json());
 app.use('/api',api);
 

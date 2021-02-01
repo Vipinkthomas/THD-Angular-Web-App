@@ -60,6 +60,13 @@
             <code>src/app/service/token-interceptor.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Interceptor pattern to manipulate authorization header</p>
+
+            </p>
 
 
             <section>
@@ -101,12 +108,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/service/token-interceptor.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/token-interceptor.service.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -166,8 +175,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/service/token-interceptor.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/service/token-interceptor.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -207,13 +216,19 @@
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to set authorization headers
+intercept(req,next)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>tokenized request to next handle</p>
+
                     </div>
                 </td>
             </tr>
@@ -227,17 +242,32 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;./auth.service&#x27;;
 import { Injectable,Injector } from &#x27;@angular/core&#x27;;
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
+import { HttpInterceptor } from &#x27;@angular/common/http&#x27;;
 
+/**
+ * Interceptor pattern to manipulate authorization header
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class TokenInterceptorService implements HttpInterceptor{
 
+  /**
+  * constructor
+  */
   constructor(private injector:Injector) { 
 
   }
+
+  /**
+  * @example
+  * to set authorization headers
+  * intercept(req,next)
+  *
+  * @param {} null
+  * @returns tokenized request to next handle
+  */
   intercept(req,next){
     let authService&#x3D;this.injector.get(AuthService)
     let tokenizedReq&#x3D;req.clone({

@@ -59,6 +59,13 @@
             <code>src/app/service/marker.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>marker for navigation map</p>
+
+            </p>
 
 
 
@@ -115,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/marker.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/marker.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -192,8 +199,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/service/marker.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/service/marker.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -209,6 +216,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -223,18 +231,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>map{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to add markers to the map
+makeCapitalCircleMarkers(map: L.Map)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>void</p>
+
                     </div>
                 </td>
             </tr>
@@ -271,7 +289,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/marker.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/marker.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -289,14 +307,28 @@ import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import * as L from &#x27;leaflet&#x27;;
 import { PopUpService } from &#x27;./pop-up.service&#x27;;
 
+/**
+ * marker for navigation map
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
 export class MarkerService {
+
   buildings: string &#x3D; &#x27;../../assets/data/buildings.geojson&#x27;;
 
   constructor(private http: HttpClient,private popupService: PopUpService) { }
 
+
+  /**
+  * @example
+  * to add markers to the map
+  * makeCapitalCircleMarkers(map: L.Map)
+  *
+  * @param {Map} map  map{@link Todo}
+  * @returns void
+  */
   makeCapitalCircleMarkers(map: L.Map): void {
     this.http.get(this.buildings).subscribe((res: any) &#x3D;&gt; {
       for (const c of res.features) {
@@ -307,9 +339,6 @@ export class MarkerService {
         circle.addTo(map);
       }
     });
-
-  //    }
-  //  });
 
   }
 }

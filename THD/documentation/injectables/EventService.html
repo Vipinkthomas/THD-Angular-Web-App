@@ -59,6 +59,14 @@
             <code>src/app/service/event.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Event service for for creating/getting/updating/deleting events
+to extract public events for guest users</p>
+
+            </p>
 
 
 
@@ -144,12 +152,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/event.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service/event.service.ts:38</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -209,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/service/event.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/service/event.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -225,6 +235,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -236,18 +247,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>new event info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to create new events
+createEvents(data)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -275,8 +296,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/service/event.service.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">src/app/service/event.service.ts:102</a></div>
                 </td>
             </tr>
 
@@ -291,6 +312,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -302,18 +324,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>delete event info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to delete event
+deleteEvents(data)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -341,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/service/event.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/service/event.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -357,6 +389,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -368,18 +401,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>access details info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to get events {both public and protected}
+getEvents(data)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -407,8 +450,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/service/event.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/service/event.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -416,8 +459,19 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to get public events alone
+getPublicEvents()</code></pre>
+                        </div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>response from server</p>
 
                     </div>
                 </td>
@@ -446,8 +500,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/service/event.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/app/service/event.service.ts:90</a></div>
                 </td>
             </tr>
 
@@ -462,6 +516,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -473,18 +528,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>updated event info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to update existing events
+updateEvents(data)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -522,10 +587,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/service/event.service.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/service/event.service.ts:28</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>api urls for creating events</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -555,10 +626,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/event.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service/event.service.ts:38</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>api urls for delete news</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -588,10 +665,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/service/event.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/service/event.service.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>api urls for event-get</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -621,10 +704,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/event.service.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/service/event.service.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>api urls for public events</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -654,10 +743,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/service/event.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/service/event.service.ts:33</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>api urls for uodate news</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -671,35 +766,103 @@
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 
+/**
+ * Event service for for creating/getting/updating/deleting events
+ * to extract public events for guest users
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 
 export class EventService {
 
+  /**
+  * api urls for event-get
+  */
   private eventUrl&#x3D;&quot;http://localhost:3000/api/events&quot;
+
+  /**
+  * api urls for public events
+  */
   private publicEventUrl&#x3D;&quot;http://localhost:3000/api/publicevents&quot;
+
+  /**
+  * api urls for creating events
+  */
   private createEventUrl&#x3D;&quot;http://localhost:3000/api/addevents&quot;
+
+  /**
+  * api urls for uodate news
+  */
   private updateEventUrl&#x3D;&quot;http://localhost:3000/api/updateevents&quot;
+
+  /**
+  * api urls for delete news
+  */
   private deleteEventUrl&#x3D;&quot;http://localhost:3000/api/deleteevents&quot;
 
+
+  /**
+  * constructor
+  */
   constructor(private _http:HttpClient) { }
 
+  /**
+  * @example
+  * to get events {both public and protected}
+  * getEvents(data)
+  *
+  * @param {JSON} data  access details info{@link Todo}
+  * @returns response from server
+  */
   getEvents(data){
     return this._http.get&lt;any&gt;(this.eventUrl,data)
   }
 
+  /**
+  * @example
+  * to get public events alone
+  * getPublicEvents()
+  *
+  * @param {} null
+  * @returns response from server
+  */
   getPublicEvents(){
     return this._http.get&lt;any&gt;(this.publicEventUrl)
   }
 
+  /**
+  * @example
+  * to create new events
+  * createEvents(data)
+  *
+  * @param {JSON} data  new event info{@link Todo}
+  * @returns response from server
+  */
   createEvents(data){
     return this._http.post&lt;any&gt;(this.createEventUrl,data)
   }
+
+  /**
+  * @example
+  * to update existing events
+  * updateEvents(data)
+  *
+  * @param {JSON} data  updated event info{@link Todo}
+  * @returns response from server
+  */
   updateEvents(data){
     return this._http.post&lt;any&gt;(this.updateEventUrl,data)
   }
 
+  /**
+  * @example
+  * to delete event
+  * deleteEvents(data)
+  *
+  * @param {JSON} data  delete event info{@link Todo}
+  * @returns response from server
+  */
   deleteEvents(data){
     return this._http.post&lt;any&gt;(this.deleteEventUrl,data)
   }

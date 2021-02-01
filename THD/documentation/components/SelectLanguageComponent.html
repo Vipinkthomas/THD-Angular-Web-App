@@ -64,6 +64,13 @@
     <code>src/app/select-language/select-language.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>for language selection</p>
+
+    </p>
 
 
     <p class="comment">
@@ -177,12 +184,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/select-language/select-language.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/select-language/select-language.component.ts:39</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -246,8 +255,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/select-language/select-language.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/select-language/select-language.component.ts:54</a></div>
                 </td>
             </tr>
 
@@ -263,6 +272,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -277,18 +287,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>language info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to change language
+changeLanguage(l: string)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>void</p>
+
                     </div>
                 </td>
             </tr>
@@ -316,14 +336,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/select-language/select-language.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/app/select-language/select-language.component.ts:36</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Component Initialisation executed after constructor</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -367,10 +389,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/select-language/select-language.component.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/select-language/select-language.component.ts:28</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>language array</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -395,7 +423,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/select-language/select-language.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/select-language/select-language.component.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -411,11 +439,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { TranslateLoader, TranslateModule, TranslateService } from &#x27;@ngx-translate/core&#x27;;
 
+
+/**
+  * interface for language
+  */
 interface Languages {
   value: string;
   viewValue: string;
 }
 
+/**
+ * for language selection
+ */
 @Component({
   selector: &#x27;app-select-language&#x27;,
   templateUrl: &#x27;./select-language.component.html&#x27;,
@@ -425,18 +460,35 @@ interface Languages {
 
 export class SelectLanguageComponent implements OnInit {
   
+/**
+ * language array
+ */
   languages: Languages[] &#x3D; [
     { value: &#x27;en&#x27;, viewValue: &#x27;EN&#x27; },
     { value: &#x27;de&#x27;, viewValue: &#x27;DE&#x27; }
   ]
 
+/**
+ * Component Initialisation executed after constructor
+ */
   ngOnInit() {
     console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
    
   }
 
+/**
+ * constructor
+ */
   constructor(public translate: TranslateService) { }
 
+  /**
+  * @example
+  * to change language
+  * changeLanguage(l: string)
+  *
+  * @param {string} l language info{@link Todo}
+  * @returns void
+  */
   changeLanguage(l: string): void {
     this.translate.use(l);
     console.log(&quot;changeLanguage: &quot; + l);
@@ -446,7 +498,9 @@ export class SelectLanguageComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;a class&#x3D;&quot;link&quot; mat-button color&#x3D;&quot;ffffff&quot; #langSelect *ngFor&#x3D;&quot;let lang of languages&quot; (click)&#x3D;&quot;changeLanguage(lang.value)&quot; &gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!--language switch--&gt;
+
+&lt;a class&#x3D;&quot;link&quot; mat-button color&#x3D;&quot;ffffff&quot; #langSelect *ngFor&#x3D;&quot;let lang of languages&quot; (click)&#x3D;&quot;changeLanguage(lang.value)&quot; &gt;
     {{lang.viewValue}}
 &lt;/a&gt;
 
@@ -487,8 +541,8 @@ export class SelectLanguageComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><a class="link" mat-button color="ffffff" #langSelect *ngFor="let lang of languages" (click)="changeLanguage(lang.value)" >    {{lang.viewValue}}</a></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><!--language switch--><a class="link" mat-button color="ffffff" #langSelect *ngFor="let lang of languages" (click)="changeLanguage(lang.value)" >    {{lang.viewValue}}</a></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SelectLanguageComponent'};
 </script>

@@ -1,14 +1,22 @@
 import { AuthService } from '../service/auth.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router,ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-//import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+/**
+ * Authguard service for registered area
+ */
 export class AuthGuard implements CanActivate {
 
   constructor(private _auth:AuthService,private _router:Router){}
+
+  /**
+  * which will check whether the user can access the protected area or not
+  */
   canActivate():boolean{
 
     if(this._auth.loggedIn()){

@@ -59,6 +59,13 @@
             <code>src/app/service/http.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Thabella api call</p>
+
+            </p>
 
 
 
@@ -115,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/http.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/http.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -180,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/service/http.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/service/http.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -196,6 +203,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -207,18 +215,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>api url info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to get thabella info
+sendGetRequest(url)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>response from server</p>
+
                     </div>
                 </td>
             </tr>
@@ -255,7 +273,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service/http.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service/http.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -270,9 +288,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
 import { Event } from &#x27;../models/event&#x27;;
 
+/**
+ * Thabella api call
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
@@ -281,15 +301,18 @@ export class HttpService {
 
   constructor(private httpClient: HttpClient) { }
 
+  /**
+  * @example
+  * to get thabella info
+  * sendGetRequest(url)
+  *
+  * @param {URL} url  api url info{@link Todo}
+  * @returns response from server
+  */
   sendGetRequest(url) {
     return this.httpClient.get&lt;Event&gt;(url); // this.apiUrl
   }
 
-  /*
-  sendPostRequest(data: Object): Observable&lt;Object&gt; {
-    return this.httpClient.post(this.apiUrl, data);
-  }
-  */
 }
 
 </code></pre>

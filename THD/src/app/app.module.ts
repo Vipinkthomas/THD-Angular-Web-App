@@ -14,7 +14,6 @@ import { OutdoorComponent } from './navigation/outdoor/outdoor.component';
 import { IndoorComponent } from './navigation/indoor/indoor.component';
 import { ConfigComponent } from './navigation/config/config.component';
 import { RoomsComponent } from './rooms/rooms.component';
-import { InternationalComponent } from './international/international.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventsComponent } from './events/events.component';
@@ -56,7 +55,6 @@ import { NavigationService } from './service/navigation.service';
     StartComponent,
     OutdoorComponent,
     RoomsComponent,
-    InternationalComponent,
     LoginComponent,
     SelectLanguageComponent,
     AdminComponent,

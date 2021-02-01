@@ -7,6 +7,11 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
+/**
+ * News service for for creating/getting/updating/deleting news
+ * to extract public news for guest users
+ */
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
@@ -14,7 +19,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NewsComponent implements OnInit {
 
-
+  /**
+  * variables
+  */
   myControl = new FormControl();
   data={"access":"public"}
   isCreateButton=false;
@@ -28,6 +35,9 @@ export class NewsComponent implements OnInit {
   options: any[]=['All News']
   filteredOptions: Observable<string[]>;
 
+  /**
+  * models
+  */
   CreateNews={
     "news_name_en": "",
     "news_desc_en": "",
@@ -64,9 +74,20 @@ export class NewsComponent implements OnInit {
   DeleteNews={
     "_id":""
   };
+
+  /**
+  * constructor
+  */
   constructor(private _snackBar:MatSnackBar,private _newsService:NewsService,private router:Router,private formBuilder: FormBuilder) { }
   
+  /**
+  * Component Initialisation executed after constructor
+  */
   ngOnInit(): void {
+
+    /**
+    * validation
+    */
     this.createNewsForm = this.formBuilder.group({
       newsdate: ['', Validators.required],
       newsname_en: ['', Validators.required],
@@ -101,7 +122,14 @@ export class NewsComponent implements OnInit {
 
 
 
-
+  /**
+  * @example
+  * to create new news
+  * createNews(data)
+  *
+  * @param {JSON} data  new news info{@link Todo}
+  * @returns response from server
+  */
   createNews(action:any,name:any){
 
     this._newsService.createNews(this.CreateNews)
@@ -120,7 +148,14 @@ export class NewsComponent implements OnInit {
       this.newsLoad()
   }
 
-  
+  /**
+  * @example
+  * to update existing news
+  * updateNews(data)
+  *
+  * @param {JSON} data  updated news info{@link Todo}
+  * @returns response from server
+  */
   updateNews(action,name){
     this._newsService.updateNews(this.UpdateFullNews)
     .subscribe(res=>this.news=res,
@@ -138,7 +173,14 @@ export class NewsComponent implements OnInit {
       this.newsLoad()
   }
 
-
+  /**
+  * @example
+  * to delete news
+  * deleteNews(data)
+  *
+  * @param {JSON} data  delete news info{@link Todo}
+  * @returns response from server
+  */
   deleteNews(data: any,action:any,name:any){
     this.DeleteNews._id=data;
     console.log(this.DeleteNews._id);
@@ -157,6 +199,9 @@ export class NewsComponent implements OnInit {
       this.newsLoad()
   }
 
+  /**
+    * to open or close create and update form
+    */
   isCreate(){
     if(this.isCreateButton){
       this.isCreateButton=false;
@@ -167,6 +212,10 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  /**
+    * to open or close create and update form
+    * and update the form with selected news info
+    */
   isUpdate(data: any){
     if(this.isUpdateButton){
       this.isUpdateButton=false;
@@ -198,6 +247,12 @@ export class NewsComponent implements OnInit {
     console.log(this.UpdateFullNews._id);
   }
 
+   /**
+  * @example
+  * Search bar options " All News" and update temp news arrays with respect to the search word
+  * _filter(value: string)
+  * @returns {string} options
+  */ 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     this.temp_news=[]
@@ -219,6 +274,14 @@ export class NewsComponent implements OnInit {
     
   }
 
+   /**
+  * @example
+  * to get newss {both public and protected}
+  * getNews(data))
+  *
+  * @param {JSON} data  access details info{@link Todo}
+  * @returns response from server
+  */
   newsLoad(){
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
     this._newsService.getNews(this.data)
@@ -244,6 +307,10 @@ export class NewsComponent implements OnInit {
       
       })
   }
+
+  /**
+  * snackbar for update and delete
+  */
   snackBar(action:any,name:any){
     this._snackBar.open(action,name, {
       duration: 2000,

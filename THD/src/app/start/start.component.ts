@@ -37,12 +37,12 @@ export class StartComponent implements OnInit {
 
   UpdateFullNews={
     "_id":"",
-  "UpdateNews": {
-    "_id":"",
-    "numLike":0,
-    "numDisLike":0
+    "UpdateNews": {
+      "_id":"",
+      "numLike":0,
+      "numDisLike":0
 
-  }
+    }
   };
 
   UpdateFullEvent={
@@ -53,6 +53,7 @@ export class StartComponent implements OnInit {
   "numDisLike":0
   }
   };
+
 
   /**
     * a constructor to create instance of the class
@@ -97,7 +98,14 @@ export class StartComponent implements OnInit {
 
   }
 
+  /**
+  * @example
+  * Search bar options " All Events" and update temp events and temp news arrays with respect to the search word
+  * _filter(value: string)
+  * @returns {string} options
+  */ 
   private _filter(value: string): string[] {
+
     const filterValue = value.toLowerCase();
     this.temp_news=[];
     this.temp_events=[];
@@ -132,6 +140,13 @@ export class StartComponent implements OnInit {
     
   }
 
+
+  /**
+  * @example
+  * Like for events
+  * eventLike(id:any,numLike:any,numDisLike:any)
+  * @returns {} Null
+  */ 
   eventLike(id:any,numLike:any,numDisLike:any){
 
     this.UpdateFullEvent.UpdateEvent.numLike=numLike+1
@@ -154,6 +169,13 @@ export class StartComponent implements OnInit {
 
   }
 
+
+  /**
+  * @example
+  * DisLike for events
+  * eventDisLike(id:any,numLike:any,numDisLike:any)
+  * @returns {} Null
+  */ 
   eventDisLike(id:any,numLike:any,numDisLike:any){
 
     this.UpdateFullEvent.UpdateEvent.numLike=numLike
@@ -176,6 +198,13 @@ export class StartComponent implements OnInit {
   
   }
 
+
+  /**
+  * @example
+  * Like for news
+  * newsLike(id:any,numLike:any,numDisLike:any)
+  * @returns {} Null
+  */ 
   newsLike(id:any,numLike:any,numDisLike:any){
 
     this.UpdateFullNews.UpdateNews.numLike=numLike+1
@@ -199,6 +228,13 @@ export class StartComponent implements OnInit {
  
    }
 
+
+  /**
+  * @example
+  * DisLike for news
+  * newsDisLike(id:any,numLike:any,numDisLike:any)
+  * @returns {} Null
+  */  
   newsDisLike(id:any,numLike:any,numDisLike:any){
 
     this.UpdateFullNews.UpdateNews.numLike=numLike
@@ -216,11 +252,18 @@ export class StartComponent implements OnInit {
           }
         
         })
+
     this.publicNewsLoad()
 
   }
 
 
+  /**
+  * @example
+  * load public events
+  * publicEventsLoad()
+  * @returns {} Null
+  */ 
   publicEventsLoad(){
     
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
@@ -242,6 +285,13 @@ export class StartComponent implements OnInit {
       })
   }
 
+
+  /**
+  * @example
+  * load public news
+  * publicNewsLoad()
+  * @returns {} Null
+  */ 
   publicNewsLoad(){
 
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;

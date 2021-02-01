@@ -1,4 +1,22 @@
-#roomstable1 {
+#roomstable {
     width: 100%;
-    
 }
+
+mat-form-field {
+    align-items: center;
+}
+
+.find-button {
+    text-align: center;
+    margin: 10px;
+}
+
+.no-event-message {
+    text-align: center;
+    color: red;
+}
+
+.loading-spinner{
+  text-align: center;
+}
+

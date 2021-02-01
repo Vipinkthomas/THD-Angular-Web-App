@@ -83,10 +83,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-b716c902d1a7b7c7c9eef2a05ba82f99"' :
                                             'id="xs-components-links-module-AppModule-b716c902d1a7b7c7c9eef2a05ba82f99"' }>
                                             <li class="link">
-                                                <a href="components/AdminComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AdminComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
                                             </li>
@@ -95,16 +91,8 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">ConfigComponent</a>
                                             </li>
                                             <li class="link">
-                                                <a href="components/EventsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">EventsComponent</a>
-                                            </li>
-                                            <li class="link">
                                                 <a href="components/IndoorComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">IndoorComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/InternationalComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">InternationalComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/LoginComponent.html"
@@ -113,10 +101,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link">
                                                 <a href="components/NavbarComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">NavbarComponent</a>
-                                            </li>
-                                            <li class="link">
-                                                <a href="components/NewsComponent.html"
-                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">NewsComponent</a>
                                             </li>
                                             <li class="link">
                                                 <a href="components/OutdoorComponent.html"
@@ -195,43 +179,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="components/AdminComponent.html" data-type="entity-link">AdminComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/AppComponent.html" data-type="entity-link">AppComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/ConfigComponent.html" data-type="entity-link">ConfigComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/EventsComponent.html" data-type="entity-link">EventsComponent</a>
                             </li>
                             <li class="link">
-                                <a href="components/IndoorComponent.html" data-type="entity-link">IndoorComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/InternationalComponent.html" data-type="entity-link">InternationalComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/LoginComponent.html" data-type="entity-link">LoginComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/NavbarComponent.html" data-type="entity-link">NavbarComponent</a>
-                            </li>
-                            <li class="link">
                                 <a href="components/NewsComponent.html" data-type="entity-link">NewsComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/OutdoorComponent.html" data-type="entity-link">OutdoorComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/RegisterComponent.html" data-type="entity-link">RegisterComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/RoomsComponent.html" data-type="entity-link">RoomsComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/SelectLanguageComponent.html" data-type="entity-link">SelectLanguageComponent</a>
-                            </li>
-                            <li class="link">
-                                <a href="components/StartComponent.html" data-type="entity-link">StartComponent</a>
                             </li>
                         </ul>
                     </li>

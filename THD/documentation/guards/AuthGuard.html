@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/service_guard/auth.guard.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/service_guard/auth.guard.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -181,14 +181,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/service_guard/auth.guard.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/service_guard/auth.guard.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>which will check whether the user can access the protected area or not</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
@@ -206,14 +208,22 @@
             <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthService } from &#x27;../service/auth.service&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, Router,ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from &#x27;@angular/router&#x27;;
-//import { Observable } from &#x27;rxjs&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
+
+/**
+ * Authguard service for registered area
+ */
 export class AuthGuard implements CanActivate {
 
   constructor(private _auth:AuthService,private _router:Router){}
+
+  /**
+  * which will check whether the user can access the protected area or not
+  */
   canActivate():boolean{
 
     if(this._auth.loggedIn()){

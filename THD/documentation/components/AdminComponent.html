@@ -64,6 +64,13 @@
     <code>src/app/admin/admin.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Admin/Registered User profile Component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -177,12 +184,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/admin/admin.component.ts:23</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -258,14 +267,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/admin/admin.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/admin/admin.component.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Component Initialisation executed after constructor</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -301,7 +312,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/admin/admin.component.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -333,10 +344,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/admin/admin.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/admin/admin.component.ts:20</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>variables</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -365,7 +382,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/admin/admin.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/admin/admin.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -383,20 +400,38 @@ import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 
+/**
+ * Admin/Registered User profile Component
+ */
 @Component({
   selector: &#x27;app-admin&#x27;,
   templateUrl: &#x27;./admin.component.html&#x27;,
   styleUrls: [&#x27;./admin.component.scss&#x27;]
 })
+
 export class AdminComponent implements OnInit {
+
+  /**
+  * variables
+  */
   userName &#x3D; &quot;&quot;;
   userrole &#x3D; &quot;&quot;;
 
   private first&#x3D;true;
+
+  /**
+  * constructor
+  */
   constructor(private authService: AuthService, private router: Router) { }
 
+  /**
+  * Component Initialisation executed after constructor
+  */
   ngOnInit(): void {
 
+  /**
+  * getting info from sessionStorage
+  */
     this.userName &#x3D; sessionStorage.getItem(&#x27;name&#x27;);
     this.userrole &#x3D; sessionStorage.getItem(&#x27;role&#x27;);
     // sessionStorage.removeItem(&#x27;role&#x27;)
@@ -411,7 +446,8 @@ export class AdminComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;!-- registered user profile--&gt;
+&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
     &lt;h1&gt;Profile : {{userrole}}&lt;/h1&gt;
     &lt;h2&gt;
       Welcome User with E-Mail &lt;h1 color&#x3D;&quot;blue&quot;&gt; {{userName}}! &lt;/h1&gt;
@@ -458,8 +494,8 @@ export class AdminComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="text-align:center">    <h1>Profile : {{userrole}}</h1>    <h2>      Welcome User with E-Mail <h1 color="blue"> {{userName}}! </h1>    </h2>    <p>    </p>  </div>    </div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'InternationalComponent', 'selector': 'app-international'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
+        var COMPONENT_TEMPLATE = '<div><!-- registered user profile--><div style="text-align:center">    <h1>Profile : {{userrole}}</h1>    <h2>      Welcome User with E-Mail <h1 color="blue"> {{userName}}! </h1>    </h2>    <p>    </p>  </div>    </div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
 </script>

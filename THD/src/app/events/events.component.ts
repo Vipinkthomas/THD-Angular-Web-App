@@ -8,12 +8,20 @@ import {map, startWith} from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * Event service for for creating/getting/updating/deleting events
+ * to extract public events for guest users
+ */
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+
+  /**
+  * variables
+  */
   myControl = new FormControl();
   data={"access":"public"}
   isCreateButton=false;
@@ -27,6 +35,9 @@ export class EventsComponent implements OnInit {
   options: any[]=['All events']
   filteredOptions: Observable<string[]>;
 
+  /**
+  * models
+  */
   CreateEvent={
     "event_name_en": "",
     "event_name_de": "",
@@ -64,8 +75,15 @@ export class EventsComponent implements OnInit {
   DeleteEvent={
     "_id":""
   };
+
+  /**
+  * constructor
+  */
   constructor(private _snackBar:MatSnackBar,private _eventService:EventService,private router:Router,private formBuilder: FormBuilder,public translate: TranslateService) { }
   
+  /**
+  * Component Initialisation executed after constructor
+  */
   ngOnInit(): void {
 
 
@@ -104,6 +122,15 @@ export class EventsComponent implements OnInit {
       );
   }
 
+
+  /**
+  * @example
+  * to create new events
+  * createEvents(data)
+  *
+  * @param {JSON} data  new event info{@link Todo}
+  * @returns response from server
+  */
   createEvent(action:any,name:any){
 
     // console.log('running'+this.createEventForm.controls['eventname'].value+this.createEventForm.controls['eventdesc'].value+this.createEventForm.controls['eventdate'].value)
@@ -123,6 +150,15 @@ export class EventsComponent implements OnInit {
       this.eventLoad()
 
   }
+
+  /**
+  * @example
+  * to update existing events
+  * updateEvents(data)
+  *
+  * @param {JSON} data  updated event info{@link Todo}
+  * @returns response from server
+  */
   updateEvent(action:any,name:any){
     this._eventService.updateEvents(this.UpdateFullEvent)
     .subscribe(res=>this.events=res,
@@ -139,6 +175,15 @@ export class EventsComponent implements OnInit {
       this.isUpdateButton=false;
       this.eventLoad()
   }
+
+  /**
+  * @example
+  * to delete event
+  * deleteEvents(data)
+  *
+  * @param {JSON} data  delete event info{@link Todo}
+  * @returns response from server
+  */
   deleteEvent(data: any,action:any,name:any){
     this.DeleteEvent._id=data;
     this._eventService.deleteEvents(this.DeleteEvent)
@@ -157,6 +202,9 @@ export class EventsComponent implements OnInit {
       this.eventLoad()
   }
 
+  /**
+    * to open or close create and update form
+    */
   isCreate(){
     if(this.isCreateButton){
       this.isCreateButton=false;
@@ -167,6 +215,10 @@ export class EventsComponent implements OnInit {
     }
   }
 
+  /**
+    * to open or close create and update form
+    * and update the form with selected event info
+    */
   isUpdate(data: any){
     if(this.isUpdateButton){
       this.isUpdateButton=false;
@@ -196,6 +248,12 @@ export class EventsComponent implements OnInit {
     }
   }
 
+  /**
+  * @example
+  * Search bar options " All Events" and update temp events arrays with respect to the search word
+  * _filter(value: string)
+  * @returns {string} options
+  */ 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
     this.temp_events=[]
@@ -217,6 +275,14 @@ export class EventsComponent implements OnInit {
     
   }
 
+  /**
+  * @example
+  * to get events {both public and protected}
+  * getEvents(data)
+  *
+  * @param {JSON} data  access details info{@link Todo}
+  * @returns response from server
+  */
   eventLoad(){
     this.lang_sel=(localStorage.getItem('lang')=='en') ? true:false;
     this._eventService.getEvents(this.data)
@@ -246,6 +312,9 @@ export class EventsComponent implements OnInit {
       })
   }
 
+  /**
+  * snackbar for update and delete
+  */
   snackBar(action:any,name:any){
     this._snackBar.open(action,name, {
       duration: 2000,

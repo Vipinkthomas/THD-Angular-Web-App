@@ -59,6 +59,13 @@
             <code>src/app/service/pop-up.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>popup messages for navigation markers</p>
+
+            </p>
 
 
 
@@ -101,10 +108,16 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/service/pop-up.service.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/service/pop-up.service.ts:9</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -136,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">src/app/service/pop-up.service.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/service/pop-up.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -153,6 +166,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -167,18 +181,28 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>Markers info{</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
+                        <b>Example :</b>
+                        <div>
+                            <pre class="line-numbers"><code class="language-html">to ceate pop up of markers
+makeCapitalCirclePopup(data: any)</code></pre>
+                        </div>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>html popup</p>
+
                     </div>
                 </td>
             </tr>
@@ -192,13 +216,27 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 
+/**
+ * popup messages for navigation markers
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class PopUpService {
 
+  /**
+  * constructor
+  */
   constructor() { }
 
+  /**
+  * @example
+  * to ceate pop up of markers
+  * makeCapitalCirclePopup(data: any)
+  *
+  * @param {JSON} data  Markers info{@link Todo}
+  * @returns html popup
+  */
   makeCapitalCirclePopup(data: any): any {
     return &#x60;&#x60; + &#x60;&lt;div&gt;${ data.name }&lt;/div&gt;&#x60;
   }

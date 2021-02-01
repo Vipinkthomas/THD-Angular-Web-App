@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Event } from '../models/event';
 
+/**
+ * Room service class
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  apiUrl = "https://thabella.th-deg.de/thabella/opn/period/findByRoom/146/2020-11-24%208:00";
 
-  constructor(private httpClient: HttpClient) { }
+  /**
+   * endpoint url for events
+   */
+  private eventsUrl = "http://localhost:3000/api/thabellaevents/"
 
-  sendGetRequest(url) {
-    return this.httpClient.get<Event>(url); // this.apiUrl
+
+  /**
+   * a constructor to create new instance of this class
+   * @param http 
+   */
+  constructor(private http: HttpClient) { }
+
+  /**
+   * This function send GET request to the endpoint API in the backend server and it returns a JSON object 
+   * with the event info in a specific room
+   * @param roomIdSelected : id of the selected room by the user
+   * @param dateSelected : date selected by the user
+   * @param hourSelected : hour selected by the user
+   */
+  getEvents(roomIdSelected: string, dateSelected: string, hourSelected: string){
+    
+    return this.http.get<any>(this.eventsUrl, { params: {roomId: roomIdSelected, date: dateSelected, hour: hourSelected}})
   }
-
-  /*
-  sendPostRequest(data: Object): Observable<Object> {
-    return this.httpClient.post(this.apiUrl, data);
-  }
-  */
 }
 

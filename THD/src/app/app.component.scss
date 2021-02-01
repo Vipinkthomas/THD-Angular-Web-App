@@ -1,9 +1,18 @@
+@import '../custom-theme.scss';
 .main-content{
 
     padding-top: 100px;
     // text-align: center;
     max-width: 100%;
+    padding-bottom: 10px;
     
 }
+footer {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    color: white;
+    background-color:map-get($thd-palette-primary,500);
+  }
 
 

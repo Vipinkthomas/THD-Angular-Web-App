@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, ValidationErrors, Validators} from '@angular/fo
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+/**
+ * Registration of User component
+ */
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,16 +15,29 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent implements OnInit {
 
+  /**
+  * constructor
+  */
   constructor(private router: Router,private formBuilder: FormBuilder,private _auth:AuthService) { }
+
+/**
+ * variables
+ */
   minPw = 8;
   registerForm: FormGroup;
 
+/**
+ * registered User model
+ */
   registeredUser={
     email: '',
     password:''
   };
   
-
+  
+/**
+ * Component Initialisation executed after constructor
+ */
   ngOnInit() {
 
     this.registerForm = this.formBuilder.group({
@@ -36,14 +52,21 @@ export class RegisterComponent implements OnInit {
     }});
   }
 
+  /** 
+   * getter functions
+   */
   get username() { return this.registerForm.get('username'); }
   get password() { return this.registerForm.get('password'); }
   get password2() { return this.registerForm.get('password2'); }
 
   /** 
-   *  Called on each input in either password field 
-   */ 
-
+   * @example
+   * Called on each input in either password field 
+   * onPasswordInput()
+   *
+   * @param {} null 
+   * @returns void
+   */
   onPasswordInput() {
 
     if (this.registerForm.hasError('passwordMismatch'))
@@ -53,13 +76,19 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  /**
+  * @example
+  * to get register a user
+  * register()
+  *
+  * @param {} null 
+  * @returns response from server
+  */
   register() : void {
-    //console.log(this.registerForm.value)
     if(!this.registerForm.hasError('passwordMismatch')){
       this._auth.register(this.registeredUser)
       .subscribe(
         res=>{
-          console.log(res)
           localStorage.setItem('token',res.token)
           this.router.navigate(['/event'])
         },

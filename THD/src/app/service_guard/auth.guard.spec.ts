@@ -1,7 +1,11 @@
-import { TestBed } from '@angular/core/testing';
 
+import { TestBed } from '@angular/core/testing';
 import { AuthGuard } from './auth.guard';
 
+
+/**
+ * Authguard service for registered area
+ */
 describe('AuthGuard', () => {
   let guard: AuthGuard;
 

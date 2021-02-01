@@ -1,4 +1,4 @@
-
+<!-- Search -->
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text"
@@ -15,6 +15,7 @@
   </mat-form-field>
 </form>
 
+<!-- Create Button -->
 <div class="example-button-container">
   <button mat-fab color="primary" aria-label="create news" matTooltip="Create News" matTooltipPosition="right" (click)="isCreate()">
     <a href="news#createForm">
@@ -23,14 +24,13 @@
 </div>
 
 
-
+<!-- News Tiles-->
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="5px">
     <mat-card class="example-card" *ngFor="let n of temp_news" fxFlex="calc(33%-25px)" fxFlex.sm="calc(50%-25px)">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title *ngIf="lang_sel">{{n.news_name_en}}</mat-card-title>
         <mat-card-title *ngIf="!lang_sel">{{n.news_name_de}}</mat-card-title>
-        <!--<mat-card-subtitle></mat-card-subtitle> -->
       </mat-card-header>
       <mat-card-content *ngIf="lang_sel">
         <p>
@@ -52,7 +52,7 @@
     <mat-divider></mat-divider>
 
     
-      
+<!-- Create News form -->      
 <div id="createForm" class="create-news" *ngIf="isCreateButton">
   <mat-card class="example-card1">
     
@@ -139,7 +139,7 @@
 
 
 
-
+<!-- Update  News form -->   
 <div id="updateForm" class="update-news" *ngIf="isUpdateButton">
   <mat-card class="example-card1">
     

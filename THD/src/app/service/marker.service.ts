@@ -3,14 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import * as L from 'leaflet';
 import { PopUpService } from './pop-up.service';
 
+/**
+ * marker for navigation map
+ */
 @Injectable({
   providedIn: 'root'
 })
+
 export class MarkerService {
+
   buildings: string = '../../assets/data/buildings.geojson';
 
   constructor(private http: HttpClient,private popupService: PopUpService) { }
 
+
+  /**
+  * @example
+  * to add markers to the map
+  * makeCapitalCircleMarkers(map: L.Map)
+  *
+  * @param {Map} map  map{@link Todo}
+  * @returns void
+  */
   makeCapitalCircleMarkers(map: L.Map): void {
     this.http.get(this.buildings).subscribe((res: any) => {
       for (const c of res.features) {
@@ -21,9 +35,6 @@ export class MarkerService {
         circle.addTo(map);
       }
     });
-
-  //    }
-  //  });
 
   }
 }
