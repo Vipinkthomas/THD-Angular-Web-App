@@ -4,17 +4,19 @@ import { Event } from '../models/event';
 import { Room } from '../models/room';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
 /**
- *rooms class which holds the code for rooms component
+ *rooms component for thabella
  */
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.scss'],
 })
+
 export class RoomsComponent implements OnInit {
   /**
-   * 
+   * Forms for validation
    */
   roomsForm: FormGroup = new FormGroup({
     room: new FormControl('', Validators.required),
@@ -23,13 +25,9 @@ export class RoomsComponent implements OnInit {
   })
 
   /**
-   *
+   * variables
    */
   roomsArray: Room[]
-
-  /**
-   * a list holds strings values for hours
-   */
   hours = [
     '08:00',
     '09:00',
@@ -42,100 +40,42 @@ export class RoomsComponent implements OnInit {
     '16:00',
     '17:00',
   ]
-
-  /**
-   * variable of type Date which holds the date entered by the user
-   */
   selectedDate: Date
-
-  /**
-   *variable of type string which holds the hour selected by the user
-   */
   hourSelected: string
-
-  /**
-   *variable of type string which holds the day
-   */
   day: string
-
-  /**
-   *string variable that holds the month
-   */
   month: string
-
-  /**
-   *string variable that hold the year
-   */
   year: string
-
-  /**
-   *string variable which holds the full date in a specific format
-   */
   newDate: string
-
-  /**
-   *variable of type Room which will hold the room id and room name
-   */
   selectedRoom: Room
-
-  /**
-   *empty variable that will hold event retrieved by a GET request as JSON object
-   */
   jsonEvent = null
-
-  /**
-   *empty list of events that will be filled with AJAX call
-   */
   events: Event[]
-
-  /**
-   *String variable which will hold the room id
-   */
   roomId = null
-
-  /**
-   *string vairable which will hold the room description
-   */
   roomDescription = ''
-
-  /**
-   *a list of string which specifies the elements that will be displayed in a table to the user
-   */
   displayedColumns: string[] = [
     'id',
     'description',
     'organizer',
     'participants',
   ]
-
-  /**
-   * boolean variable used to show a message if no events found in a room 
-   */
   noEventFlag: boolean
 
 
   /**
-   *
-   * a constructor to create new instance of this class
-   * @param roomsService : the injected roomsService will be used to call a GET request to retrieve events
+   * a constructor
    */
   constructor(private _snackBar:MatSnackBar,private httpService: HttpService) {
+
     this.roomsArray = []
-    /**
-     * iterating through the array of rooms defined below and split the id and split the id and the description
-     * and push them to roomsArray as key value pairs
-     *  */
     this.rooms.forEach((lineString) => {
-      let lineA = lineString.split(';') //splitting the line on the character 
-      let id = lineA[0] //get the first position which is the id of the room
-      let desc = lineA[1] //get the second position which is the description of the room
-      this.roomsArray.push({ id: id, description: desc }) ;//pushing the id and the description to roomsArray
+      let lineA = lineString.split(';')
+      let id = lineA[0]
+      let desc = lineA[1]
+      this.roomsArray.push({ id: id, description: desc }) ;
     });
   }
 
   /**
-   * This method is executed after the constructor is executed.
-   * setting the roomId to an empty string
+   * Component Initialisation executed after constructor
    */
   ngOnInit() {
     this.roomId = ''
@@ -161,15 +101,16 @@ export class RoomsComponent implements OnInit {
     this.httpService
       .getEventInfo(this.roomId, this.newDate, this.hourSelected).subscribe(
       (responseBody) => {
-    
-        if(responseBody[0]){
-        this.events = []; 
-        this.events.push(responseBody[0]);
-        console.log(responseBody);
+        console.log(responseBody)
+        this.jsonEvent = JSON.parse(responseBody.body) 
+        this.events = []
+        if(this.jsonEvent[0]){
+        this.events.push(this.jsonEvent[0]);
+
         }
         else{
           this.events = []
-          this.snackBar("No Items present","")
+          this.snackBar("No items present","")
 
         }
       });

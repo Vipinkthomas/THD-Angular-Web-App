@@ -12,7 +12,7 @@ export class HttpService {
   /**
    * endpoint url for events
    */
-  private eventsUrl = "http://localhost:3000/api/thabellaevents/"
+  private eventsUrl = "http://localhost:3000/api/thabellaevents"
 
 
   /**
@@ -24,9 +24,9 @@ export class HttpService {
   /**
    * This function send GET request to the endpoint API in the backend server and it returns a JSON object 
    * with the event info in a specific room
-   * @param roomIdSelected : id of the selected room by the user
-   * @param dateSelected : date selected by the user
-   * @param hourSelected : hour selected by the user
+   * @param roomIdSelected
+   * @param dateSelected 
+   * @param hourSelected 
    */
   getEventInfo(roomIdSelected: string, dateSelected: string, hourSelected: string){
     
