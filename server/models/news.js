@@ -1,3 +1,6 @@
+/**
+ * news json model
+ */
 const mongoose= require('mongoose');
 const NewsSchema= mongoose.Schema;
 const newsSchema=new NewsSchema({	

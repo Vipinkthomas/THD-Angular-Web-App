@@ -1,12 +1,12 @@
 /**
- * express constant will be used to set up the express framework
+ * to set up the express framework and cors
  */
 
 const cors = require('cors'); 
 const express = require('express');
 
 /**
- * bodyParser parses the body of the requests coming from the front end
+ * parses the body of the requests coming from the front end
  */
 const bodyParser= require('body-parser');
 

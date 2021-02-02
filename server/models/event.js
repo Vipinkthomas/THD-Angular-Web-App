@@ -1,3 +1,6 @@
+/**
+ * event json model
+ */
 const mongoose= require('mongoose');
 const EventSchema= mongoose.Schema;
 const eventSchema=new EventSchema({
