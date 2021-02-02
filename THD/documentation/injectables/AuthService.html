@@ -140,12 +140,14 @@ loggedin true/false</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/auth.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/service/auth.service.ts:29</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -217,8 +219,8 @@ loggedin true/false</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">src/app/service/auth.service.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/service/auth.service.ts:95</a></div>
                 </td>
             </tr>
 
@@ -267,8 +269,8 @@ getToken()</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">src/app/service/auth.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/service/auth.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -316,8 +318,8 @@ loggedIn()</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/service/auth.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/service/auth.service.ts:57</a></div>
                 </td>
             </tr>
 
@@ -393,8 +395,8 @@ login(user)</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">src/app/service/auth.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/service/auth.service.ts:82</a></div>
                 </td>
             </tr>
 
@@ -444,8 +446,8 @@ logoutUser()</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/service/auth.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/service/auth.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -531,10 +533,16 @@ register(user)</code></pre>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/auth.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/service/auth.service.ts:29</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>URL for api call-login</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -564,10 +572,16 @@ register(user)</code></pre>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/service/auth.service.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/service/auth.service.ts:23</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>URL for api call-register</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -588,11 +602,29 @@ import { Router } from &#x27;@angular/router&#x27;;
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
+
+/**
+ * Auth service class
+ * 
+ */
 export class AuthService {
 
+/**
+ * URL for api call-register
+ * 
+ */
   private _registerUrl&#x3D;&quot;http://localhost:3000/api/register&quot;
+
+/**
+ * URL for api call-login
+ * 
+ */
   private _loginUrl&#x3D;&quot;http://localhost:3000/api/login&quot;
 
+  /**
+ * constructor
+ * 
+ */
   constructor(private http:HttpClient,private router:Router) { }
 
   /**

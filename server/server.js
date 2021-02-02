@@ -6,7 +6,7 @@ const cors = require('cors');
 const express = require('express');
 
 /**
- * parses the body of the requests coming from the front end
+ * parses the requests coming from the front end
  */
 const bodyParser= require('body-parser');
 
@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use('/api',api);
 
 /**
- * get request
+ * get request from server
  */
 
 app.get('/',function(req,res){

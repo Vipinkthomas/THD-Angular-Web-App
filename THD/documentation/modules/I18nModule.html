@@ -58,6 +58,13 @@
         </p>
 
 
+        <p class="comment">
+            <h3>Description</h3>
+        </p>
+        <p class="comment">
+            <p>i18 module for internationalisation</p>
+
+        </p>
 
 
         <div class="container-fluid module">
@@ -70,11 +77,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/**
-* i18 module for internationalisation
-*
-*/
-import { NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
 import { HttpClient, HttpClientModule } from &#x27;@angular/common/http&#x27;;
 import { TranslateLoader, TranslateModule, TranslateService } from
@@ -86,6 +89,10 @@ import {
 import { TranslateHttpLoader } from &#x27;@ngx-translate/http-loader&#x27;;
 
 
+/**
+* i18 module for internationalisation
+*
+*/
 @NgModule({
   declarations: [],
   imports: [
@@ -110,7 +117,17 @@ import { TranslateHttpLoader } from &#x27;@ngx-translate/http-loader&#x27;;
   ],
   exports: [TranslateModule]
 })
+
+/**
+* i18 module
+*
+*/
 export class I18nModule {
+  
+/**
+* constructor
+*
+*/
   constructor(translate: TranslateService,
     translateCacheService: TranslateCacheService) {
     translateCacheService.init();
@@ -120,10 +137,19 @@ export class I18nModule {
   }
 }
 
+
+/**
+* translation function
+*
+*/
 export function translateLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
+/**
+* translation cache memory
+*
+*/
 export function translateCacheFactory(
   translateService: TranslateService,
   translateCacheSettings: TranslateCacheSettings

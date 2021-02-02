@@ -35,6 +35,9 @@ export class StartComponent implements OnInit {
   options: any[]=['All Events and News']
   filteredOptions: Observable<string[]>;
 
+/**
+  * models -object for data retrieval
+  */
   UpdateFullNews={
     "_id":"",
     "UpdateNews": {
@@ -45,6 +48,9 @@ export class StartComponent implements OnInit {
     }
   };
 
+  /**
+  * models -object for data retrieval
+  */
   UpdateFullEvent={
   "_id":"",
   "UpdateEvent": {
@@ -61,7 +67,7 @@ export class StartComponent implements OnInit {
     * EventService
     * NewsService
     * AuthService
-    */
+  */
   constructor(private _eventService:EventService,private _newsService:NewsService,private _authService:AuthService) { }
 
   /**

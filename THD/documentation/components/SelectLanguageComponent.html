@@ -184,7 +184,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/select-language/select-language.component.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/select-language/select-language.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -255,8 +255,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">src/app/select-language/select-language.component.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/select-language/select-language.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -336,8 +336,8 @@ changeLanguage(l: string)</code></pre>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/select-language/select-language.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/select-language/select-language.component.ts:44</a></div>
                 </td>
             </tr>
 
@@ -389,7 +389,7 @@ changeLanguage(l: string)</code></pre>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/select-language/select-language.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/select-language/select-language.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -423,7 +423,7 @@ changeLanguage(l: string)</code></pre>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/select-language/select-language.component.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/select-language/select-language.component.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -444,7 +444,15 @@ import { TranslateLoader, TranslateModule, TranslateService } from &#x27;@ngx-tr
   * interface for language
   */
 interface Languages {
+
+  /**
+  * value
+  */
   value: string;
+  
+  /**
+  * viewValue
+  */
   viewValue: string;
 }
 
@@ -472,6 +480,10 @@ export class SelectLanguageComponent implements OnInit {
  * Component Initialisation executed after constructor
  */
   ngOnInit() {
+
+  /**
+  * output on the console
+  */
     console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
    
   }

@@ -6,7 +6,15 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
   * interface for language
   */
 interface Languages {
+
+  /**
+  * value
+  */
   value: string;
+  
+  /**
+  * viewValue
+  */
   viewValue: string;
 }
 
@@ -34,6 +42,10 @@ export class SelectLanguageComponent implements OnInit {
  * Component Initialisation executed after constructor
  */
   ngOnInit() {
+
+  /**
+  * output on the console
+  */
     console.log("SelectLanguageComponent OnInit: " + this.translate.currentLang);
    
   }

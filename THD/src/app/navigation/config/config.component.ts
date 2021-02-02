@@ -6,15 +6,23 @@ import { NavigationService } from 'src/app/service/navigation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
 
-
+/**
+  * navigation pointers component - for creating,deleting, updating navigaiton points or buildings(here)
+  */
 @Component({
   selector: 'app-config',
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.scss']
 })
 
-
+/**
+  * navigation pointers class - for creating,deleting, updating navigaiton points or buildings(here)
+  */
 export class ConfigComponent implements OnInit {
+  
+  /**
+  * variables
+  */
   navigation:any;
   nav:any;
   private first=true;
@@ -24,12 +32,19 @@ export class ConfigComponent implements OnInit {
   updateNavForm: FormGroup;
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
 
+  /**
+  * models -json object for data retrieval
+  */
   CreateNav={
     "building_name": "",
     "lattitude": "",
     "longitude": "",
     "iconName": ""
   };
+
+  /**
+  * models -json object for data retrieval
+  */
   UpdateFullNav={
     "_id":"",
   "UpdateNav": {
@@ -40,12 +55,27 @@ export class ConfigComponent implements OnInit {
     "iconName": ""
   }
 };
+
+/**
+  * models -json object for data retrieval
+  */
   DeleteNav={
     "_id":""
   };
+
+  /**
+  * constructor
+  */
   constructor(private _snackBar:MatSnackBar,private _navigationService:NavigationService,private router: Router,private formBuilder: FormBuilder) { }
 
+  /**
+  * run after constructor
+  */
   ngOnInit(): void {
+
+  /**
+  * validation form
+  */
     this.createNavForm = this.formBuilder.group({
       buildingname: ['', Validators.required],
       lattitude: ['', Validators.required],
@@ -60,10 +90,23 @@ export class ConfigComponent implements OnInit {
       iconname: ['', Validators.required],
     });
 
+  /**
+  * loading table with DB data
+  */
     this.tableLoad()
    
   }
 
+
+ /**
+  * function for loading navigation points from DB
+  * @example
+  * to get navigations points
+  * getNavigation()
+  *
+  * @param {} null
+  * @returns response from server
+  */
   tableLoad(){
     this._navigationService.getNavigation()
     .subscribe(res=>this.navigation=res,
@@ -78,6 +121,14 @@ export class ConfigComponent implements OnInit {
       })
   }
 
+  /**
+  * @example
+  * to create new points
+  * createNavigation(data)
+  *
+  * @param {JSON} data  new navigation point info{@link Todo}
+  * @returns response from server
+  */
   createNav(action:any,name:any){
 
     // console.log('running'+this.createEventForm.controls['eventname'].value+this.createEventForm.controls['eventdesc'].value+this.createEventForm.controls['eventdate'].value)
@@ -97,6 +148,15 @@ export class ConfigComponent implements OnInit {
       this.tableLoad()
 
   }
+
+  /**
+  * @example
+  * to delete navigation point
+  * deleteNavigation(data)
+  *
+  * @param {JSON} data  delete pointer info{@link Todo}
+  * @returns response from server
+  */
   deleteNav(data: any,action:any,name:any){
     this.DeleteNav._id=data;
     this._navigationService.deleteNavigation(this.DeleteNav)
@@ -116,6 +176,14 @@ export class ConfigComponent implements OnInit {
 
   }
 
+  /**
+  * @example
+  * to update an existing map pointer
+  * updateNavigation(data)
+  *
+  * @param {JSON} data  updated navigation point info{@link Todo}
+  * @returns response from server
+  */
   updateNav(action:any,name:any){
     this._navigationService.updateNavigation(this.UpdateFullNav)
     .subscribe(res=>this.nav=res,
@@ -133,6 +201,10 @@ export class ConfigComponent implements OnInit {
       this.tableLoad()
     
   }
+
+  /**
+  * flag setter
+  */ 
   isCreate(){
     if(this.isCreateButton){
       this.isCreateButton=false;
@@ -143,7 +215,11 @@ export class ConfigComponent implements OnInit {
     }
   }
 
+/**
+  * flag setter and load details for update form
+  */
   isUpdate(data: any){
+
     if(this.isUpdateButton){
       this.isUpdateButton=false;
     } 
@@ -153,6 +229,10 @@ export class ConfigComponent implements OnInit {
     }
     this.UpdateFullNav._id=data;
     this.UpdateFullNav.UpdateNav._id=data;
+  
+  /**
+  * adding the details to the form
+  */
     for (var index1 in this.navigation) {
       if(this.navigation[index1]._id==data)
       {
@@ -166,6 +246,9 @@ export class ConfigComponent implements OnInit {
     }
   }
 
+  /**
+  * snackbar for notification
+  */
   snackBar(action:any,name:any){
     this._snackBar.open(action,name, {
       duration: 2000,

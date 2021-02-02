@@ -129,6 +129,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>value</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -158,6 +164,12 @@
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>viewValue</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -173,7 +185,15 @@ import { TranslateLoader, TranslateModule, TranslateService } from &#x27;@ngx-tr
   * interface for language
   */
 interface Languages {
+
+  /**
+  * value
+  */
   value: string;
+  
+  /**
+  * viewValue
+  */
   viewValue: string;
 }
 
@@ -201,6 +221,10 @@ export class SelectLanguageComponent implements OnInit {
  * Component Initialisation executed after constructor
  */
   ngOnInit() {
+
+  /**
+  * output on the console
+  */
     console.log(&quot;SelectLanguageComponent OnInit: &quot; + this.translate.currentLang);
    
   }

@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class NavigationService {
 
   /**
-  * api urls for event management
+  * api urls for navigation pointers
   */
   private navigationUrl="http://localhost:3000/api/navigation"
 

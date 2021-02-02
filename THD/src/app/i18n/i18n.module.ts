@@ -1,7 +1,3 @@
-/**
-* i18 module for internationalisation
-*
-*/
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -14,6 +10,10 @@ import {
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
+/**
+* i18 module for internationalisation
+*
+*/
 @NgModule({
   declarations: [],
   imports: [
@@ -38,7 +38,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   ],
   exports: [TranslateModule]
 })
+
+/**
+* i18 module
+*
+*/
 export class I18nModule {
+  
+/**
+* constructor
+*
+*/
   constructor(translate: TranslateService,
     translateCacheService: TranslateCacheService) {
     translateCacheService.init();
@@ -48,10 +58,19 @@ export class I18nModule {
   }
 }
 
+
+/**
+* translation function
+*
+*/
 export function translateLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
+/**
+* translation cache memory
+*
+*/
 export function translateCacheFactory(
   translateService: TranslateService,
   translateCacheSettings: TranslateCacheSettings

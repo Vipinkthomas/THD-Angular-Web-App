@@ -9,11 +9,29 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Auth service class
+ * 
+ */
 export class AuthService {
 
+/**
+ * URL for api call-register
+ * 
+ */
   private _registerUrl="http://localhost:3000/api/register"
+
+/**
+ * URL for api call-login
+ * 
+ */
   private _loginUrl="http://localhost:3000/api/login"
 
+  /**
+ * constructor
+ * 
+ */
   constructor(private http:HttpClient,private router:Router) { }
 
   /**

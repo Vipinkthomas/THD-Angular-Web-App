@@ -10,10 +10,19 @@ import { PopUpService } from './pop-up.service';
   providedIn: 'root'
 })
 
+/**
+ * marker for navigation class
+ */
 export class MarkerService {
 
+/**
+ * buildings info-geojson
+ */
   buildings: string = '../../assets/data/buildings.geojson';
 
+  /**
+ * constructor
+ */
   constructor(private http: HttpClient,private popupService: PopUpService) { }
 
 

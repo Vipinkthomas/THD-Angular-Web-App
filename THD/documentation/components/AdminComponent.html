@@ -447,15 +447,22 @@ export class AdminComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;!-- registered user profile--&gt;
-&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
-    &lt;h1&gt;Profile : {{userrole}}&lt;/h1&gt;
-    &lt;h2&gt;
-      Welcome User with E-Mail &lt;h1 color&#x3D;&quot;blue&quot;&gt; {{userName}}! &lt;/h1&gt;
-    &lt;/h2&gt;
-    &lt;p&gt;
-    &lt;/p&gt;
-  &lt;/div&gt;
-
+&lt;mat-card class&#x3D;&quot;example-card&quot; &gt;
+    &lt;mat-card-header&gt;
+      &lt;mat-card-title&gt;{{userrole}}&lt;/mat-card-title&gt;
+      &lt;mat-card-subtitle&gt;{{userName}}&lt;/mat-card-subtitle&gt;
+    &lt;/mat-card-header&gt;
+    &lt;img mat-card-image src&#x3D;&quot;../../assets/profile/index.jpg&quot; alt&#x3D;&quot;Photo of a Shiba Inu&quot;&gt;
+    &lt;mat-card-content&gt;
+      &lt;p&gt;
+        Description of the person -- &gt; will be loaded from DB
+      &lt;/p&gt;
+    &lt;/mat-card-content&gt;
+    &lt;mat-card-actions&gt;
+      &lt;button mat-button matTooltip&#x3D;&quot;Update&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;&lt;mat-icon&gt;update&lt;/mat-icon&gt;&lt;/button&gt;
+      &lt;button mat-button matTooltip&#x3D;&quot;Share&quot; matTooltipPosition&#x3D;&quot;above&quot;&gt;&lt;mat-icon&gt;share&lt;/mat-icon&gt;&lt;/button&gt;
+    &lt;/mat-card-actions&gt;
+  &lt;/mat-card&gt;
   
   
 </code></pre>
@@ -465,7 +472,18 @@ export class AdminComponent implements OnInit {
                 <p class="comment">
                     <code>./admin.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;../../custom-theme.scss&#x27;;
+.example-card {
+    max-width: 300px;
+    max-height: 300px;
+    z-index:999;
+    background:map-get($thd-palette-primary,500);
+  }
+  
+  .example-header-image {
+    background-image: url(&#x27;https://material.angular.io/assets/img/examples/shiba1.jpg&#x27;);
+    background-size: cover;
+  }
 </code></pre>
     </div>
 
@@ -494,7 +512,7 @@ export class AdminComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- registered user profile--><div style="text-align:center">    <h1>Profile : {{userrole}}</h1>    <h2>      Welcome User with E-Mail <h1 color="blue"> {{userName}}! </h1>    </h2>    <p>    </p>  </div>    </div>'
+        var COMPONENT_TEMPLATE = '<div><!-- registered user profile--><mat-card class="example-card" >    <mat-card-header>      <mat-card-title>{{userrole}}</mat-card-title>      <mat-card-subtitle>{{userName}}</mat-card-subtitle>    </mat-card-header>    <img mat-card-image src="../../assets/profile/index.jpg" alt="Photo of a Shiba Inu">    <mat-card-content>      <p>        Description of the person -- > will be loaded from DB      </p>    </mat-card-content>    <mat-card-actions>      <button mat-button matTooltip="Update" matTooltipPosition="above"><mat-icon>update</mat-icon></button>      <button mat-button matTooltip="Share" matTooltipPosition="above"><mat-icon>share</mat-icon></button>    </mat-card-actions>  </mat-card>    </div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigComponent', 'selector': 'app-config'},{'name': 'EventsComponent', 'selector': 'app-events'},{'name': 'IndoorComponent', 'selector': 'app-indoor'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NewsComponent', 'selector': 'app-news'},{'name': 'OutdoorComponent', 'selector': 'app-navigation'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RoomsComponent', 'selector': 'app-rooms'},{'name': 'SelectLanguageComponent', 'selector': 'app-select-language'},{'name': 'StartComponent', 'selector': 'app-start'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AdminComponent'};

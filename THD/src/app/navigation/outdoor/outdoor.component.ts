@@ -10,11 +10,29 @@ import { NavigationService } from 'src/app/service/navigation.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-
+/**
+ * leaflet object variables
+ */
 declare var L: any;
+
+/**
+ * icon URL 
+ */
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
+
+/**
+ *  icon URL 
+ */
 const iconUrl = 'assets/marker-icon.png';
+
+/**
+ * shadow Url
+ */
 const shadowUrl = 'assets/marker-shadow.png';
+
+/**
+ * default icon object
+ */
 const iconDefault = L.icon({
   iconRetinaUrl,
   iconUrl,
@@ -26,44 +44,80 @@ const iconDefault = L.icon({
   shadowSize: [41, 41]
 });
 
+/**
+ * setting icon as default icon object
+ */
 L.Marker.prototype.options.icon = iconDefault;
 
+/**
+ * Outdoor component
+ */
 @Component({
   selector: 'app-navigation',
   templateUrl: './outdoor.component.html',
   styleUrls: ['./outdoor.component.scss']
 })
+
+/**
+ * Outdoor component class
+ */
 export class OutdoorComponent implements OnInit,AfterViewInit{
 
+/**
+ * variables
+ */
   private map:any;
   buildingsList=[]
   fromBuilding:string;
   toBuilding:string;
   
-
+  /**
+   * coordinates
+   */
   fromBuildingLattitude;
   fromBuildingLongitude;
   toBuildingLattitude;
   toBuildingLongitude;
 
+  /**
+   * validation form
+   */
   navigationForm: FormGroup= new FormGroup({
     fromRoom: new FormControl('',Validators.required),
     toRoom:new FormControl('',Validators.required)
   })
   
+  /**
+   * constructor
+   */
   constructor(private _navigationService:NavigationService,private markerService: MarkerService,private router: Router) {
    // (mapboxgl as any).accessToken = environment.mapbox.accessToken ;
    }
+
+  /**
+   * after ngOnIt
+   */
   ngAfterViewInit(): void {
     //
   }
+
+   /**
+   * run after constructor
+   */
   ngOnInit(): void {
+
+/**
+  * loading data from DB and initialising the map and markers
+  */
     this.navLoad()
     this.initMap();
     this.markerService.makeCapitalCircleMarkers(this.map);
 
   }
 
+   /**
+   * loading the map without the route
+   */
   navLoad(){
     this._navigationService.getNavigation()
     .subscribe(res=>{
@@ -81,6 +135,9 @@ export class OutdoorComponent implements OnInit,AfterViewInit{
       })
   }
 
+   /**
+   * drawing the path from the user choice
+   */
   drawLine(){
 
     for(let i=0;i<this.buildingsList.length;i++){
@@ -97,7 +154,9 @@ export class OutdoorComponent implements OnInit,AfterViewInit{
       }
     }
 
-    
+/**
+  * Routing features is used for drawing the path
+  */
     L.Routing.control({
      showAlternatives: true,
      fitSelectedRoutes:true,

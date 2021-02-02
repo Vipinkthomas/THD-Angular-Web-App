@@ -122,12 +122,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/marker.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/service/marker.service.ts:21</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -199,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/service/marker.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/service/marker.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -289,10 +291,16 @@ makeCapitalCircleMarkers(map: L.Map)</code></pre>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/service/marker.service.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/service/marker.service.ts:21</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>buildings info-geojson</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -314,10 +322,19 @@ import { PopUpService } from &#x27;./pop-up.service&#x27;;
   providedIn: &#x27;root&#x27;
 })
 
+/**
+ * marker for navigation class
+ */
 export class MarkerService {
 
+/**
+ * buildings info-geojson
+ */
   buildings: string &#x3D; &#x27;../../assets/data/buildings.geojson&#x27;;
 
+  /**
+ * constructor
+ */
   constructor(private http: HttpClient,private popupService: PopUpService) { }
 
 
