@@ -1,8 +1,8 @@
-<div class="map-container">
-  <div class="route">
+<div class="map-container" fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+  <div class="route" fxLayoutAlign="flex-start">
     <form [formGroup] ="navigationForm" class="normal-form">
       <div 
-      fxLayout="row"
+      fxLayout="column"
       fxLayout.xs="column"
       fxLayoutGap="20px"
       fxLayoutAlign="center">
@@ -13,8 +13,8 @@
           [(ngModel)]="fromBuilding"
           formControlName="fromRoom"
         >
-        <mat-option *ngFor="let building of buildingsList" [value]="building.name">
-          {{building.name}}
+        <mat-option *ngFor="let element of buildingsList" [value]="element.building_name">
+          {{element.building_name}}
         </mat-option></mat-select>
       </mat-form-field>
       <mat-form-field>
@@ -23,15 +23,15 @@
         [(ngModel)]="toBuilding"
         formControlName="toRoom"
         >
-        <mat-option *ngFor="let building of buildingsList" [value]="building.name">
-          {{building.name}}
+        <mat-option *ngFor="let element of buildingsList" [value]="element.building_name">
+          {{element.building_name}}
         </mat-option></mat-select>
       </mat-form-field>
     <button class="find-button"
     mat-raised-button
     color="primary"
     type="submit"
-    (click)="findRoute()"
+    (click)="drawLine()"
     >
     Search
     </button>
@@ -40,7 +40,7 @@
     </form>
   </div>
   
-  <div class="map-frame">
+  <div class="map-frame" fxLayoutAlign="flex-end">
     
   
     <div id="map">
@@ -48,5 +48,4 @@
     </div>
   </div>
 </div>
-
   

@@ -6,7 +6,9 @@ import "leaflet-control-geocoder";
 import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import { icon, Marker } from 'leaflet';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { buildingsArray } from '../../../assets/navigation/buildingsCoordinates';
+import { NavigationService } from 'src/app/service/navigation.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 declare var L: any;
@@ -39,38 +41,59 @@ export class OutdoorComponent implements OnInit,AfterViewInit{
   toBuilding:string;
   
 
-  fromBuildingCoordinateX;
-  fromBuildingCoordinateY;
-  toBuildingCoordinateX;
-  toBuildingCoordinateY;
+  fromBuildingLattitude;
+  fromBuildingLongitude;
+  toBuildingLattitude;
+  toBuildingLongitude;
 
   navigationForm: FormGroup= new FormGroup({
     fromRoom: new FormControl('',Validators.required),
     toRoom:new FormControl('',Validators.required)
   })
   
-  constructor(private markerService: MarkerService) {
-    this.buildingsList=buildingsArray;
+  constructor(private _navigationService:NavigationService,private markerService: MarkerService,private router: Router) {
    // (mapboxgl as any).accessToken = environment.mapbox.accessToken ;
    }
   ngAfterViewInit(): void {
     //
   }
   ngOnInit(): void {
+    this.navLoad()
     this.initMap();
-  this.markerService.makeCapitalCircleMarkers(this.map);
+    this.markerService.makeCapitalCircleMarkers(this.map);
 
   }
 
-  findRoute(){
+  navLoad(){
+    this._navigationService.getNavigation()
+    .subscribe(res=>{
+      this.buildingsList=res
+      console.log(res)
+    },
+      err=>{
+        console.log(err)
+        if (err instanceof HttpErrorResponse){
+          if(err.status===401){
+            this.router.navigate(['/login'])
+          }
+        }
+      
+      })
+  }
+
+  drawLine(){
+
     for(let i=0;i<this.buildingsList.length;i++){
-      if(this.buildingsList[i].name==this.fromBuilding){
-        this.fromBuildingCoordinateX=this.buildingsList[i].coordinateX
-        this.fromBuildingCoordinateY=this.buildingsList[i].coordinateY
+      if(this.buildingsList[i].building_name==this.fromBuilding){
+        this.fromBuildingLattitude=this.buildingsList[i].lattitude
+        this.fromBuildingLongitude=this.buildingsList[i].longitude
       }
-      if(this.buildingsList[i].name==this.toBuilding){
-        this.toBuildingCoordinateX=this.buildingsList[i].coordinateX
-        this.toBuildingCoordinateY=this.buildingsList[i].coordinateY
+      if(this.buildingsList[i].building_name==this.toBuilding){
+        this.toBuildingLattitude=this.buildingsList[i].lattitude
+        this.toBuildingLongitude=this.buildingsList[i].longitude
+        console.log(this.fromBuildingLattitude,this.fromBuildingLongitude)
+        console.log(this.toBuildingLattitude,this.toBuildingLongitude)
+
       }
     }
 
@@ -95,8 +118,8 @@ export class OutdoorComponent implements OnInit,AfterViewInit{
        ]
      },
      waypoints: [
-       L.latLng(this.fromBuildingCoordinateX,this.fromBuildingCoordinateY),
-       L.latLng(this.toBuildingCoordinateX,this.toBuildingCoordinateY)
+       L.latLng(this.fromBuildingLattitude,this.fromBuildingLongitude),
+       L.latLng(this.toBuildingLattitude,this.toBuildingLongitude)
      ]
     }).addTo(this.map)
   }
