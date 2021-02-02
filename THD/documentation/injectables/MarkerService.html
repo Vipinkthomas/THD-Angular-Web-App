@@ -347,12 +347,31 @@ export class MarkerService {
   * @returns void
   */
   makeCapitalCircleMarkers(map: L.Map): void {
+
+  /**
+  * http get request
+  */
     this.http.get(this.buildings).subscribe((res: any) &#x3D;&gt; {
       for (const c of res.features) {
+        /**
+         * coordinates
+        */
         const lat &#x3D; c.geometry.coordinates[0];
         const lon &#x3D; c.geometry.coordinates[1];
+         
+        /**
+         * circle marker
+        */
         const circle &#x3D; L.circleMarker([lon, lat],{radius:5,fill:true})
+
+        /**
+         * pop service
+        */
         circle.bindPopup(this.popupService.makeCapitalCirclePopup(c.properties));
+
+        /**
+         * adding to map
+        */
         circle.addTo(map);
       }
     });

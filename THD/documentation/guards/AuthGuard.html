@@ -61,6 +61,13 @@
                 <code>src/app/service_guard/auth.guard.ts</code>
             </p>
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>Authguard service</p>
+
+                </p>
 
 
 
@@ -104,12 +111,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/service_guard/auth.guard.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/service_guard/auth.guard.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -181,8 +190,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/service_guard/auth.guard.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/service_guard/auth.guard.ts:28</a></div>
                 </td>
             </tr>
 
@@ -209,6 +218,10 @@
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { CanActivate, Router,ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from &#x27;@angular/router&#x27;;
 
+
+/**
+ * Authguard service
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
@@ -219,6 +232,10 @@ import { CanActivate, Router,ActivatedRouteSnapshot, RouterStateSnapshot, UrlTre
  */
 export class AuthGuard implements CanActivate {
 
+
+  /**
+ * constructor
+ */
   constructor(private _auth:AuthService,private _router:Router){}
 
   /**

@@ -1,9 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+ /**
+  * navigaiton point  component
+  */ 
 @Injectable({
   providedIn: 'root'
 })
+
+  /**
+  * navigaiton point  class
+  */ 
 export class NavigationService {
 
   /**
@@ -51,7 +58,7 @@ export class NavigationService {
   * @param {JSON} data  new navigation point info{@link Todo}
   * @returns response from server
   */
-  createNavigation(data){
+  createNavigation(data){ 
     return this._http.post<any>(this.createNavigationUrl,data)
   }
 

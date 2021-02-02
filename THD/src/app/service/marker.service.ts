@@ -35,12 +35,31 @@ export class MarkerService {
   * @returns void
   */
   makeCapitalCircleMarkers(map: L.Map): void {
+
+  /**
+  * http get request
+  */
     this.http.get(this.buildings).subscribe((res: any) => {
       for (const c of res.features) {
+        /**
+         * coordinates
+        */
         const lat = c.geometry.coordinates[0];
         const lon = c.geometry.coordinates[1];
+         
+        /**
+         * circle marker
+        */
         const circle = L.circleMarker([lon, lat],{radius:5,fill:true})
+
+        /**
+         * pop service
+        */
         circle.bindPopup(this.popupService.makeCapitalCirclePopup(c.properties));
+
+        /**
+         * adding to map
+        */
         circle.addTo(map);
       }
     });
