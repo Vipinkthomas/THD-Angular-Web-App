@@ -798,7 +798,7 @@ export class OutdoorComponent implements OnInit,AfterViewInit{
         console.log(err)
         if (err instanceof HttpErrorResponse){
           if(err.status&#x3D;&#x3D;&#x3D;401){
-            this.router.navigate([&#x27;/login&#x27;])
+            console.log(err)
           }
         }
       

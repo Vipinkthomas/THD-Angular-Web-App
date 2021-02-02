@@ -1,12 +1,19 @@
 <!-- registered user profile-->
-<div style="text-align:center">
-    <h1>Profile : {{userrole}}</h1>
-    <h2>
-      Welcome User with E-Mail <h1 color="blue"> {{userName}}! </h1>
-    </h2>
-    <p>
-    </p>
-  </div>
-
+<mat-card class="example-card" >
+    <mat-card-header>
+      <mat-card-title>{{userrole}}</mat-card-title>
+      <mat-card-subtitle>{{userName}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../assets/profile/index.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        Description of the person -- > will be loaded from DB
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button matTooltip="Update" matTooltipPosition="above"><mat-icon>update</mat-icon></button>
+      <button mat-button matTooltip="Share" matTooltipPosition="above"><mat-icon>share</mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
   
   

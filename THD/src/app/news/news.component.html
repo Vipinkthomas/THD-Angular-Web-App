@@ -1,4 +1,5 @@
 <!-- Search -->
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="50px">
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input type="text"
@@ -16,13 +17,13 @@
 </form>
 
 <!-- Create Button -->
-<div class="example-button-container">
+<div class="example-button-container" fxLayoutAlign="flex-end">
   <button mat-fab color="primary" aria-label="create news" matTooltip="Create News" matTooltipPosition="right" (click)="isCreate()">
     <a href="news#createForm">
     <mat-icon>create</mat-icon></a>
   </button>
 </div>
-
+</div>
 
 <!-- News Tiles-->
 <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="5px">

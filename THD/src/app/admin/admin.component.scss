@@ -1,1 +1,12 @@
-
+@import '../../custom-theme.scss';
+.example-card {
+    max-width: 300px;
+    max-height: 300px;
+    z-index:999;
+    background:map-get($thd-palette-primary,500);
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
