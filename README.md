@@ -38,3 +38,6 @@
 ## Find Further Information here
 
 [**Project Wiki**](https://mygit.th-deg.de/vt16684/THD/-/wikis/home)
+
+[**Link to original project repo:**](https://mygit.th-deg.de/vt16684/THD)
+ 
