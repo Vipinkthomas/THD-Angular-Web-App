@@ -4,11 +4,11 @@
 
 **Team :** Alone
 
-**Project URL:** https://mygit.th-deg.de/vt16684/THD
+**Project URL:** https://github.com/Vipinkthomas/THD-Angular-Web-App
 
 # Prerequisites:
 
- 1. Clone the project https://mygit.th-deg.de/vt16684/THD   
+ 1. Clone the project https://github.com/Vipinkthomas/THD-Angular-Web-App
  2. Install **[MongoDB](https://docs.mongodb.com/manual/administration/install-community)** and **[Node.js](https://nodejs.org/en/)** version 
 
     Node: v14.15.4
